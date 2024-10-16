@@ -1,0 +1,437 @@
+html,
+body,
+footer {
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+body,
+input,
+button,
+p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+:root {
+    --laranja: #f5a623;
+    --damasco: #FDD1B6;
+    --azul: #000080;
+    --cinza-claro: #EBEBEB;
+    --cinza-intermediario: #E0E0E0;
+    --jordyAzul: #92BCEA;
+    --preto: #000;
+    --branco: #fff;
+    --verde: green;
+    --vermelho: red;
+    --pretoAcizentado: #323232;
+    --lazuli: #08558B;
+
+}
+
+body {
+    background-color: var(--cinza-claro);
+    height: 1300px;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*************** FORM CADASTRO ***************/
+
+.cadastro {
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: var(--branco);
+    margin-top: 100px;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    /* border: 1px solid var(--preta); */
+}
+
+.cadastro_cabecalho {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    max-width: 100%;
+    margin: 30px 10px;
+}
+
+.cadastro_cabecalho div {
+    display: flex;
+    align-items: center;
+}
+
+
+.nomeEmpresa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Viga", sans-serif;
+    width: 100%;
+    color: var(--pretoAcizentado);
+    margin-top: 5px;
+    font-size: 1.3rem;
+}
+
+
+/*   INFORMAÇÕES PESSOAIS */
+
+.infoPessoal,
+.infoContado,
+.endereco,
+.preferencias,
+.pagamento {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+}
+
+.infoPessoal div,
+.infoContado div,
+.endereco div,
+.preferencias div,
+.pagamento div {
+    display: flex;
+    flex-direction: column;
+}
+
+.nomeCliente {
+    flex: 0 0 20%;
+}
+
+#id-nomeCliente {
+    width: 100%;
+}
+
+.sobrenomeCliente {
+    flex: 0 0 48%;
+}
+
+#id-nomeCliente {
+    width: 100%;
+}
+
+.nomeSocial {
+    flex: 0 0 28%;
+}
+
+#id-nomeSocial {
+    width: 100%;
+}
+
+.cpf {
+    flex: 0 0 20%;
+}
+
+#id-cpf {
+    width: 100%;
+}
+
+.dtNascimento {
+    flex: 0 0 20%;
+}
+
+#id-dtNasc {
+    width: 100%;
+}
+
+.email {
+    flex: 0 0 68%;
+}
+
+#id-email {
+    width: 100%;
+}
+
+.telefoneCelular {
+    flex: 0 0 30%;
+}
+
+#id-telefoneCelular {
+    width: 100%;
+}
+
+.telefoneResid {
+    flex: 0 0 30%;
+}
+
+#id-telefoneResid {
+    width: 100%;
+}
+
+.cep {
+    flex: 0 0 20%;
+}
+
+#id-cep {
+    width: 100%;
+}
+
+.rua {
+    flex: 0 0 78%;
+}
+
+#id-rua {
+    width: 100%;
+}
+
+.numero {
+    flex: 0 0 10%;
+}
+
+#id-numero {
+    width: 100%;
+}
+
+.complemento {
+    flex: 0 0 50%;
+}
+
+#id-complemento {
+    width: 100%;
+}
+
+.bairro {
+    flex: 0 0 36%;
+}
+
+#id-bairro {
+    width: 100%;
+}
+
+
+.termo {
+    margin-left: 10px;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.botoes div {
+    display: flex;
+    align-items: center;
+
+}
+
+.botoes button {
+    display: flex;
+    background-color: var(--branco);
+    border: 1px solid var(--preto);
+    font-size: 1.1rem;
+    color: var(--preta);
+    border-radius: 20px;
+    padding: 10px 40px;
+    margin-top: 40px;
+    transition: background-color 0.8s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.botoes #alterar,
+#consultar,
+#excluir {
+    display: none;
+}
+
+.botoes button:hover {
+    background-color: var(--azul);
+    color: var(--branco);
+    cursor: pointer;
+}
+
+
+label {
+    margin-bottom: 5px;
+    color: var(--preto);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+input,
+select {
+    font-size: 1.1rem;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+input {
+    border-style: none;
+    border-bottom: 2px solid var(--preto);
+    outline: none;
+}
+
+input:hover {
+    border-bottom: 2px solid var(--lazuli);
+}
+
+
+a:hover{
+    color: var(--lazuli);
+}
+
+@media(max-width: 850px) {
+    
+    .cadastro {
+        max-width: 850px;        
+        padding: 0 10px;
+        margin: 0 10px;
+    }
+    
+    .nomeCliente {
+        flex: 0 0 30%;
+    }
+    
+    .sobrenomeCliente {
+        flex: 0 0 55%;
+    }
+
+    .nomeSocial {
+        flex: 0 0 33%;
+    }
+    
+    .cpf {
+        flex: 0 0 25%;
+    }
+    
+    
+    .dtNascimento {
+        flex: 0 0 25%;
+    }
+
+    .email {
+        flex: 0 0 87%;
+    }
+    
+    .telefoneCelular {
+        flex: 0 0 35%;
+    }
+    
+    .telefoneResid {
+        flex: 0 0 35%;
+    }
+    
+    .numero {
+        flex: 0 0 15%;
+    }
+    
+    .complemento {
+        flex: 0 0 70%;
+    }
+    
+    .cep {
+        flex: 0 0 30%;
+    }
+    
+    .rua {
+        flex: 0 0 87%;
+    }
+    
+    .termo {
+        margin-left: 15px;
+    }
+    
+
+    .botoes #enviar, #alterar, #consultar, #excluir {
+        margin-bottom: 40px;
+    }
+    
+
+}
+
+
+@media(max-width: 480px) {
+
+    .nomeCliente {
+        flex: 0 0 100%;
+    }
+    
+    .sobrenomeCliente {
+        flex: 0 0 100%;
+    }
+
+    .nomeSocial {
+        flex: 0 0 100%;
+    }
+    
+    .cpf {
+        flex: 0 0 100%;
+    }
+    
+    
+    .dtNascimento {
+        flex: 0 0 100%;
+    }
+
+    .email {
+        flex: 0 0 100%;
+    }
+    
+    .telefoneCelular {
+        flex: 0 0 100%;
+    }
+    
+    .telefoneResid {
+        flex: 0 0 100%;
+    }
+    
+    .cep {
+        flex: 0 0 100%;
+    }
+    
+    .rua {
+        flex: 0 0 100%;
+    }
+
+    .numero {
+        flex: 0 0 50%;
+    }
+    
+    .complemento {
+        flex: 0 0 100%;
+    }
+    
+    .bairro {
+        flex: 0 0 100%;
+    }
+    
+    .cidade {
+        flex: 0 0 100%;
+    }
+
+    .termo {
+        margin-left: 15px;
+    }
+    
+
+    .botoes #enviar, #alterar, #consultar, #excluir {
+        margin-bottom: 40px;
+    }
+    
+
+
+}
+
+@media(max-width: 376px) {}
+
+@media(max-width: 320px) {}

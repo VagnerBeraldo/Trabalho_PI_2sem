@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cursos de HTML, CSS e Javascript">
+    <meta name="keywords" content="HTML, CSS, JS, Javascript">
+    <meta name="robots" content="index, Follow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Viga&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./css/index.css">
+    
+    
+    <title>Projeto_PW</title>
+
+<!--        
+            ajustar :link e :visited (para os link não visitados e visitados)       
+            incluir uma div para os 3 cursos 
+            
+            MELHORAR O ESTILO DOS PARÁGRAFOS
+            IFRAME DE DEPOIMENTOS     
+-->
+
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <img src="IMG/logoPW.png" id="logo" alt="">
+    </div>
+    
+    <div id="divBuscador" class="oculto">
+        <div class="busca-container">
+            <button id="fecharBusca" class="fechar">X</button>
+            <form class="busca-form" action="/buscar" method="get">
+                <input type="text" name="caixaTexto" placeholder="Pesquisar...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div> 
+    </div>
+    
+    
+    <div class="redes">
+        <img src="./img/lupa.png" id="imgBusca" alt="Ícone de lupa para busca">
+        <img src="./img/facebook.png" id="imgFace" alt="icone da rede social facebook">
+        <img src="./img/whatsapp.png" id="imgWhats" alt="icone da rede social whatsapp">
+        <img src="./img/telegram.png" id="imgTeleg" alt="icone da rede social telegram">
+        <img src="./img/instagram.png" id="imgInsta" alt="icone da rede social instagram">
+
+        <!-- <a href="https://www.facebook.com/fatimacypas" target="_blank"><img src="IMG/facebook.png" id="imgFace" alt="icone da rede social facebook"></a>
+        <a href="https://wa.me/5511996616224" target="_blank"><img src="IMG/whatsapp.png" id="imgWhats" alt="icone da rede social whatsapp"></a>
+        <a href="https://www.telegram.com/vagnerberaldo" target="_blank"><img src="IMG/telegram.png" id="imgTeleg" alt="icone da rede social telegram"></a>
+        <a href="https://www.instagram.com/kellycypas" target="_blank"><img src="IMG/instagram.png" id="imgInsta" alt="icone da rede social instagram"></a> -->
+    </div>
+    
+    <div class="navigation">
+    <nav id="nav">
+        <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+          <span id="hamburger"></span>
+        </button>
+        <ul id="menu" role="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/" >Sobre</a></li>
+          <li><a href="/" >Vagas</a></li>
+          <li id="produtos">
+            <a href="/">Cursos</a>
+            <ul class="submenu" role="menu">
+              <li><a href="/" >HTML</a></li>
+              <li><a href="/" >CSS</a></li>
+              <li><a href="/" >JS</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="/">Depoimentos</a></li>
+        </ul>
+      </nav>
+    </div>
+
+</header>
+<main>
+    <section class="login">
+        <div>
+            <a href="login.html" id="id-LoginBotao"><button type="button" id="id-login">Login</button></a>
+
+            <!-- <a href="login.html"><button type="button" id="id-login">Login</button></a> -->
+            <button class="cadastrar" id="id-cadastrese">Cadastre-se</button>
+        </div>    
+    </section>        
+    <hr>
+    <section class="formCadastro">
+        <div>
+            <iframe id="id-formCadastro" src="formCadastro.html" frameborder="0" style="display: none;"></iframe>
+        </div>
+    </section>   
+    <!--*********************************************************************************************************************************-->
+    
+    <section class="section-boasVindas" id="id-sectionHtml">
+        <div class="boasVindas" style="background-image: url('./img/pc_boasVindas.jpeg');">
+            <div class="boasVindas-apresentacao" >
+                <p>
+                    <b>Aprenda</b> com a <span>2MA</span> cursos! <br>Nossos cursos estão atualizados com as necessidades de <br>  
+                    mercado e são do <span id="basico">básico</span> <span id="ao">ao</span> <span id="avancado">avançado.</span> <br>
+                    Faça parte do nosso time! São + de 6000 cursos vendidos. <br>
+                    Veja os depoimentos de nossos alunos na seção depoimentos.
+                </p>
+            </div>
+            <div class="desconto">
+                
+                <caption id="cabecalhoTabelaPromocao"> <h4><b>Promoção</b></h4></caption>
+                <table>
+                    <tr>
+                        <th>2MA</th>
+                        <th>Quant.</th>
+                        <th>Desc.</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4">Cursos</th>
+                        <td>1</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>4+</td>
+                        <td>35%</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Promoção não cumulativa</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="section-1">
+        <!-- <div class="section-1-bgD">
+            <img src="./img/htmlGlobo.png" id="imgGlobo" alt="Ícone de um Globo com a inscrição no centro HTML">
+        </div>
+        <div class="section-1-bgE">
+            <img src="./img/htmlTag.png" alt="Ícone de uma tag HTML">
+        </div> -->
+        
+               
+        
+        <div class="section-1-grid">
+            <div class="section-1-gridContexto">
+                <br><br><br>
+                <h1><ins>HTML</ins></h1>
+                <h2>HyperText Markup Language — Linguagem de Marcação de Hipertexto</h2>
+                <p>
+                    O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
+                    Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
+                    Temas e estilos também ajudam a manter seu documento coordenado. Quando você clica em Design e escolhe um novo tema, as imagens, gráficos e elementos gráficos SmartArt são alterados para corresponder ao novo tema. Quando você aplica estilos, os títulos são alterados para coincidir com o novo tema.
+                    Economize tempo no Word com novos botões que são mostrados no local em que você precisa deles. Para alterar a maneira como uma imagem se ajusta ao seu documento, clique nela e um botão de opções de layout será exibido ao lado. Ao trabalhar em uma tabela, clique no local onde deseja adicionar uma linha ou uma coluna e clique no sinal de adição.
+                    A leitura também é mais fácil no novo modo de exibição de Leitura. Se for preciso interromper a leitura antes de chegar ao fim dela, o Word lembrará em que ponto você parou - até mesmo em outro dispositivo.
+                </p>
+            </div>
+
+
+        <div class="section-1-gridContexto">
+            <img src="./img/html5.png" alt="Ícone do HTML">
+        </div>
+        <div class="section-1-gridContexto">
+            <p>
+                O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
+                Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
+                Temas e estilos também ajudam a manter seu documento coordenado. 
+            </p>
+        </div>
+    </section>
+    
+    <section class="section-2">
+        <div class="section-2-grid">    
+            <div class="section-2-gridContexto">
+                <br><br><br><br><br><br><br>
+                <h1><ins>CSS</ins></h1>
+                <h2>Cascading Style Sheet - Folha de Estilo em Cascata</h2>
+            
+                <p>O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
+                    Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
+                    Temas e estilos também ajudam a manter seu documento coordenado. 
+                </p>
+            </div>
+
+
+            <div class="section-2-gridContexto" id="id-sectionCSS">
+                <img src="./img/css.png" alt="Ícone do CSS">
+            </div>
+            <div class="section-2-gridContexto">
+                <p>O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
+                    Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
+                    Temas e estilos também ajudam a manter seu documento coordenado. Quando você clica em Design e escolhe um novo tema, as imagens, gráficos e elementos gráficos SmartArt são alterados para corresponder ao novo tema. Quando você aplica estilos, os títulos são alterados para coincidir com o novo tema.
+                    Economize tempo no Word com novos botões que são mostrados no local em que você precisa deles. Para alterar a maneira como uma imagem se ajusta ao seu documento, clique nela e um botão de opções de layout será exibido ao lado. Ao trabalhar em uma tabela, clique no local onde deseja adicionar uma linha ou uma coluna e clique no sinal de adição.
+                    </p>
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="voltar">
+        <img src="./img/voltar.png" class="voltar-topo" id="voltarTopo" alt="botão voltar ao topo - imagem com três setas para cima">
+    </div>
+
+    <section class="depoimentos">
+
+        
+    </section>
+
+<!--     88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+    <h1 id="sectionSobre"><ins>Sobre</ins><h2>Grupo de trabalho - Programação Web (2MA)</h2></h1> 
+
+    <section class="section-3">    
+        <div class="section-3-grupo">
+            <div>
+                <img src="./img/kelly1.webp" alt="Foto montagem: Kelly pegando o pescoço do Vagner pelo pescoço na praia do Sonho Verde em Maceió">
+                <p>Sonho Verde - Maceió</p>
+            </div>
+            <div>
+                <img src="./img/kelly2.webp" alt="Foto montagem: Kelly levantando o Vagner pelo pescoço na praia do Sonho Verde em Maceió">
+                <p>Sonho Verde - Maceió</p>
+            </div>
+            <div>
+                <img src="./img/kelly3.webp" alt="Foto Montagem: Kelly arremessando o Vagner na praia do Sonho Verde em Maceió">
+                <p>Sonho Verde - Maceió</p>
+            </div>
+            <div>
+                <img src="./img/beraldo.webp" alt="Vagner na praia do Sonho Verde em Maceió">
+                <p>Sonho Verde - Maceió</p>
+            </div>
+            <div>
+                <img src="./img/tirolesa1.webp" alt="Kelly na tirolesa em Brotas">
+                <p>Tirolesa - Brotas</p>
+            </div>
+            <div>
+                <img src="./img/vagner.webp" alt="Vagner boiando no rio em Brotas">
+                <p>Rio - Brotas</p>
+            </div>
+        </div>
+    </section>    -->
+
+
+        <!-- <div>
+            <h1><ins>Javascript</ins></h1>
+            <h2>Linguagem de programação</h2>
+        </div> 
+
+
+    <section class="flexJS">
+        
+        <div>
+            <img src="./img/javascript.png" alt="ícone do Javascript">
+            
+        </div>
+        <div>
+            <p>
+                O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
+                Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
+                Temas e estilos também ajudam a manter seu documento coordenado. 
+            </p>
+            
+        </div>
+    </section>
+
+    <section class="section-5"> 
+        <div>
+            <h1><ins>Contato</ins></h1>
+            <h2>Formulário de Cadastro</h2>
+        </div>
+    </section> -->
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+<footer>
+    <div class="infoAdicionalRodape">        
+            <p>Cursos on-line e acesso vitalício</p>
+            <p>Acesso a atualizações futuras e tutoria</p>
+            <p>Em caso de dúvidas, elogios e reclamações</p>
+            <button type="button">Atendimento via Whatsapp</button>
+            <p>Siga-nos nos redes Sociais:</p>
+            <p>Facebook: 2macursos@gmail.com/2ma</p>
+            <p>Telegram: 2macursos@gmail.com/2ma_cursos</p>
+            <p>Instagram: @2macursoonline</p> 
+            
+
+            <a href="https://www.google.com.br/maps/place/Centro+Universit%C3%A1rio+Senac+-+Santo+Amaro/@-23.6695931,-46.7020657,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce5036539648d5:0x78501a72680ea23a!8m2!3d-23.669598!4d-46.6994908!16s%2Fg%2F121jytr5?hl=pt-BR&entry=ttu" target="_blank">Acesse nossa Localização</a>
+        
+    </div>
+    <div class="senac">
+        <address>
+             
+                <p>&copy 2MA Cursos - 2024. Todos os direitos reservados.<br></p> 
+                <p>Senac Santo Amaro</p>
+                <p>Av. Eng. Eusébio Stevaux, 823 - Santo Amaro, São Paulo - SP, 04696-000</p>
+                
+        </address>
+    </div>
+</footer>
+
+<section class="poupap">
+    
+    <div class="poupap-lgpd">
+        <p>Este site utiliza cookies para melhorar sua experiência de navegação e para fins de análise, 
+            <br>conforme nossa <a href="#">Política de Privacidade.</a> Ao continuar, você concorda com o uso de cookies 
+            <br>e o tratamento de seus dados em conformidade com a <b>LGPD</b>. 
+            <br><ins>Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018.</ins></p>
+    </div>
+    <div class="poupap_botoes">
+    <div class="aceitar">
+        <button>
+            <span>Concordar</span>
+        </button>
+    </div>
+    <div class="recusar">
+        <button>
+            <span>Recusar</span>
+        </button>
+    </div>
+</div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/buscadorTablet.js"></script>
+<script src="js/poupap.js"></script>
+<script src="js/cadastre-se.js"></script>
+<script src="js/voltar.js"></script>
+<script src="js/menu.js"></script>
+
+</body>
+</html>
