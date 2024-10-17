@@ -12,7 +12,6 @@ p {
     margin: 0px;
     padding: 0px;
     list-style: none;
-
     font-size: 16px;
 }
 
@@ -21,12 +20,6 @@ p {
     font-weight: 500;
     font-style: normal;
 }
-
-/* 
-* {
-    outline: 1px solid red; 
-    } 
-*/
 
 :root {
     --cascaDeLaranja: #FF9E1A;
@@ -42,30 +35,6 @@ p {
     --vermelho: red;
     --pretoAcizentado: #323232;
     --lazuli: #08558B;
-
-
-
-    /*  
---cinzaClaro: #FAFAFA;
---azul1: #0000CD;   
---cinza: #c1c4c5;    
---cor-amareloClaro: #f9ec9e;
-    --cor-marrom:#62441a;
-    --cor-cinzaAzulado:#646e71;
-    
-    --cor-azulInfo: #1D429A;
-    --cor-azulLogo: #153E64;
-    
-
-
-    --azul: #0086FF;
-    --vermelho:red;
-    
-    
-    --azul2: #004AB0;
-    --azul2Claro: #2E7EC9; */
-
-
 }
 
 body {
@@ -78,12 +47,9 @@ h2 {
     margin: 0;
 }
 
-
-
 img {
     max-width: 100%;
     display: block;
-
 }
 
 .hidden {
@@ -147,8 +113,8 @@ header .logo {
 }
 
 .busca-form input[type="text"] {
-    width: 30%;
     /*Largura da caixa de busca */
+    width: 30%;
     padding: 9px 0;
     padding-left: 20px;
     border-radius: 20px;
@@ -270,7 +236,7 @@ div.redes {
     /* Garante que o submenu apareça sobre outros elementos */
 }
 
-/* Exibe o submenu quando o item 'Produtos' é ativado */
+/* Exibe o submenu quando o item 'Curso (produtos)' é ativado */
 #produtos:hover .submenu {
     display: block;
     border-bottom-left-radius: 8px;
@@ -289,15 +255,7 @@ div.redes {
 
 .submenu.active {
     display: block;
-    /* Exibe o submenu ao clicar em "Produtos" no mobile */
 }
-
-
-
-
-
-
-
 
 
 /*************** LOGIN  ***************/
@@ -363,11 +321,7 @@ div.redes {
     display: flex;
     max-width: 100%;
     margin-bottom: 50px;
-    
-    /* background-image: url('../img/boasVindas.png');
-    background-repeat: no-repeat;
-    background-size: 900px 520px;
-    background-position: center;  */
+
 }
 
 
@@ -375,17 +329,9 @@ div.redes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    
+    align-items: center;    
     width: 850px;
-    /* background-color: var(--jordyAzul); */
-    /* background-image: url('../img/bg.png');
-    background-repeat: no-repeat;
-    background-size: 850px 520px;
-    background-position: center; */
     padding: 0 0 0 10px;
-    /* border-radius: 8px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); */
     margin: 0 auto;
     gap: 5px;
 }
@@ -393,23 +339,17 @@ div.redes {
 
 .boasVindas-apresentacao {
     display: flex;
-    
     width: 70%;
-
-
 }
 
 .boasVindas-apresentacao p{
     font-size: 1.3rem;
-    
 }
 
 .boasVindas-apresentacao p b {
     font-family: "Viga", sans-serif;
     font-size: 4.5rem;
     font-weight: 700;
-    /* background-color: rgba(0, 0, 0, 0.9); 
-    border-radius: 8px; */
     color: var(--cascaDeLaranja);
 }
 
@@ -476,12 +416,60 @@ div.redes {
 .desconto th,
 .desconto td {
     padding: 10px;
-    /* Adiciona um espaçamento interno às células */
     border-top: 1px solid #000;
-    /* Adiciona uma borda fina às células */
+    
 }
 
+.sobre{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    background-color: var(--cinza-intermediario);
+}
 
+.sobre-conteudo {
+    
+    padding-bottom: 80px;
+    margin: 0 auto;
+    width: 850px;
+    
+}
+
+.autor1,
+.autor2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    padding-top: 50px;
+    
+}
+
+.imgAutor1 img,
+.imgAutor2 img {
+    width: 220px;
+    height: 220px;
+    border-radius: 130px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    background: linear-gradient(to bottom, var(--cinza-intermediario), var(--cinza-intermediario), var(--branco));
+}
+
+.nomeAutor1,
+.nomeAutor2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    width: 70%;
+    height: 220px;
+    background: linear-gradient(to bottom, var(--cinza-intermediario), var(--cinza-intermediario), var(--branco));
+    
+}
 
 /*************** POUPAP ***************/
 .poupap {
@@ -556,13 +544,36 @@ div.redes {
     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
 }
 
+/*************** VAGAS ***************/
+.section-vagas{
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    margin: 0 auto;
+}
+
+.imgVagas img{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px var(--preto);
+    margin-bottom: 30px;
+}
+
+.conteudo-vagas p{
+    display: flex;
+    justify-content: center;
+    text-indent: 30px;
+    font-size: 1.2rem;
+    text-align: justify;
+}
 
 /*************** HTML ***************/
 .section-1 {
     position: relative;
-    /* Necessário para posicionar o pseudo-elemento */
     z-index: 1;
-    /* Garantir que o conteúdo da section fique acima da imagem */
+    margin-top: 80px;
+    padding: 50px;
 }
 
 .section-1::before {
@@ -597,12 +608,26 @@ div.redes {
 
 }
 
-.section-1-gridContexto img {
+.section-1-gridContexto img, .section-3-contexto img {
     width: 200px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--preto);
 }
 
-.section-1-gridContexto p {
+.section-1-gridContexto p, .section-2-gridContexto p, .section-3-contexto p  {
     text-align: justify;
+    font-size: 1.2rem;
+    text-indent: 30px;
+    line-height: 35px;
+}
+
+.histHtml{
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    text-align: center;
 }
 
 
@@ -610,12 +635,31 @@ div.redes {
     grid-row: 1 / 3;
 }
 
+.lblPreco{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.btnComprar{
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 3px 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--branco);
+    background-color: var(--cascaDeLaranja);
+}
+
+.btnComprar:hover{
+    cursor: pointer;
+    background-color: var(--damasco);
+}
+
 /*************** CSS ***************/
 .section-2 {
     position: relative;
-    /* Necessário para posicionar o pseudo-elemento */
     z-index: 1;
-    /* Garantir que o conteúdo da section fique acima da imagem*/
+    margin-top: 80px;
     margin-bottom: 100px;
 }
 
@@ -655,6 +699,8 @@ div.redes {
 
 .section-2-gridContexto img {
     width: 200px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--preto);
 }
 
 
@@ -684,7 +730,9 @@ div.redes {
     opacity: 1;
 }
 
-/*************** SOBRE ***************/
+
+
+
 .section-3-grupo {
     display: flex;
     flex-direction: row;
@@ -711,27 +759,102 @@ div.redes {
 
 
 /*************** JAVASCRIPT ***************/
-.flexJS {
+
+.section-3 {
     display: flex;
-    gap: 20px;
-    max-width: 850px;
-    flex-wrap: wrap;
+    background-color: var(--cinza-intermediario);
+    padding-top: 20px;
+    padding-bottom: 100px;
+    width: 100%;
     margin: 0 auto;
 }
 
-.flexJS>div {
-    flex: 1 1 380px;
-    margin: 10px;
+.sectionConteudo{
+width: 850px;
+margin: 0 auto;
 }
 
 
-.flexJS img {
-    margin-left: 0px;
+.section-3-contexto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
+
+.conteudo-3 {
+    flex-basis: 60%; /* Ocupará 60% da largura */
+}
+
+.imgJS {
+    flex-basis: 35%; /* Ocupará 35% da largura */
+    display: flex;
+    justify-content: center;
+}
+
+.imgJS img {
+    width: 200px;
+    
+}
+
 
 /*************** CONTATO ***************/
-.section-5 {
-    background-color: var(--cinza-intermediario);
+.tituloSection{
+    padding-top: 80px;
+}
+.depoimento {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 850px;
+    margin: 0 auto;
+    gap: 20px;
+    padding-top: 40px;
+    text-indent: 20px;
+}
+
+div.fotoCliente1 img,
+div.fotoCliente2 img,
+div.fotoCliente3 img {
+    width: 230px;
+    height: 170px;
+    padding: 10px;
+    border-radius: 30px;
+    background: linear-gradient(to bottom, var(--cinza-intermediario), var(--cinza-intermediario), var(--branco));
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+
+.fotoCliente1,
+.fotoCliente2,
+.fotoCliente3 {
+    display: flex;
+    width: 20%;
+}
+
+.depoimentoCliente1,
+.depoimentoCliente2,
+.depoimentoCliente3 {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, var(--cinza-intermediario), var(--cinza-intermediario), var(--branco));
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    width: 70%;
+    font-size: 1.2rem;
+    height: 165px;
+    text-align: justify;
+    padding: 10px;
+    line-height: 30px;
+    margin-bottom: 50px;
+}
+
+.depoimentoCliente1 span,
+.depoimentoCliente2 span,
+.depoimentoCliente3 span {
+    font-weight: 700;
+    text-align: end;
+    margin-right: 10px;
 }
 
 /*************** RODAPÉ ***************/

@@ -14,20 +14,12 @@
  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Viga&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Viga&display=swap" rel="stylesheet"> 
 
 <link rel="stylesheet" href="./css/index.css">
     
     
     <title>Projeto_PW</title>
-
-<!--        
-            ajustar :link e :visited (para os link não visitados e visitados)       
-            incluir uma div para os 3 cursos 
-            
-            MELHORAR O ESTILO DOS PARÁGRAFOS
-            IFRAME DE DEPOIMENTOS     
--->
 
 </head>
 <body>
@@ -66,19 +58,19 @@
           <span id="hamburger"></span>
         </button>
         <ul id="menu" role="menu">
-          <li><a href="/">Home</a></li>
-          <li><a href="/" >Sobre</a></li>
-          <li><a href="/" >Vagas</a></li>
+            <li><a href="#idAutor" >Quem Somos?</a></li>
+          
+          <li><a href="#idVagas" >Vagas</a></li>
           <li id="produtos">
             <a href="/">Cursos</a>
             <ul class="submenu" role="menu">
-              <li><a href="/" >HTML</a></li>
-              <li><a href="/" >CSS</a></li>
-              <li><a href="/" >JS</a></li>
+              <li><a href="#idHtml" >HTML</a></li>
+              <li><a href="#idCss" >CSS</a></li>
+              <li><a href="#idJs" >JS</a></li>
             </ul>
           </li>
           
-          <li><a href="/">Depoimentos</a></li>
+          <li><a href="#idDepoimento">Depoimentos</a></li>
         </ul>
       </nav>
     </div>
@@ -108,7 +100,7 @@
                     <b>Aprenda</b> com a <span>2MA</span> cursos! <br>Nossos cursos estão atualizados com as necessidades de <br>  
                     mercado e são do <span id="basico">básico</span> <span id="ao">ao</span> <span id="avancado">avançado.</span> <br>
                     Faça parte do nosso time! São + de 6000 cursos vendidos. <br>
-                    Veja os depoimentos de nossos alunos na seção depoimentos.
+                    Veja os depoimentos de nossos alunos na seção <a href="#idDepoimento">depoimentos</a>.
                 </p>
             </div>
             <div class="desconto">
@@ -123,19 +115,19 @@
                     <tr>
                         <th rowspan="4">Cursos</th>
                         <td>1</td>
-                        <td>5%</td>
+                        <td>30%</td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>10%</td>
+                        <td>35%</td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>20%</td>
+                        <td>40%</td>
                     </tr>
                     <tr>
                         <td>4+</td>
-                        <td>35%</td>
+                        <td>50%</td>
                     </tr>
                     <tr>
                         <td colspan="3">Promoção não cumulativa</td>
@@ -143,54 +135,140 @@
                 </table>
             </div>
         </div>
-    </section>
-    <section class="section-1">
-        <!-- <div class="section-1-bgD">
-            <img src="./img/htmlGlobo.png" id="imgGlobo" alt="Ícone de um Globo com a inscrição no centro HTML">
+    </section>    
+
+    <section class="sobre" id="idAutor">
+        <div class="sobre-conteudo">
+        <div class="tituloSection colaboradores">
+            <h2 id="colaboradores" ><ins>Autores</ins></h2>
         </div>
-        <div class="section-1-bgE">
-            <img src="./img/htmlTag.png" alt="Ícone de uma tag HTML">
-        </div> -->
-        
-               
+    
+        <div class="autor1">
+            <div class="imgAutor1">
+                <img src="./img/vagner.png" alt="imagem do autor da página web, sorrindo e de óculos escuro">
+            </div>
+            <div class="nomeAutor1">
+                <h3>SENAC Santo Amaro</h3>
+                <h4>2º sem - ADS</h4>
+                <h4>Autor do Projeto PI</h4> 
+                <h5><strong>Vagner Vieira Beraldo</strong></h5>
+                <p>Site desenvolvido como atividade didática.</p>
+                <a href="https://github.com/VagnerBeraldo/Trabalho_PI_2sem">Obter projeto Github</a>
+            </div>
+        </div>
+
+        <div class="autor2">
+            <div class="nomeAutor2">
+                <h3>SENAC Santo Amaro</h3>
+                <h4>2º sem - ADS</h4>
+                <h4>Autor do Projeto PI</h4> 
+                <h5><strong>Erick Guimarães do Santos</strong></h5> 
+                <p>Site desenvolvido como atividade didática.</p>
+                <a href="https://github.com/VagnerBeraldo/Trabalho_PI_2sem">Obter projeto Github</a>
+            </div>
+            <div class="imgAutor2">
+                <img src="./img/erick.png" alt="imagem do autor da página web">
+            </div>
+
+        </div>
+    </div>
+        </section>
+
+
+
+    <section class="section-vagas" id="idVagas">    
+        <div class="section-vagas-contexto">
+                
+                <h1><ins>Oportunidades</ins></h1>
+                <br> <br>
+                <div class="imgVagas">
+                    <img src="./img/graficoVagas.png" alt="gráfico com tecnologias em alta no mercado">
+                </div>
+            
+            
+            <div class="conteudo-vagas">
+                
+                <p>
+                    Atualmente, há uma grande demanda por profissionais que dominam HTML, CSS e JavaScript em 
+                    São Paulo. Segundo levantamentos recentes, existem mais de 1.000 vagas abertas 
+                    nessas áreas na cidade. Essas oportunidades incluem posições como desenvolvedor front-end, 
+                    full stack e até cargos em empresas focadas em inovação tecnológica, como Softtek e 
+                    Luizalabs.</p>
+                    <br>
+                 <p>
+                    Os profissionais com conhecimentos sólidos em HTML, CSS e JavaScript são essenciais para 
+                    o desenvolvimento de interfaces web, garantindo tanto a estética quanto a funcionalidade 
+                    das aplicações. Empresas de todos os setores estão buscando especialistas para trabalhar 
+                    tanto presencialmente quanto em regimes híbridos e remotos.</p> 
+                    <br>                
+                <p>
+                    Se você estiver interessado em ingressar no mercado de tecnologia, essas competências são 
+                    fundamentais e extremamente requisitadas em São Paulo, oferecendo boas perspectivas de carreira.         
+                </p> 
+                
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section class="section-1" id="idHtml">
+                       
         
         <div class="section-1-grid">
             <div class="section-1-gridContexto">
-                <br><br><br>
+                <br><br>
                 <h1><ins>HTML</ins></h1>
-                <h2>HyperText Markup Language — Linguagem de Marcação de Hipertexto</h2>
+                <h2>HyperText Markup Language — Linguagem de Marcação de Hipertexto</h2> <br> <br>
                 <p>
-                    O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
-                    Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
-                    Temas e estilos também ajudam a manter seu documento coordenado. Quando você clica em Design e escolhe um novo tema, as imagens, gráficos e elementos gráficos SmartArt são alterados para corresponder ao novo tema. Quando você aplica estilos, os títulos são alterados para coincidir com o novo tema.
-                    Economize tempo no Word com novos botões que são mostrados no local em que você precisa deles. Para alterar a maneira como uma imagem se ajusta ao seu documento, clique nela e um botão de opções de layout será exibido ao lado. Ao trabalhar em uma tabela, clique no local onde deseja adicionar uma linha ou uma coluna e clique no sinal de adição.
-                    A leitura também é mais fácil no novo modo de exibição de Leitura. Se for preciso interromper a leitura antes de chegar ao fim dela, o Word lembrará em que ponto você parou - até mesmo em outro dispositivo.
+                    O HTML é a espinha dorsal da web. É a linguagem de marcação usada para estruturar o conteúdo 
+                    em páginas da internet, criando a base sobre a qual tudo é construído. Conhecer HTML é 
+                    fundamental para qualquer desenvolvedor web, pois ele define os elementos e a semântica de 
+                    um site, como títulos, parágrafos, imagens, links e tabelas. Sem HTML, os navegadores não 
+                    seriam capazes de exibir corretamente o conteúdo de um site. Sua simplicidade permite a 
+                    qualquer pessoa criar desde páginas estáticas até estruturas complexas de aplicações web, 
+                    sendo a porta de entrada para o desenvolvimento de projetos mais avançados. Dominar HTML 
+                    possibilita construir layouts otimizados, acessíveis para todos os usuários e 
+                    preparados para serem estilizados com outras tecnologias como CSS e JavaScript.    
                 </p>
             </div>
 
-
+            
         <div class="section-1-gridContexto">
             <img src="./img/html5.png" alt="Ícone do HTML">
         </div>
         <div class="section-1-gridContexto">
             <p>
-                O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
-                Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
-                Temas e estilos também ajudam a manter seu documento coordenado. 
+                <span class="histHtml">Breve Histórico</span> <br> 
+                &nbsp;&nbsp;&nbsp;O HTML foi definido em  especificações formais pelo físico 
+                Tim Berners-Lee em  1990. O HTML que Tim inventou foi fortemente baseado no SGML 
+                (Standard Generalized Mark-up Language), um método  internacionalmente aceito para a marcação 
+                de texto em  unidades estruturais, como parágrafos, cabeçalhos, itens  de lista e assim por 
+                diante. O HTML facilitou especialmente essa troca ao incorporar a  capacidade de vincular 
+                documentos eletronicamente  usando hiperlinks. Assim, o nome Hypertext Markup  Language. 
             </p>
+            <br> <br>
+            <label class="lblPreco" for="comprarHtml">Adquira na promoção de <del>R$ 75,00</del> por R$ 49,00</label>
+            <button class="btnComprar" id="comprarHtml">Comprar</button>
+            <br>    
         </div>
+        
     </section>
     
-    <section class="section-2">
+    <section class="section-2" id="idCss">
         <div class="section-2-grid">    
             <div class="section-2-gridContexto">
-                <br><br><br><br><br><br><br>
+                <br><br>
                 <h1><ins>CSS</ins></h1>
-                <h2>Cascading Style Sheet - Folha de Estilo em Cascata</h2>
+                <h2>Cascading Style Sheet - Folha de Estilo em Cascata</h2> <br>
             
-                <p>O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
-                    Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
-                    Temas e estilos também ajudam a manter seu documento coordenado. 
+                <p>
+                    Torna suas páginas da Web mais atraentes, controlando o  design. Permite que você crie 
+                    regras que especificam como o  conteúdo de um elemento deve aparecer.
+                    Por exemplo, você pode especificar que o plano de fundo da  página seja azul, todos os 
+                    parágrafos devem aparecer em cinza  usando o tipo de letra Arial ou que todos os títulos 
+                    de um nível  devem estar em um tipo de letra azul, itálico e Times.
                 </p>
             </div>
 
@@ -199,99 +277,103 @@
                 <img src="./img/css.png" alt="Ícone do CSS">
             </div>
             <div class="section-2-gridContexto">
-                <p>O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
-                    Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
-                    Temas e estilos também ajudam a manter seu documento coordenado. Quando você clica em Design e escolhe um novo tema, as imagens, gráficos e elementos gráficos SmartArt são alterados para corresponder ao novo tema. Quando você aplica estilos, os títulos são alterados para coincidir com o novo tema.
-                    Economize tempo no Word com novos botões que são mostrados no local em que você precisa deles. Para alterar a maneira como uma imagem se ajusta ao seu documento, clique nela e um botão de opções de layout será exibido ao lado. Ao trabalhar em uma tabela, clique no local onde deseja adicionar uma linha ou uma coluna e clique no sinal de adição.
-                    </p>
-                
+                <p>
+                    O CSS é essencial para a aparência visual da web. Ele permite que os desenvolvedores definam o 
+                    estilo, o layout e o design de uma página, separando a apresentação do conteúdo. Dominar CSS 
+                    proporciona o controle de cores, fontes, espaçamento, posicionamento e até animações de elementos. 
+                    Um conhecimento aprofundado dessa linguagem oferece a capacidade de criar interfaces responsivas, 
+                    que se adaptam a diferentes tamanhos de tela e dispositivos, melhorando a experiência do usuário. 
+                    Além disso, o CSS permite manter o código organizado e modular, facilitando a manutenção e 
+                    atualização de estilos em projetos grandes e complexos. Com o avanço das tecnologias web, o CSS 
+                    também oferece suporte para novas formas de design interativo, como animações, transições e grids, 
+                    tornando-o uma ferramenta indispensável para criar sites modernos e atraentes.
+                </p>
+                <br>
+                <label class="lblPreco" for="comprarCss">Adquira na promoção de <del>R$ 75,00</del> por R$ 49,00</label>
+                <button class="btnComprar" id="comprarCss">Comprar</button>
+                <br>    
             </div>
+            
         </div>
     </section>
+
+    <section class="section-3" id="idJs">    
+        <div class="sectionConteudo">
+        <div class="section-3-contexto">
+            <div class="conteudo-3">
+                <br>
+                <h1><ins>JavaScript</ins></h1>
+                <br> <br>
+                <p>
+                    O JavaScript é o motor da interatividade na web. Diferente do HTML e CSS, que focam na estrutura 
+                    e no estilo, o JavaScript é responsável por adicionar dinamismo e funcionalidades às páginas. É 
+                    uma linguagem de programação que permite a criação de elementos interativos, como botões, formulários 
+                    dinâmicos, animações em tempo real, validações e até aplicações complexas como jogos e sistemas de 
+                    gestão. Conhecer JavaScript é fundamental para quem deseja criar sites e aplicações web modernas, 
+                    que respondem às ações dos usuários sem a necessidade de recarregar a página. Além de ser usado no 
+                    front-end, com o avanço de tecnologias como o Node.js, o JavaScript também pode ser aplicado no 
+                    back-end, tornando-se uma das linguagens mais versáteis do desenvolvimento web. Dominar JavaScript 
+                    abre portas para explorar frameworks e bibliotecas populares, como React, Angular e Vue.js, ampliando 
+                    as possibilidades de desenvolvimento e inovação.    
+                </p>
+                <br>
+            <label class="lblPreco" for="comprarJs">Adquira na promoção de <del>R$ 75,00</del> por R$ 49,00</label>
+            <button class="btnComprar" id="comprarJs">Comprar</button>
+            <br>
+            </div>
+            <div class="imgJS">
+                <img src="./img/javascript.png" alt="Ícone do JavaScript">
+            </div>
+            
+        </div>
+    </div>
+    </section>
+
+    <div class="tituloSection dep" id="idDepoimento">
+        <h2 id="depCliente"><ins>Depoimentos</ins></h2>
+    </div>
+    <section class="depoimento">
+        <div class="fotoCliente1">
+            <img src="./img/anaSouza.png" alt="imagem de uma mulher de óculos">
+        </div>
+        <div class="depoimentoCliente1">
+            "O curso superou todas as minhas expectativas! Eu já tinha uma base em HTML e CSS, mas a maneira como 
+            o conteúdo foi organizado e explicado me ajudou a realmente consolidar o que eu sabia e aprender novas 
+            técnicas. O suporte da equipe foi incrível..." <br>
+            <span>Ana Souza</span>
+        </div>
+
+        <div class="fotoCliente2">
+            <img src="./img/carlosMendes.png" alt="imagem de um homem jovem sorrindo utilizando um gorro">
+        </div>
+        <div class="depoimentoCliente2">
+            "Sempre tive curiosidade sobre desenvolvimento web, mas achava muito complicado. Com 
+            esse curso, finalmente entendi como CSS funciona. As aulas 
+            são bem práticas e diretas ao ponto, o que facilitou meu aprendizado. Valeu demais!"
+            <br> <span>Carlos Mendes</span>
+        </div>
+
+        <div class="fotoCliente3">
+            <img src="./img/marques.png" alt="imagem de um jovem sorrindo">
+        </div>
+        <div class="depoimentoCliente3">
+            "Eu estava em busca de um curso de JavaScript que fosse completo, mas fácil de acompanhar, 
+            e esse foi perfeito! O professor explica tudo de maneira clara e detalhada, e os projetos práticos 
+            realmente fazem a diferença. Obrigada pela experiência incrível!" <br> 
+            <span id="nomeDepoimento_3">Marques</span>
+        </div>
+    </section>
+
+
+
+
+
+
+
 
     <div class="voltar">
         <img src="./img/voltar.png" class="voltar-topo" id="voltarTopo" alt="botão voltar ao topo - imagem com três setas para cima">
     </div>
-
-    <section class="depoimentos">
-
-        
-    </section>
-
-<!--     88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
-    <h1 id="sectionSobre"><ins>Sobre</ins><h2>Grupo de trabalho - Programação Web (2MA)</h2></h1> 
-
-    <section class="section-3">    
-        <div class="section-3-grupo">
-            <div>
-                <img src="./img/kelly1.webp" alt="Foto montagem: Kelly pegando o pescoço do Vagner pelo pescoço na praia do Sonho Verde em Maceió">
-                <p>Sonho Verde - Maceió</p>
-            </div>
-            <div>
-                <img src="./img/kelly2.webp" alt="Foto montagem: Kelly levantando o Vagner pelo pescoço na praia do Sonho Verde em Maceió">
-                <p>Sonho Verde - Maceió</p>
-            </div>
-            <div>
-                <img src="./img/kelly3.webp" alt="Foto Montagem: Kelly arremessando o Vagner na praia do Sonho Verde em Maceió">
-                <p>Sonho Verde - Maceió</p>
-            </div>
-            <div>
-                <img src="./img/beraldo.webp" alt="Vagner na praia do Sonho Verde em Maceió">
-                <p>Sonho Verde - Maceió</p>
-            </div>
-            <div>
-                <img src="./img/tirolesa1.webp" alt="Kelly na tirolesa em Brotas">
-                <p>Tirolesa - Brotas</p>
-            </div>
-            <div>
-                <img src="./img/vagner.webp" alt="Vagner boiando no rio em Brotas">
-                <p>Rio - Brotas</p>
-            </div>
-        </div>
-    </section>    -->
-
-
-        <!-- <div>
-            <h1><ins>Javascript</ins></h1>
-            <h2>Linguagem de programação</h2>
-        </div> 
-
-
-    <section class="flexJS">
-        
-        <div>
-            <img src="./img/javascript.png" alt="ícone do Javascript">
-            
-        </div>
-        <div>
-            <p>
-                O vídeo fornece uma maneira poderosa de ajudá-lo a provar seu argumento. Ao clicar em Vídeo Online, você pode colar o código de inserção do vídeo que deseja adicionar. Você também pode digitar uma palavra-chave para pesquisar online o vídeo mais adequado ao seu documento.
-                Para dar ao documento uma aparência profissional, o Word fornece designs de cabeçalho, rodapé, folha de rosto e caixa de texto que se complementam entre si. Por exemplo, você pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral correspondentes. Clique em Inserir e escolha os elementos desejados nas diferentes galerias.
-                Temas e estilos também ajudam a manter seu documento coordenado. 
-            </p>
-            
-        </div>
-    </section>
-
-    <section class="section-5"> 
-        <div>
-            <h1><ins>Contato</ins></h1>
-            <h2>Formulário de Cadastro</h2>
-        </div>
-    </section> -->
-
-        
-
-
-
-
-
-
-
-
-
-
-
 
 </main>
 <footer>
