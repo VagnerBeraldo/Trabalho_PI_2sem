@@ -85,7 +85,7 @@
                 <legend>Endereço</legend>
                 <div class="cep">
                     <label for="id-cep">CEP*</label>
-                    <input type="text" name="cep" id="id-cep" maxlength="8" required placeholder="somente números">
+                    <input type="text" name="cep" id="id-cep" maxlength="8" required placeholder="somente números" onblur="buscarEndereco()">
                 </div>
                 <div class="rua">
                     <label for="id-rua">Rua*</label>
@@ -216,5 +216,6 @@
     </section>
 
 </body>
+<script src="/js/api-ViaCep.js"></script>
 
 </html>
