@@ -428,7 +428,10 @@ div.redes {
 }
 
 .sobre-conteudo {
-    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding-bottom: 80px;
     margin: 0 auto;
     width: 850px;
@@ -653,6 +656,8 @@ div.redes {
 .btnComprar:hover{
     cursor: pointer;
     background-color: var(--damasco);
+    color: var(--preto);
+    transition: 0.3s;
 }
 
 /*************** CSS ***************/
@@ -762,6 +767,7 @@ div.redes {
 
 .section-3 {
     display: flex;
+    flex-wrap: wrap;
     background-color: var(--cinza-intermediario);
     padding-top: 20px;
     padding-bottom: 100px;
@@ -798,13 +804,14 @@ margin: 0 auto;
 }
 
 
-/*************** CONTATO ***************/
+
 .tituloSection{
     padding-top: 80px;
 }
-.depoimento {
+section.depoimento {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 850px;
     margin: 0 auto;
@@ -824,25 +831,27 @@ div.fotoCliente3 img {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
 }
 
-
 .fotoCliente1,
 .fotoCliente2,
 .fotoCliente3 {
     display: flex;
-    width: 20%;
+    width: 180px;
+    margin-bottom: 50px;
 }
 
-.depoimentoCliente1,
-.depoimentoCliente2,
-.depoimentoCliente3 {
+div.depoimentoCliente1,
+div.depoimentoCliente2,
+div.depoimentoCliente3 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
     background: linear-gradient(to bottom, var(--cinza-intermediario), var(--cinza-intermediario), var(--branco));
     border-radius: 8px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-    width: 70%;
     font-size: 1.2rem;
-    height: 165px;
+    height: auto;
     text-align: justify;
     padding: 10px;
     line-height: 30px;
@@ -1152,7 +1161,6 @@ footer a {
         top: -7px;
     }
 
-
     .poupap div.poupap-lgpd p {
         margin-left: 40px;
     }
@@ -1185,7 +1193,10 @@ footer a {
 
 @media(max-width: 1010px) {
 
-
+    .fotoCliente1, .fotoCliente2, .fotoCliente3{
+        width: 180px;
+    }
+    
     footer {
         height: 53px;
         padding-top: 0px;
@@ -1207,8 +1218,9 @@ footer a {
         left: 65% !important;
     }
 
-    
-
+    .desconto {
+        max-width: 750px;
+    }
 
 .boasVindas {
     display: flex;
@@ -1232,17 +1244,58 @@ footer a {
 
 .boasVindas-apresentacao p{
     font-size: 1.5rem;
+    text-align: justify;
 }
 
+.tituloSection{
+    margin-right: 8%;
+}
+.autor1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 780px;
+}
+
+.autor2{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    max-width: 780px;
+}
+.section-vagas{
+    width: 740px;
+}
+
+.section-3-contexto{
+    margin-left: 10px;
+}
+
+.depoimento{
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    justify-content: center;
+    align-items: center;    
+}
+#depCliente{
+    margin-left: 9%;
+}
+.fotoCliente1, .fotoCliente2, .fotoCliente3{
+    width: 180px;
+}
+.depoimentoCliente1, .depoimentoCliente2, .depoimentoCliente3{
+    width: 600px;
+}
     .poupap .aceitar {
         position: relative;
         right: 30px;
-
     }
 
     .poupap .recusar button {
         right: 30px;
-
     }
 
     .voltar img {
@@ -1258,12 +1311,6 @@ footer a {
     }
 
 }
-
-/* @media(max-width: 590px){
-        
-    
-
-} */
 
 @media(max-width: 480px) {
 
@@ -1315,6 +1362,68 @@ footer a {
         width: 60%;
     }
 
+    .desconto {
+        max-width: 425px;
+    }
+
+    .sobre, .tituloSection, .autor1, .autor2 {
+        max-width: 425px;
+    }
+
+    .nomeAutor1, .nomeAutor2{
+        width: 410px;        
+    }
+
+    .section-vagas{
+        width: 410px;
+    }
+    
+    .section-1, .section-2{
+        display: flex;
+        justify-content: center;
+    }
+
+    .section-3{
+        display: flex;
+        flex-direction: column;
+    }
+    .sectionConteudo{
+        width: 425px;
+    }
+
+    .section-3-contexto {
+        flex-direction: column-reverse; 
+        text-align: center; 
+        width: 410px;
+        margin-left: 8px;
+    }
+    #comprarJs{
+        margin-left: 5%;
+    }
+
+    .section-1-grid, .section-2-grid{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
+        width: 410px;
+    }
+
+    .sectionConteudo{
+        display: flex;
+       flex-direction: column;
+    } 
+    .conteudo-3{
+       
+        width: 100%;
+    } 
+
+    .btnComprar{
+        margin-left: 36%;
+    }
+    
+    
     .grid3HTML {
         display: flex;
     }
@@ -1343,17 +1452,15 @@ footer a {
         flex: 1 1 250px;
     }
 
+}
 
-    .flex img {
-        margin-left: 16vw;
+.depoimento{
+    width: 425px;
+}
 
-    }
-
-    .flexJS img {
-        margin-left: 33vw;
-    }
-
-
+.depoimentoCliente1, .depoimentoCliente2, .depoimentoCliente3{
+    width: 415px;
+    height: auto;
 }
 
 .infoAdicionalRodape button {
@@ -1371,17 +1478,6 @@ footer a {
 .aceitar {
     margin-top: 10px;
 }
-
-/*
-.poupap_botoes{
-    overflow-y: auto;
-}
-
-
-.poupap .recusar button{
-
-}
-*/
 
 @media(max-width: 376px) {
 
@@ -1419,13 +1515,47 @@ footer a {
 
     }
 
-    .poupap {
-        height: 550px;
+    .boasVindas-apresentacao{
+        margin-right: 50px;
+    } 
+    .desconto {
+        
+        max-width: 350px;
     }
 
-    .flexJS img {
-        width: 120px;
-        margin-left: 30vw;
+    .sobre, .tituloSection, .autor1, .autor2 {
+        max-width: 375px;
+    }
+
+    .nomeAutor1, .nomeAutor2{
+        width: 360px;
+    }
+
+    .section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
+        width: 360px;
+    }
+    .btnComprar{
+        margin-left: 34%;
+    }
+    .section-vagas{
+        width: 351px;
+    }
+    .section-3-contexto { 
+        width: 355px;
+    }
+
+    .depoimento{
+        width: 375px;
+    }
+    
+    .depoimentoCliente1, .depoimentoCliente2, .depoimentoCliente3{
+        width: 360px;
+        height: auto;
+    }
+    
+
+    .poupap {
+        height: 550px;
     }
 
 }
@@ -1440,12 +1570,60 @@ footer a {
         left: 67% !important;
     }
 
+
     footer {
         height: 700px;
     }
 
     .infoAdicionalRodape button {
         width: 80%;
+    }
+
+    .boasVindas{
+        margin-left: 10px;
+    }
+
+    .boasVindas-apresentacao{
+        max-width: 330px;
+        margin-right: 130px;
+    } 
+    .boasVindas-apresentacao p{
+        font-size: 1.1rem;
+        
+    }
+    .desconto {
+        max-width: 320px;
+        margin-left: -130px;
+    }
+
+    .sobre, .tituloSection, .autor1, .autor2 {
+        max-width: 320px;
+    }
+
+    .nomeAutor1, .nomeAutor2{
+        width: 310px;
+    }
+    .section-vagas{
+        width: 310px;
+    }
+
+.section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
+        width: 310px;
+    }
+    .btnComprar{
+        margin-left: 32%;
+    }
+    .section-3-contexto { 
+        width: 305px;
+    }
+
+    .depoimento{
+        width: 320px;
+    }
+    
+    .depoimentoCliente1, .depoimentoCliente2, .depoimentoCliente3{
+        width: 310px;
+        height: auto;
     }
 
     .poupap {
