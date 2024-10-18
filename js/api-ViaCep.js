@@ -22,13 +22,17 @@ function buscarEndereco() {
                 return;
             }
 
-            // Preenche os campos com os dados retornados pela API // campos complemento e cidade não finalizei
+            // Preenche os campos com os dados retornados pela API
             document.getElementById('id-rua').value = data.logradouro;
             document.getElementById('id-bairro').value = data.bairro;
             document.getElementById('id-cidade').value = data.localidade;
             document.getElementById('id-complemento').value = data.complemento || '';
 
-            // Se necessário, ajuste o foco para o próximo campo após a busca de CEP
+            // Seleciona o estado no campo <select>
+            const estadoSelect = document.getElementById('id-estado');
+            estadoSelect.value = data.uf;
+
+            // Foco no próximo campo após a busca de CEP
             document.getElementById('id-numero').focus();
         })
         .catch(error => {
