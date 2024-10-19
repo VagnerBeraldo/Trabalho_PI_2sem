@@ -44,19 +44,23 @@
             </div>
         </div>
 
-
-        <div class="redes">
+        <div class=" redeSocial">
+            <div class="rede">
             <img src="./img/lupa.png" id="imgBusca" alt="Ícone de lupa para busca">
-            <img src="./img/facebook.png" id="imgFace" alt="icone da rede social facebook">
-            <img src="./img/whatsapp.png" id="imgWhats" alt="icone da rede social whatsapp">
-            <img src="./img/telegram.png" id="imgTeleg" alt="icone da rede social telegram">
-            <img src="./img/instagram.png" id="imgInsta" alt="icone da rede social instagram">
-
-            <!-- <a href="https://www.facebook.com/fatimacypas" target="_blank"><img src="IMG/facebook.png" id="imgFace" alt="icone da rede social facebook"></a>
-        <a href="https://wa.me/5511996616224" target="_blank"><img src="IMG/whatsapp.png" id="imgWhats" alt="icone da rede social whatsapp"></a>
-        <a href="https://www.telegram.com/vagnerberaldo" target="_blank"><img src="IMG/telegram.png" id="imgTeleg" alt="icone da rede social telegram"></a>
-        <a href="https://www.instagram.com/kellycypas" target="_blank"><img src="IMG/instagram.png" id="imgInsta" alt="icone da rede social instagram"></a> -->
-        </div>
+            </div>
+            <div class="rede">
+                <a href="https://www.facebook.com/universitariosantoamaro" target="_blank"><img src="IMG/facebook.png" alt="icone da rede social facebook"></a>
+            </div>
+            <div class="rede">
+                <a href="https://www.instagram.com/senacsantoamaro/" target="_blank"><img src="./img/instagram.png" alt="ícone da rede social instagram"></a>
+            </div>
+            <div class="rede">
+                <a href="https://t.me/senacsantoamaro/" target="_blank"><img src="./img/telegram.png" id="imgTeleg" alt="ícone da rede social telegram"></a>
+            </div>
+            <div class="rede">
+                <a href="https://wa.me/5511996616224" target="_blank"><img src="./img/whatsapp.png" alt="ícone da rede social whatsapp"></a>
+            </div>
+</div>
 
         <div class="navigation">
             <nav id="nav">
@@ -80,6 +84,17 @@
                     <li><a href="#idDepoimento">Depoimentos</a></li>
                 </ul>
             </nav>
+
+            
+            <nav>
+                <ul id="navCad">
+                    <li>Cadastrar</li>
+                    <li>Alterar</li>
+                    <li>Consultar</li>
+                    <li>Excluir</li>
+                </ul>
+
+            </nav>
         </div>
 
     </header>
@@ -87,8 +102,6 @@
         <section class="login">
             <div>
                 <a href="login.html" id="id-LoginBotao"><button type="button" id="id-login">Login</button></a>
-
-                <!-- <a href="login.html"><button type="button" id="id-login">Login</button></a> -->
                 <button class="cadastrar" id="id-cadastrese">Cadastre-se</button>
             </div>
         </section>
@@ -227,7 +240,7 @@
         <section class="section-1" id="idHtml">
             <div class="section-1-grid">
                 <div class="section-1-gridContexto">
-                    <br><br>
+                    
                     <h1><ins>HTML</ins></h1>
                     <h2>HyperText Markup Language — Linguagem de Marcação de Hipertexto</h2> <br> <br>
                     <p>
@@ -258,9 +271,9 @@
                         documentos eletronicamente usando hiperlinks. Assim, o nome Hypertext Markup Language.
                     </p>
                     <br> <br>
-                    <label class="lblPreco" for="comprarHtml">Adquira na promoção de <del>R$ 75,00</del> por R$
+                    <label class="lblPreco" for="comprarHTML">Adquira na promoção de <del>R$ 75,00</del> por R$
                         49,00</label>
-                    <button class="btnComprar" id="comprarHtml">Comprar</button>
+                    <button class="btnComprar" id="id-comprarHTML">Comprar</button>
                     <br>
                 </div>
             </div>
@@ -269,7 +282,7 @@
         <section class="section-2" id="idCss">
             <div class="section-2-grid">
                 <div class="section-2-gridContexto">
-                    <br><br>
+                    
                     <h1><ins>CSS</ins></h1>
                     <h2>Cascading Style Sheet - Folha de Estilo em Cascata</h2> <br>
 
@@ -303,9 +316,9 @@
                         tornando-o uma ferramenta indispensável para criar sites modernos e atraentes.
                     </p>
                     <br>
-                    <label class="lblPreco" for="comprarCss">Adquira na promoção de <del>R$ 75,00</del> por R$
+                    <label class="lblPreco" for="id-comprarCSS">Adquira na promoção de <del>R$ 75,00</del> por R$
                         49,00</label>
-                    <button class="btnComprar" id="comprarCss">Comprar</button>
+                    <button class="btnComprar" id="id-comprarCSS">Comprar</button>
                     <br>
                 </div>
 
@@ -341,9 +354,9 @@
                             as possibilidades de desenvolvimento e inovação.
                         </p>
                         <br>
-                        <label class="lblPreco" for="comprarJs">Adquira na promoção de <del>R$ 75,00</del> por R$
+                        <label class="lblPreco" for="id-comprarJS">Adquira na promoção de <del>R$ 75,00</del> por R$
                             49,00</label>
-                        <button class="btnComprar" id="comprarJs">Comprar</button>
+                        <button class="btnComprar" id="id-comprarJS">Comprar</button>
                         <br>
                     </div>
                     <div class="imgJS">
@@ -407,7 +420,9 @@
             <p>Cursos on-line e acesso vitalício</p>
             <p>Acesso a atualizações futuras e tutoria</p>
             <p>Em caso de dúvidas, elogios e reclamações</p>
-            <button type="button">Atendimento via Whatsapp</button>
+            <a href="https://wa.me/5511996616224" target="_blank">
+                <button class="faleConosco" id="atendimento">Atendimento via Whatsapp</button>
+            </a>
             <p>Siga-nos nos redes Sociais:</p>
             <p>Facebook: 2macursos@gmail.com/2ma</p>
             <p>Telegram: 2macursos@gmail.com/2ma_cursos</p>
