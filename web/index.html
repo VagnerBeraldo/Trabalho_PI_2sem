@@ -31,7 +31,7 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img src="./img/logoPW.png" id="logo" alt="">
+            <img src="IMG/logoPW.png" id="logo" alt="">
         </div>
 
         <div id="divBuscador" class="oculto">
@@ -49,7 +49,7 @@
             <img src="./img/lupa.png" id="imgBusca" alt="Ícone de lupa para busca">
             </div>
             <div class="rede">
-                <a href="https://www.facebook.com/universitariosantoamaro" target="_blank"><img src="./img/facebook.png" alt="icone da rede social facebook"></a>
+                <a href="https://www.facebook.com/universitariosantoamaro" target="_blank"><img src="IMG/facebook.png" alt="icone da rede social facebook"></a>
             </div>
             <div class="rede">
                 <a href="https://www.instagram.com/senacsantoamaro/" target="_blank"><img src="./img/instagram.png" alt="ícone da rede social instagram"></a>
@@ -69,10 +69,11 @@
                     <span id="hamburger"></span>
                 </button>
                 <ul id="menu" role="menu">
-                    <li><a href="#idAutor">Quem Somos?</a></li>
+        <!--alteração-->
+                    <li class="menuFront"><a href="#idAutor">Quem Somos?</a></li>
 
-                    <li><a href="#idVagas">Vagas</a></li>
-                    <li id="produtos">
+                    <li class="menuFront"><a href="#idVagas">Vagas</a></li>
+                    <li class="menuFront" id="produtos">
                         <a href="/">Cursos</a>
                         <ul class="submenu" role="menu">
                             <li><a href="#idHtml">HTML</a></li>
@@ -81,11 +82,29 @@
                         </ul>
                     </li>
 
-                    <li><a href="#idDepoimento">Depoimentos</a></li>
+                    <li class="menuFront"><a href="#idDepoimento">Depoimentos</a></li>
+        
+
+                    <li class="menuBack"><a href="/">Voltar</a></li>
+
+                    <li class="menuBack"><a href="/">Cadastrar</a></li>
+                    
+                    <li class="menuBack"><a href="/">Alterar</a></li>
+                    
+                    <li class="menuBack"><a href="/">Consultar</a></li>
+                    
+                    <li class="menuBack"><a href="/">Excluir</a></li>
+        
+        <!--alteração-->
                 </ul>
             </nav>
 
             
+
+
+<!-- alteração
+
+
             <nav>
                 <ul id="navCad">
                     <li>Cadastrar</li>
@@ -94,7 +113,7 @@
                     <li>Excluir</li>
                 </ul>
 
-            </nav>
+            </nav> -->
         </div>
 
     </header>
@@ -114,7 +133,7 @@
         <!--*********************************************************************************************************************************-->
 
         <section class="section-boasVindas" id="id-sectionHtml">
-            <div class="boasVindas">     <!-- style="background-image: url('./img/pc_boasVindas.jpeg');" //imagem inexistente revisar depois com Vagner-->
+            <div class="boasVindas" style="background-image: url('./img/pc_boasVindas.jpeg');">
                 <div class="boasVindas-apresentacao">
                     <p>
                         <b>Aprenda</b> com a <span>2MA</span> cursos! <br>Nossos cursos estão atualizados com as
@@ -125,7 +144,7 @@
                         Veja os depoimentos de nossos alunos na <a href="#idDepoimento">seção depoimentos</a>.
                     </p>
                 </div>
-                <div class="desconto">
+                
 
                     <caption id="cabecalhoTabelaPromocao">
                         <h4><b>Promoção</b></h4>
@@ -157,7 +176,7 @@
                             <td colspan="3">Promoção não cumulativa</td>
                         </tr>
                     </table>
-                </div>
+                
             </div>
         </section>
 
@@ -423,15 +442,16 @@
             <a href="https://wa.me/5511996616224" target="_blank">
                 <button class="faleConosco" id="atendimento">Atendimento via Whatsapp</button>
             </a>
+<!--alteração-->
             <p>Siga-nos nos redes Sociais:</p>
-            <p>Facebook: 2macursos@gmail.com/2ma</p>
-            <p>Telegram: 2macursos@gmail.com/2ma_cursos</p>
-            <p>Instagram: @2macursoonline</p>
+            <p>Facebook: facebook/2macursos</p>
+            <p>Telegram: 2macursos</p>
+            <p>Instagram: instagram/2macursoonline</p>
 
 
-            <a href="https://www.google.com.br/maps/place/Centro+Universit%C3%A1rio+Senac+-+Santo+Amaro/@-23.6695931,-46.7020657,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce5036539648d5:0x78501a72680ea23a!8m2!3d-23.669598!4d-46.6994908!16s%2Fg%2F121jytr5?hl=pt-BR&entry=ttu"
+            <a class="footerLocalizacao" href="https://www.google.com.br/maps/place/Centro+Universit%C3%A1rio+Senac+-+Santo+Amaro/@-23.6695931,-46.7020657,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce5036539648d5:0x78501a72680ea23a!8m2!3d-23.669598!4d-46.6994908!16s%2Fg%2F121jytr5?hl=pt-BR&entry=ttu"
                 target="_blank">Acesse nossa Localização</a>
-
+<!--alteração-->
         </div>
         <div class="senac">
             <address>
@@ -448,10 +468,9 @@
 
         <div class="poupap-lgpd">
             <p>Este site utiliza cookies para melhorar sua experiência de navegação e para fins de análise,
-                <br>conforme nossa <a href="#">Política de Privacidade.</a> Ao continuar, você concorda com o uso de
-                cookies
-                <br>e o tratamento de seus dados em conformidade com a <b>LGPD</b>.
-                <br><ins>Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018.</ins>
+                conforme nossa <a href="#">Política de Privacidade.</a> Ao continuar, você concorda com o uso de
+                cookies e o tratamento de seus dados em conformidade com a <b>LGPD</b>.
+                <ins>Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018.</ins>
             </p>
         </div>
         <div class="poupap_botoes">
@@ -470,11 +489,11 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/buscadorTablet.js"></script>
-    <script src="./js/poupap.js"></script>
-    <script src="./js/cadastre-se.js"></script>
-    <script src="./js/voltar.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="js/buscadorTablet.js"></script>
+    <script src="js/poupap.js"></script>
+    <script src="js/cadastre-se.js"></script>
+    <script src="js/voltar.js"></script>
+    <script src="js/menu.js"></script>
 
 </body>
 

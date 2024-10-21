@@ -55,21 +55,37 @@ img {
 .hidden {
     display: none;
 }
+                            /*alteração AJUSTAR PARA TODAS AS TELAS EM TABLET ESTÁ APARECENTO O MENU BACK*/
+                            .menuBack{
+                                display: none;
+                            }
 
-#navCad li{
-    display: none;
-}
+                            /* .menuBack{     O FLEX FAZ APARECER O MENU.....
+                                display: flex;
+                            } */
 
-.navCad{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
+                            li.menuFront{
+                                display: block;
+                            }
+                            /*alteração*/
 
-.navCad li{
-    text-decoration: none;
-}
+
+                            /*alteração
+                            #navCad li{
+                                display: none;
+                            }
+
+                            .navCad{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                align-items: center;
+                            }
+
+                            .navCad li{
+                                text-decoration: none;
+                            }
+                            */
 
 .header {
     position: relative;
@@ -265,7 +281,7 @@ div.redes {
 }
 
 .submenu li {
-   /* border-bottom: 1px solid var(---cinza-claro); */
+    border-bottom: 1px solid var(--cinza-claro);
 }
 
 .submenu li a {
@@ -517,6 +533,10 @@ div.redes {
 }
 
 .poupap div.poupap-lgpd p {
+                /*alteração*/
+                text-align: justify;
+                width: 70%;
+                /*alteração*/
     color: var(--branco);
     font-size: 1.1rem;
 }
@@ -551,13 +571,13 @@ div.redes {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 9%;
+    width: 10%;
 }
 
 .poupap .recusar button {
     position: relative;
     right: -550%;
-    top: 4px;
+    /* alteração top: 4px;*/
     border-radius: 20px;
     border: 1px solid var(--branco);
     padding: 5px 20px;
@@ -662,7 +682,10 @@ div.redes {
 }
 
 .btnComprar{
-    margin-top: 10px;
+                /*alteração*/
+                display: flex;
+                margin: 10px auto 0px auto;
+                /*alteração*/
     border-radius: 20px;
     border: none;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
@@ -941,6 +964,12 @@ footer a {
     color: var(--branco);
 
 }
+                /*alteração*/
+                .footerLocalizacao{
+                    font-size: 1.1rem;
+                }
+                /*alteração*/
+
 
 .senac {
     display: flex;
@@ -966,6 +995,12 @@ footer a {
     .infoAdicionalRodape button {
         max-width: 20%;
     }
+                    /*alteração*/
+                    .poupap div.poupap-lgpd p {
+                        width: 80%;
+                    }
+                    /*alteração*/
+    
 
 }
 
@@ -1086,7 +1121,9 @@ footer a {
         display: block;
         position: absolute;
         width: 40%;
-        top: 138px;
+                        /*alteração*/
+                        top: 130px;
+                        /*alteração*/
         left: 0;
         background: var(--azul);
         transition: 0.6s;
@@ -1227,6 +1264,8 @@ footer a {
         left: 65% !important;
     }
 
+    
+
 .boasVindas {
     display: flex;
     flex-direction: column;
@@ -1307,10 +1346,12 @@ div.depoimentoCliente3 {
     .poupap .recusar button {
         right: 30px;
     }
-
-    .voltar img {
-        display: none !important;
-    }
+                        /*alteração*/
+                        .voltar img {
+                            right: 10px;
+                            /*display: none !important;*/
+                        }
+                        /*alteração*/
 
     footer {
         height: 600px;
@@ -1408,9 +1449,9 @@ div.depoimentoCliente3 {
         width: 410px;
         margin-left: 8px;
     }
-    #comprarJs{
+    /* #comprarJs{
         margin-left: 5%;
-    }
+    } */
 
     .section-1-grid, .section-2-grid{
         display: flex;
@@ -1429,10 +1470,11 @@ div.depoimentoCliente3 {
         width: 100%;
     } 
 
-    .btnComprar{
-        margin-left: 36%;
-    }
-    
+                /* alteração
+                .btnComprar{
+                    margin-left: 36%;
+                }
+                */
     
     .grid3HTML {
         display: flex;
@@ -1477,17 +1519,40 @@ div.depoimentoCliente3 {
     max-width: 90%;
 }
 
+                /*alteração*/
+                .poupap div.poupap-lgpd {
+                    width: 90%;
+                }
+                .poupap div.poupap-lgpd p {
+                    margin-left: 0px;
+                    /*alteração*/
+                    width: 100%;
+                    /*alteração*/
+                }
 
+                .poupap_botoes {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 90%;
+                                      
+                }
+                /*alinhar os botões ao centro*********************************************/
+
+                /*alteração*/
 .poupap {
-    height: 430px;
-    padding: 30px 0;
+                    /*alteração*/
+                    height: 400px;
+                    /*alteração*/
+    padding: 10px 0;
     align-items: center;
     justify-content: center;
 }
-
-.aceitar {
-    margin-top: 10px;
-}
+                        /*alteração*/
+                        div.aceitar, div.recusar {
+                        margin-left: 15%;  
+                        }/*alteração*/
 }
 @media(max-width: 376px) {
 
@@ -1539,9 +1604,10 @@ div.depoimentoCliente3 {
     .section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
         width: 360px;
     }
-    .btnComprar{
-        margin-left: 34%;
-    }
+    
+                    /* alteração .btnComprar{
+                        margin-left: 34%;
+                    } */
     .section-vagas{
         width: 351px;
     }
@@ -1559,10 +1625,10 @@ div.depoimentoCliente3 {
         width: 365px;
     }
     
-    .poupap {
-        height: 550px;
-    }
-
+                            /*.poupap {
+                                height: 400px;
+                            }
+                            */
 }
 
 @media(max-width: 320px) {
@@ -1618,9 +1684,11 @@ div.depoimentoCliente3 {
 .section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
         width: 310px;
     }
-    .btnComprar{
-        margin-left: 32%;
-    }
+
+                    /* alteração.btnComprar{
+                        margin-left: 32%;
+                    } */
+                    
     .section-3-contexto { 
         width: 305px;
     }
@@ -1634,19 +1702,20 @@ div.depoimentoCliente3 {
     div.depoimentoCliente3 {
         width: 310px;
     }
+                            /*alteração
+                            .poupap {
+                                height: 400px;
+                            }
+                            /*alteração*/
 
-    .poupap {
-        height: 620px;
-    }
+                            /* alteração .poupap .aceitar {
+                                position: relative;
+                                right: 50px;
+                            }
 
-    .poupap .aceitar {
-        position: relative;
-        right: 50px;
-    }
-
-    .poupap .recusar {
-        position: relative;
-        right: 20px;
-    }
+                            .poupap .recusar {
+                                position: relative;
+                                right: 20px;
+                            } */
 
 }
