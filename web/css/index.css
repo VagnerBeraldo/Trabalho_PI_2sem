@@ -55,37 +55,6 @@ img {
 .hidden {
     display: none;
 }
-                            /*alteração AJUSTAR PARA TODAS AS TELAS EM TABLET ESTÁ APARECENTO O MENU BACK*/
-                            .menuBack{
-                                display: none;
-                            }
-
-                            /* .menuBack{     O FLEX FAZ APARECER O MENU.....
-                                display: flex;
-                            } */
-
-                            li.menuFront{
-                                display: block;
-                            }
-                            /*alteração*/
-
-
-                            /*alteração
-                            #navCad li{
-                                display: none;
-                            }
-
-                            .navCad{
-                                display: flex;
-                                flex-direction: row;
-                                justify-content: center;
-                                align-items: center;
-                            }
-
-                            .navCad li{
-                                text-decoration: none;
-                            }
-                            */
 
 .header {
     position: relative;
@@ -119,7 +88,8 @@ header .logo {
 #divBuscador {
     position: absolute;
     top: 40px;
-    width: 70%;
+    left: 6.5%;
+    width: 80%;
     height: 30px;
 }
 
@@ -134,11 +104,11 @@ header .logo {
     text-align: center;
 }
 
-.busca-form {
+/* .busca-form {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .busca-form input[type="text"] {
     /*Largura da caixa de busca */
@@ -149,12 +119,13 @@ header .logo {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     border: none;
     outline: none;
+
 }
 
 .busca-form button {
     position: absolute;
-    padding: 10px 20px;
-    top: -35px;
+    padding: 5px 20px;
+    top: -30px;
     left: 67%;
     border: 1px solid var(--branco);
     background-color: transparent;
@@ -187,11 +158,10 @@ div.redes {
     display: flex;
     justify-content: end;
     align-items: end;
-    width: 98%;
+    width: 97%;
     height: 60px;
     gap: 20px;
 }
-
 
 .rede img {
     display: flex;
@@ -201,10 +171,10 @@ div.redes {
     cursor: pointer;
 }
 
-#imgTeleg, #imgBusca{
+#imgTeleg,
+#imgBusca {
     border-radius: 9px;
 }
-
 
 /****** MENU *********/
 
@@ -219,13 +189,14 @@ div.redes {
     width: 100%;
 }
 
-
 #menu {
     display: flex;
     list-style: none;
-    
 }
 
+#idLiInicio {
+    display: none;
+}
 
 #menu a {
     display: block;
@@ -239,7 +210,6 @@ div.redes {
     text-decoration: none;
     height: 40px;
     line-height: 40px;
-
 }
 
 
@@ -268,6 +238,8 @@ div.redes {
     top: 100%;
     background: var(--azul);
     width: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     border: none;
     z-index: 1000;
     /* Garante que o submenu apareça sobre outros elementos */
@@ -280,10 +252,6 @@ div.redes {
     border-bottom-right-radius: 8px;
 }
 
-.submenu li {
-    border-bottom: 1px solid var(--cinza-claro);
-}
-
 .submenu li a {
     margin: 0px;
     padding: 0px;
@@ -294,8 +262,12 @@ div.redes {
     display: block;
 }
 
-
 /*************** LOGIN  ***************/
+.formPerfilUsuario {
+    display: flex;
+    gap: 15px;
+    font-size: 1.1rem;
+}
 
 .login {
     display: flex;
@@ -304,7 +276,6 @@ div.redes {
     justify-content: end;
     margin-right: 25px;
     margin-top: 10px;
-
     gap: 20px;
 }
 
@@ -324,7 +295,6 @@ div.redes {
     font-size: 1.0rem;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     transition: background-color 0.8s ease;
-
 }
 
 #id-LoginBotao {
@@ -358,7 +328,6 @@ div.redes {
     display: flex;
     max-width: 100%;
     margin-bottom: 50px;
-
 }
 
 
@@ -366,7 +335,7 @@ div.redes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;    
+    align-items: center;
     width: 850px;
     padding: 0 0 0 10px;
     margin: 0 auto;
@@ -380,7 +349,7 @@ div.redes {
     margin-bottom: 100px;
 }
 
-.boasVindas-apresentacao p{
+.boasVindas-apresentacao p {
     font-size: 1.3rem;
 }
 
@@ -391,7 +360,7 @@ div.redes {
     color: var(--cascaDeLaranja);
 }
 
-.boasVindas-apresentacao p::first-letter{
+.boasVindas-apresentacao p::first-letter {
     font-size: 6.5rem;
 }
 
@@ -454,10 +423,9 @@ div.redes {
 .desconto td {
     padding: 10px;
     border-top: 1px solid #000;
-    
 }
 
-.sobre{
+.sobre {
     width: 100%;
     margin: 0 auto;
     margin-bottom: 100px;
@@ -472,7 +440,6 @@ div.redes {
     padding-bottom: 80px;
     margin: 0 auto;
     width: 850px;
-    
 }
 
 .autor1,
@@ -482,7 +449,6 @@ div.redes {
     width: 100%;
     gap: 20px;
     padding-top: 50px;
-    
 }
 
 .imgAutor1 img,
@@ -508,7 +474,6 @@ div.redes {
     width: 70%;
     height: 220px;
     background: linear-gradient(to bottom, var(--cinza-intermediario), var(--cinza-intermediario), var(--branco));
-    
 }
 
 /*************** POUPAP ***************/
@@ -533,10 +498,8 @@ div.redes {
 }
 
 .poupap div.poupap-lgpd p {
-                /*alteração*/
-                text-align: justify;
-                width: 70%;
-                /*alteração*/
+    text-align: justify;
+    width: 70%;
     color: var(--branco);
     font-size: 1.1rem;
 }
@@ -564,7 +527,6 @@ div.redes {
     font-size: 1.2rem;
     font-weight: 400;
     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
-
 }
 
 .poupap .recusar {
@@ -577,7 +539,6 @@ div.redes {
 .poupap .recusar button {
     position: relative;
     right: -550%;
-    /* alteração top: 4px;*/
     border-radius: 20px;
     border: 1px solid var(--branco);
     padding: 5px 20px;
@@ -589,14 +550,14 @@ div.redes {
 }
 
 /*************** VAGAS ***************/
-.section-vagas{
+.section-vagas {
     display: flex;
     flex-direction: column;
     width: 850px;
     margin: 0 auto;
 }
 
-.imgVagas img{
+.imgVagas img {
     display: flex;
     justify-content: center;
     border-radius: 10px;
@@ -604,7 +565,7 @@ div.redes {
     margin-bottom: 30px;
 }
 
-.conteudo-vagas p{
+.conteudo-vagas p {
     display: flex;
     justify-content: center;
     text-indent: 30px;
@@ -636,7 +597,6 @@ div.redes {
     z-index: -1;
 }
 
-
 .section-1-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -646,23 +606,25 @@ div.redes {
     max-width: 850px;
     padding: 10px;
     place-items: center;
-
 }
 
-.section-1-gridContexto img, .section-3-contexto img {
+.section-1-gridContexto img,
+.section-3-contexto img {
     width: 200px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px var(--preto);
 }
 
-.section-1-gridContexto p, .section-2-gridContexto p, .section-3-contexto p  {
+.section-1-gridContexto p,
+.section-2-gridContexto p,
+.section-3-contexto p {
     text-align: justify;
     font-size: 1.2rem;
     text-indent: 30px;
     line-height: 35px;
 }
 
-.histHtml{
+.histHtml {
     display: flex;
     justify-content: center;
     font-size: 1.4rem;
@@ -671,21 +633,18 @@ div.redes {
     text-align: center;
 }
 
-
 .section-1-gridContexto:nth-child(1) {
     grid-row: 1 / 3;
 }
 
-.lblPreco{
+.lblPreco {
     font-size: 1.1rem;
     font-weight: 700;
 }
 
-.btnComprar{
-                /*alteração*/
-                display: flex;
-                margin: 10px auto 0px auto;
-                /*alteração*/
+.btnComprar {
+    display: flex;
+    margin: 10px auto 0px auto;
     border-radius: 20px;
     border: none;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
@@ -696,10 +655,10 @@ div.redes {
     background-color: var(--cascaDeLaranja);
 }
 
-.btnComprar:hover{
+.btnComprar:hover {
     cursor: pointer;
     background-color: var(--azul);
-    
+
     transition: 0.3s;
 }
 
@@ -726,12 +685,9 @@ div.redes {
     z-index: -1;
 }
 
-
 .section-2 {
     width: 100%;
-
 }
-
 
 .section-2-grid {
     display: grid;
@@ -742,7 +698,6 @@ div.redes {
     max-width: 850px;
     padding: 10px;
     place-items: center;
-
 }
 
 .section-2-gridContexto img {
@@ -813,11 +768,10 @@ div.redes {
     margin: 0 auto;
 }
 
-.sectionConteudo{
-width: 850px;
-margin: 0 auto;
+.sectionConteudo {
+    width: 850px;
+    margin: 0 auto;
 }
-
 
 .section-3-contexto {
     display: flex;
@@ -827,21 +781,23 @@ margin: 0 auto;
 }
 
 .conteudo-3 {
-    flex-basis: 60%; /* Ocupará 60% da largura */
+    flex-basis: 60%;
+    /* Ocupará 60% da largura */
 }
 
 .imgJS {
-    flex-basis: 35%; /* Ocupará 35% da largura */
+    flex-basis: 35%;
+    /* Ocupará 35% da largura */
     display: flex;
     justify-content: center;
 }
 
 .imgJS img {
     width: 200px;
-    
+
 }
 
-.tituloSection{
+.tituloSection {
     padding-top: 80px;
     width: 100%;
     text-align: center;
@@ -964,12 +920,10 @@ footer a {
     color: var(--branco);
 
 }
-                /*alteração*/
-                .footerLocalizacao{
-                    font-size: 1.1rem;
-                }
-                /*alteração*/
 
+.footerLocalizacao {
+    font-size: 1.1rem;
+}
 
 .senac {
     display: flex;
@@ -995,13 +949,10 @@ footer a {
     .infoAdicionalRodape button {
         max-width: 20%;
     }
-                    /*alteração*/
-                    .poupap div.poupap-lgpd p {
-                        width: 80%;
-                    }
-                    /*alteração*/
-    
 
+    .poupap div.poupap-lgpd p {
+        width: 80%;
+    }
 }
 
 @media(max-width: 1024px) {
@@ -1072,17 +1023,15 @@ footer a {
 
     /* Estilo do formulário de busca */
     .busca-container {
-
         display: flex;
         flex-direction: column;
         align-items: center;
-
     }
 
     .busca-form input[type="text"] {
         margin-top: 42px;
         width: 100% !important;
-        height: 60px;
+        height: 50px;
         border-radius: 30px;
         padding: 10px;
         font-size: 1rem;
@@ -1090,10 +1039,13 @@ footer a {
     }
 
     .busca-form button {
-        margin-top: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 57px;
         padding: 0px 0px;
         left: 62% !important;
-        height: 70px;
+        height: 50px;
         border-radius: 30px;
         font-size: 1.3rem;
         background-color: var(--preto);
@@ -1102,17 +1054,17 @@ footer a {
         cursor: pointer;
     }
 
-
     #imgBusca {
         cursor: pointer;
     }
+
     .rede img {
         display: flex;
         margin-bottom: 8px;
         height: 40px;
         width: 40px;
     }
-        
+
     .navigation {
         justify-content: flex-end;
     }
@@ -1121,9 +1073,7 @@ footer a {
         display: block;
         position: absolute;
         width: 40%;
-                        /*alteração*/
-                        top: 130px;
-                        /*alteração*/
+        top: 130px;
         left: 0;
         background: var(--azul);
         transition: 0.6s;
@@ -1235,15 +1185,16 @@ footer a {
     .infoAdicionalRodape button {
         max-width: 30%;
     }
-    
 }
 
 @media(max-width: 1010px) {
 
-    .fotoCliente1, .fotoCliente2, .fotoCliente3{
+    .fotoCliente1,
+    .fotoCliente2,
+    .fotoCliente3 {
         width: 180px;
     }
-    
+
     footer {
         height: 53px;
         padding-top: 0px;
@@ -1256,7 +1207,6 @@ footer a {
     footer p {
         display: none;
     }
-
 }
 
 @media(max-width: 850px) {
@@ -1264,79 +1214,78 @@ footer a {
         left: 65% !important;
     }
 
-    
+    .boasVindas {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        padding: 30px 0 0 0;
+    }
 
-.boasVindas {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 30px 0 0 0;
-}
+    .boasVindas-apresentacao {
+        margin-bottom: 0px;
+    }
 
-.boasVindas-apresentacao {
-    margin-bottom: 0px;
-}
+    .boasVindas-apresentacao p #basico {
+        font-size: 1.5rem;
+    }
 
-.boasVindas-apresentacao p #basico {
-    font-size: 1.5rem;
-}
+    .boasVindas-apresentacao p #ao {
+        font-size: 2.1rem;
+    }
 
-.boasVindas-apresentacao p #ao {
-    font-size: 2.1rem;
-}
-
-.boasVindas-apresentacao p #avancado {
-    font-size: 2.6rem;
-}
+    .boasVindas-apresentacao p #avancado {
+        font-size: 2.6rem;
+    }
 
 
-.boasVindas-apresentacao p{
-    font-size: 1.5rem;
-    text-align: justify;
-}
+    .boasVindas-apresentacao p {
+        font-size: 1.5rem;
+        text-align: justify;
+    }
 
-.desconto{
-    margin: 50px auto 0 auto;
-}
+    .desconto {
+        margin: 50px auto 0 auto;
+    }
 
-.tituloSection{
-    width: 768px;
-}
+    .tituloSection {
+        width: 768px;
+    }
 
-.autor1{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 780px;
-}
+    .autor1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 780px;
+    }
 
-.autor2{
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    max-width: 780px;
-}
-.section-vagas{
-    width: 740px;
-}
+    .autor2 {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        max-width: 780px;
+    }
 
-.section-3-contexto{
-    margin-left: 10px;
-}
+    .section-vagas {
+        width: 740px;
+    }
 
-section.depoimento {
-    display: flex;
-    flex-direction: column;
-    width: 750px;
-}
+    .section-3-contexto {
+        margin-left: 10px;
+    }
 
-div.depoimentoCliente1,
-div.depoimentoCliente2,
-div.depoimentoCliente3 {
-    width: 650px;
-}
+    section.depoimento {
+        display: flex;
+        flex-direction: column;
+        width: 750px;
+    }
+
+    div.depoimentoCliente1,
+    div.depoimentoCliente2,
+    div.depoimentoCliente3 {
+        width: 650px;
+    }
 
     .poupap .aceitar {
         position: relative;
@@ -1346,12 +1295,10 @@ div.depoimentoCliente3 {
     .poupap .recusar button {
         right: 30px;
     }
-                        /*alteração*/
-                        .voltar img {
-                            right: 10px;
-                            /*display: none !important;*/
-                        }
-                        /*alteração*/
+
+    .voltar img {
+        right: 10px;
+    }
 
     footer {
         height: 600px;
@@ -1360,7 +1307,6 @@ div.depoimentoCliente3 {
     .infoAdicionalRodape button {
         max-width: 40%;
     }
-
 }
 
 @media(max-width: 480px) {
@@ -1392,7 +1338,7 @@ div.depoimentoCliente3 {
         padding-right: 10px;
     }
 
-    .redeSocial{
+    .redeSocial {
         gap: 12px;
     }
 
@@ -1403,9 +1349,9 @@ div.depoimentoCliente3 {
         width: 35px;
     }
 
-    #imgTeleg{
-        height: 35px!important;
-        width: 35px!important;
+    #imgTeleg {
+        height: 35px !important;
+        width: 35px !important;
     }
 
     .header .logo {
@@ -1413,69 +1359,83 @@ div.depoimentoCliente3 {
         left: 30px;
     }
 
+    #id-login,
+    #id-cadastrese {
+        padding: 3px 8px;
+        font-size: 0.8rem;
+    }
+
+    .formPerfilUsuario {
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+
+
     #menu {
         top: 120px;
         width: 60%;
     }
 
-    .sobre, .tituloSection, .autor1, .autor2 {
+    .sobre,
+    .tituloSection,
+    .autor1,
+    .autor2 {
         max-width: 425px;
     }
 
-    .nomeAutor1, .nomeAutor2{
-        width: 410px;        
-    }
-
-    .section-vagas{
+    .nomeAutor1,
+    .nomeAutor2 {
         width: 410px;
     }
-    
-    .section-1, .section-2{
+
+    .section-vagas {
+        width: 410px;
+    }
+
+    .section-1,
+    .section-2 {
         display: flex;
         justify-content: center;
     }
 
-    .section-3{
+    .section-3 {
         display: flex;
         flex-direction: column;
     }
-    .sectionConteudo{
+
+    .sectionConteudo {
         width: 425px;
     }
 
     .section-3-contexto {
-        flex-direction: column-reverse; 
-        text-align: center; 
+        flex-direction: column-reverse;
+        text-align: center;
         width: 410px;
         margin-left: 8px;
     }
-    /* #comprarJs{
-        margin-left: 5%;
-    } */
 
-    .section-1-grid, .section-2-grid{
+    .section-1-grid,
+    .section-2-grid {
         display: flex;
         flex-direction: column;
     }
 
-    .section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
+    .section-1-grid h2,
+    .section-1-grid p,
+    .section-2-grid h2,
+    .section-2-grid p {
         width: 410px;
     }
 
-    .sectionConteudo{
+    .sectionConteudo {
         display: flex;
-       flex-direction: column;
-    } 
-    .conteudo-3{       
-        width: 100%;
-    } 
+        flex-direction: column;
+    }
 
-                /* alteração
-                .btnComprar{
-                    margin-left: 36%;
-                }
-                */
-    
+    .conteudo-3 {
+        width: 100%;
+    }
+
     .grid3HTML {
         display: flex;
     }
@@ -1505,55 +1465,52 @@ div.depoimentoCliente3 {
     }
 
 
-section.depoimento {
-    width: 425px;    
+    section.depoimento {
+        width: 425px;
+    }
+
+    div.depoimentoCliente1,
+    div.depoimentoCliente2,
+    div.depoimentoCliente3 {
+        width: 415px;
+    }
+
+    .infoAdicionalRodape button {
+        max-width: 90%;
+    }
+
+    .poupap div.poupap-lgpd {
+        width: 90%;
+    }
+
+    .poupap div.poupap-lgpd p {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .poupap_botoes {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+
+    }
+
+    .poupap {
+        height: 400px;
+        padding: 10px 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div.aceitar,
+    div.recusar {
+        margin-left: 15%;
+    }
+
 }
 
-div.depoimentoCliente1,
-div.depoimentoCliente2,
-div.depoimentoCliente3 {
-    width: 415px;
-}
-
-.infoAdicionalRodape button {
-    max-width: 90%;
-}
-
-                /*alteração*/
-                .poupap div.poupap-lgpd {
-                    width: 90%;
-                }
-                .poupap div.poupap-lgpd p {
-                    margin-left: 0px;
-                    /*alteração*/
-                    width: 100%;
-                    /*alteração*/
-                }
-
-                .poupap_botoes {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    width: 90%;
-                                      
-                }
-                /*alinhar os botões ao centro*********************************************/
-
-                /*alteração*/
-.poupap {
-                    /*alteração*/
-                    height: 400px;
-                    /*alteração*/
-    padding: 10px 0;
-    align-items: center;
-    justify-content: center;
-}
-                        /*alteração*/
-                        div.aceitar, div.recusar {
-                        margin-left: 15%;  
-                        }/*alteração*/
-}
 @media(max-width: 376px) {
 
     #divBuscador.visivel {
@@ -1589,51 +1546,52 @@ div.depoimentoCliente3 {
         width: 80px;
     }
 
-    .boasVindas-apresentacao{
+    .boasVindas-apresentacao {
         margin-right: 50px;
-    } 
+    }
 
-    .sobre, .tituloSection, .autor1, .autor2 {
+    .sobre,
+    .tituloSection,
+    .autor1,
+    .autor2 {
         max-width: 375px;
     }
 
-    .nomeAutor1, .nomeAutor2{
+    .nomeAutor1,
+    .nomeAutor2 {
         width: 360px;
     }
 
-    .section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
+    .section-1-grid h2,
+    .section-1-grid p,
+    .section-2-grid h2,
+    .section-2-grid p {
         width: 360px;
     }
-    
-                    /* alteração .btnComprar{
-                        margin-left: 34%;
-                    } */
-    .section-vagas{
+
+    .section-vagas {
         width: 351px;
     }
-    .section-3-contexto { 
+
+    .section-3-contexto {
         width: 355px;
     }
 
     section.depoimento {
         width: 375px;
     }
-    
+
     div.depoimentoCliente1,
     div.depoimentoCliente2,
     div.depoimentoCliente3 {
         width: 365px;
     }
-    
-                            /*.poupap {
-                                height: 400px;
-                            }
-                            */
+
 }
 
 @media(max-width: 320px) {
- 
-    .boasVindas .desconto{
+
+    .boasVindas .desconto {
         margin: 50px auto 0px auto;
         margin-left: 8%;
     }
@@ -1656,66 +1614,55 @@ div.depoimentoCliente3 {
         width: 80%;
     }
 
-    .boasVindas{
+    .boasVindas {
         margin-left: 10px;
     }
 
-    .boasVindas-apresentacao{
+    .boasVindas-apresentacao {
         max-width: 330px;
         margin-right: 130px;
-    } 
-    .boasVindas-apresentacao p{
-        font-size: 1.1rem;
-        
     }
-    
 
-    .sobre, .tituloSection, .autor1, .autor2 {
+    .boasVindas-apresentacao p {
+        font-size: 1.1rem;
+
+    }
+
+    .sobre,
+    .tituloSection,
+    .autor1,
+    .autor2 {
         max-width: 320px;
     }
 
-    .nomeAutor1, .nomeAutor2{
-        width: 310px;
-    }
-    .section-vagas{
-        width: 310px;
-    }
-
-.section-1-grid h2, .section-1-grid p, .section-2-grid h2, .section-2-grid p{
+    .nomeAutor1,
+    .nomeAutor2 {
         width: 310px;
     }
 
-                    /* alteração.btnComprar{
-                        margin-left: 32%;
-                    } */
-                    
-    .section-3-contexto { 
+    .section-vagas {
+        width: 310px;
+    }
+
+    .section-1-grid h2,
+    .section-1-grid p,
+    .section-2-grid h2,
+    .section-2-grid p {
+        width: 310px;
+    }
+
+    .section-3-contexto {
         width: 305px;
     }
 
     section.depoimento {
         width: 320px;
     }
-    
+
     div.depoimentoCliente1,
     div.depoimentoCliente2,
     div.depoimentoCliente3 {
         width: 310px;
     }
-                            /*alteração
-                            .poupap {
-                                height: 400px;
-                            }
-                            /*alteração*/
-
-                            /* alteração .poupap .aceitar {
-                                position: relative;
-                                right: 50px;
-                            }
-
-                            .poupap .recusar {
-                                position: relative;
-                                right: 20px;
-                            } */
 
 }

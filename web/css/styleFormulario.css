@@ -1,0 +1,32 @@
+body{
+    font-family: arial;
+}
+.form p, h3{
+    margin: 20px;
+}
+
+#c{
+    height: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.btn{
+    background-color: #003B8F;
+    color: black;
+    font-weight: 700;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 5px 5px 13px rgba(0,0,0,0.8);
+    background-color: #F6931C;
+}
+
+.btn:hover{
+    background-color: #003B8F;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
