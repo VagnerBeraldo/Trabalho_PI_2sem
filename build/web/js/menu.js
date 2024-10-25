@@ -34,4 +34,3 @@ document.addEventListener('DOMContentLoaded', function () {
     produtos.addEventListener('click', toggleSubMenu);
     produtos.addEventListener('touchstart', toggleSubMenu);
   });
-  

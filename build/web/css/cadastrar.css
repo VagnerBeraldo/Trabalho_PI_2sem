@@ -1,0 +1,77 @@
+:root {
+    --cinza-claro: #EBEBEB;
+    --pretoAcizentado: #323232;
+}
+
+.infoPessoal, .infoContato, .endereco {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#id-codCliente,
+#id-nomeCliente, 
+#id-sobreNomeCliente,
+#id-nomeSocial,
+#id-cpf,
+#id-dtNasc,
+#id-email,
+#id-telefoneCelular,
+#id-telefoneResid,
+#id-cep,
+#id-rua,
+#id-numero,
+#id-complemento,
+#id-bairro,
+#id-cidade,
+#id-estado
+{
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    border: none;
+    border-bottom: 2px solid var(--pretoAcizentado);
+    background-color: transparent;
+    outline: none;
+}
+
+#id-sobreNomeCliente, #id-complemento, #id-bairro, #id-cidade{
+    width: 250px;
+}
+
+#id-rua{
+    width: 350px;
+}
+
+.cidade, .estado{
+    margin-top: 15px;
+}
+
+#id-cidade{
+    margin-top: 5px;
+}
+
+#id-estado{
+    height: 25px;
+}
+
+#id-codCliente:hover,
+#id-nomeCliente:hover, 
+#id-sobreNomeCliente:hover,
+#id-nomeSocial:hover,
+#id-cpf:hover,
+#id-dtNasc:hover,
+#id-email:hover,
+#id-telefoneCelular:hover,
+#id-telefoneResid:hover,
+#id-cep:hover,
+#id-rua:hover,
+#id-numero:hover,
+#id-complemento:hover,
+#id-bairro:hover,
+#id-cidade:hover,
+#id-estado:hover
+{
+    transition: 0.3s;
+    border-bottom: 2px solid var(--cinza-claro);    
+}

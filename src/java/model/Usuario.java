@@ -4,7 +4,8 @@
  */
 package model;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
+    import java.util.Date;
 
 public class Usuario {
 
@@ -13,10 +14,26 @@ public class Usuario {
     private String sobrenome;
     private String nome_social;
     private String cpf;
-    private LocalDate data_nascimento;
+    private String data_nascimento;
     private String email;
     private String tipo_pagamento;
     //private Curso curso;  model curso ainda nao implementado
+
+    public Usuario(int id_user, String nome, String sobrenome, String nome_social, String cpf, String data_nascimento, String email, String tipo_pagamento) {
+        this.id_user = id_user;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.nome_social = nome_social;
+        this.cpf = cpf;
+        this.data_nascimento = data_nascimento;
+        this.email = email;
+        this.tipo_pagamento = tipo_pagamento;
+    }
+
+    public Usuario() {
+    }
+    
+    
 
     
     //Getters e Setters da classe usuario
@@ -60,14 +77,11 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return data_nascimento;
     }
     
-    public void setDataNascimento(LocalDate data_nascimento) {
-        if (data_nascimento.isAfter(LocalDate.now())) {
-            throw new IllegalArgumentException("Data de nascimento não pode ser no futuro");
-        }
+    public void setDataNascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
     

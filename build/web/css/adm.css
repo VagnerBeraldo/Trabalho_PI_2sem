@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --cascaDeLaranja: #FF9E1A;
+    --laranja: #f5a623;
+    --damasco: #FDD1B6;
+    --azul: #000080;
+    --cinza-claro: #EBEBEB;
+    --cinza-intermediario: #E0E0E0;
+    --jordyAzul: #92BCEA;
+    --preto: #000;
+    --branco: #fff;
+    --verde: green;
+    --vermelho: red;
+    --pretoAcizentado: #323232;
+    --lazuli: #08558B;
+}
+
+.header{
+    display: flex;
+    
+}
+.logo{
+    display: flex;
+}
+.tituloPagina{
+    display: flex;
+    flex: 1;
+    margin-left: 45%;
+    margin-top: 10px;
+}
+.redeSocial{
+    display: flex;
+    margin-right: 1%;
+    flex: 1;
+}
+
+.section div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.iframeAdm{
+    width: 90%;
+    height: 95vh;
+    border-radius: 20px;
+    background-color: var(--cinza-intermediario);
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
+}
+
+footer{
+    height: auto;
+}
+.infoAdicionalRodape{
+    height: 40px;
+}

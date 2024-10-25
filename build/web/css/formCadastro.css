@@ -248,7 +248,7 @@ h2 {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.botoes #alterar,
+.botoes #alterar, 
 #consultar,
 #excluir {
     display: none;
