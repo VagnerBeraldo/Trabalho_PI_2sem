@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Carregar Usuario Para Att</title>
     <meta charset="ISO-8859-1"> <!--ISO-8859-1-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styleFormulario.css">
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <%
+    <!-- comment <% /*
     String c;
     Connection conn;
     PreparedStatement stm;
@@ -28,43 +28,44 @@
     c = request.getParameter("codigo");
 
 
-    /*CONECTAR COM BANCO DE DADOS*/
+    /*CONECTAR COM BANCO DE DADOS*/ /*
     Class.forName("com.mysql.cj.jdbc.Driver");
     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/NOME-BANCO-DADOS", "root", "SENHA);
     /* Busca o usuário e senha digitados na tabela do BD*/
-    stm = conn.prepareStatement("SELECT * FROM NOME-TABELA WHERE id = ?");
+   /* stm = conn.prepareStatement("SELECT * FROM NOME-TABELA WHERE id = ?"); */ 
+ /*
     stm.setString(1, c);
 
     rs = stm.executeQuery();
-    if (rs.next()) {
-%>    
+    if (rs.next()) {  /* */
+%>  */  --> 
     <h3>Alterar dados do Clientes</h3>
     <form class="form" method="post" action="alterarCadastro.jsp">
         <fieldset class="infoPessoal">
             <legend>Dados Pessoais</legend>
             <div class="codCliente">
                 <label for="id-codCliente">Cod Cliente:</label>                    <!-- no lugar do XXXXX nome igual ao banco de dados -->
-                <input type="text" id="id-codCliente" maxlength="15" required value="<%=rs.getString("XXXXX")%>" readonly>
+                <input type="text" id="id-codCliente" maxlength="15" required value="" readonly>
             </div>
             <div class="nomeCliente">
                 <label for="id-nomeCliente">Primeiro Nome*</label>
-                <input type="text" id="id-nomeCliente" maxlength="30" required value="<%=rs.getString("XXXXX")%>">
+                <input type="text" id="id-nomeCliente" maxlength="30" required value="<">
             </div>
              <div class="sobreNomeCliente">
                 <label for="id-sobreNomeCliente">Sobrenome*</label>
-                <input type="text" id="id-sobreNomeCliente" maxlength="60" required value="<%=rs.getString("XXXXX")%>">
+                <input type="text" id="id-sobreNomeCliente" maxlength="60" required value="">
              </div>
             <div class="nomeSocial"> 
                 <label for="id-nomeSocial">Nome Social</label>
-                <input type="text" maxlength="30" id="id-nomeSocial"value="<%=rs.getString("XXXXX")%>">
+                <input type="text" maxlength="30" id="id-nomeSocial"value="">
             </div>
             <div class="cpf"> 
                 <label for="id-cpf">CPF*</label>
-                <input type="text" id="id-cpf" maxlength="11" required value="<%=rs.getString("XXXXX")%>">
+                <input type="text" id="id-cpf" maxlength="11" required value="">
              </div>
             <div class="dtNascimento">
                 <label for="id-dtNasc">Data Nasc.*</label>
-                <input type="date" maxlength="8" id="id-dtNasc" required value="<%=rs.getString("XXXXX")%>">
+                <input type="date" maxlength="8" id="id-dtNasc" required value="">
             </div>
         </fieldset>
 
@@ -74,15 +75,15 @@
             <legend>Dados de Contato</legend>
             <div class="email">
                 <label for="id-email">e-mail*</label>
-                <input type="email" name="email" maxlength="60" id="id-email" required value="<%=rs.getString("XXXXX")%>">
+                <input type="email" name="email" maxlength="60" id="id-email" required value="">
             </div>
             <div class="telefoneCelular">
                 <label for="id-telefoneCelular">Tel. Celular</label>
-                <input type="tel" name="telefoneCelular" maxlength="11" id="id-telefoneCelular" value="<%=rs.getString("XXXXX")%>">
+                <input type="tel" name="telefoneCelular" maxlength="11" id="id-telefoneCelular" value="">
             </div>
             <div class="telefoneResid">
                 <label for="id-telefoneResid">Tel. Residencial</label>
-                <input type="tel" name="telefoneResid" maxlength="10" id="id-telefoneResid" value="<%=rs.getString("XXXXX")%>">
+                <input type="tel" name="telefoneResid" maxlength="10" id="id-telefoneResid" value="">
             </div>
         </fieldset>
 
@@ -92,36 +93,36 @@
             <legend>Logradouro</legend>
             <div class="cep">
                 <label for="id-cep">CEP*</label>
-                <input type="text" name="cep" id="id-cep" maxlength="8" required onblur="buscarEndereco()" value="<%=rs.getString("XXXXX")%>">
+                <input type="text" name="cep" id="id-cep" maxlength="8" required  value="">
             </div>
             <div class="rua">
                 <label for="id-rua">Rua*</label>
-                <input type="text" name="rua" maxlength="80" id="id-rua" required value="<%=rs.getString("XXXXX")%>">
+                <input type="text" name="rua" maxlength="80" id="id-rua" required value="">
             </div>
             <div class="numero">
                 <label for="id-numero">Numeral*</label>
-                <input type="text" name="numero" maxlength="6" id="id-numero" required value="<%=rs.getString("XXXXX")%>">
+                <input type="text" name="numero" maxlength="6" id="id-numero" required value="">
             </div>
             <div class="complemento">
                 <label for="id-complemento">Complemento</label>
-                <input type="text" name="complemento" maxlength="30" id="id-complemento" value="<%=rs.getString("XXXXX")%>">
+                <input type="text" name="complemento" maxlength="30" id="id-complemento" value="">
             </div>
             <div class="bairro">
                 <label for="id-bairro">Bairro*</label>
-                <input type="text" name="bairro" maxlength="30" id="id-bairro" required value="<%=rs.getString("XXXXX")%>">
+                <input type="text" name="bairro" maxlength="30" id="id-bairro" required value="">
             </div>
             <div class="cidade">
                 <label for="id-cidade">Cidade*</label>
-                <input type="text" name="cidade" maxlength="20" id="id-cidade" required value="<%=rs.getString("XXXXX")%>">
+                <input type="text" name="cidade" maxlength="20" id="id-cidade" required value="">
             </div>
 
             <div class="estado">
                 <label for="id-estado">Estado*</label>
-                <select name="estado" id="id-estado" required value="<%=rs.getString("XXXXX")%>">
+                <select name="estado" id="id-estado" required value="">
                     <option value="">Selecione o estado</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
+                    <option value="AP">Amapa�</option>
                     <option value="AM">Amazonas</option>
                     <option value="BA">Bahia</option>
                     <option value="CE">Ceará</option>

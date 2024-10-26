@@ -21,9 +21,7 @@ CREATE TABLE users(
     data_nascimento DATE not null,
     email varchar(250) not null,
     tipo_pagamento varchar(20) not null,
-    id_curso int,
-    UNIQUE(cpf),
-    FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
+    UNIQUE(cpf)
 );
 
 -- relacao N : N entre cursos e alunos || Integridade Referencial com CASCADE 
@@ -57,5 +55,17 @@ CREATE TABLE endereco_users(
     estado CHAR(2) NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES users(id_user) ON DELETE CASCADE
 );
+
+INSERT INTO cursos VALUES(NULL,"HTML");
+INSERT INTO cursos VALUES(NULL,"PHP");
+INSERT INTO cursos VALUES(NULL,"CSS");
+INSERT INTO cursos VALUES(NULL,"JAVASCRIPT");
+INSERT INTO cursos VALUES(NULL,"NODEJS");
+INSERT INTO cursos VALUES(NULL,"JAVA");
+
+
+
+
+
 
 

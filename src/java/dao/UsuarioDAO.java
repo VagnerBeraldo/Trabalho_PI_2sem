@@ -12,23 +12,21 @@ import java.util.List;
 import model.Usuario;
 
 public class UsuarioDAO {
-    
+
     //metodo para cadastrar usuario
-    public boolean cadastrarUsuario(Usuario usuario){
-        
+    public boolean cadastrarUsuario(Usuario usuario) throws ClassNotFoundException {
+
         Connection connection = null;
         PreparedStatement PS = null;
         ResultSet resultSet = null;
-        
-    try {
+
+        try {
             connection = DatabaseConnection.getConnection();
-            
-        
 
             String sql = """
              INSERT INTO am2cursos.users 
-             (nome, sobrenome, nome_social, cpf, data_nascimento, email, tipo_pagamento, id_curso) 
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+             (nome, sobrenome, nome_social, cpf, data_nascimento, email, tipo_pagamento) 
+             VALUES (?, ?, ?, ?, ?, ?, ?);
              """;
 
             PS = connection.prepareStatement(sql);
@@ -39,9 +37,8 @@ public class UsuarioDAO {
             PS.setString(5, usuario.getDataNascimento());
             PS.setString(6, usuario.getEmail());
             PS.setString(7, usuario.getTipoPagamento());
-            PS.setString(8, "1");
-                    
-           
+            
+
             PS.executeUpdate(); // Executa a atualização
 
             // Retorna true se pelo menos uma linha foi afetada (ou seja, o usuário foi cadastrado)
@@ -49,7 +46,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-            // Em caso de erro, retorna false
+
         } finally {
             // Fechamento dos recursos
             if (PS != null) {
@@ -69,15 +66,9 @@ public class UsuarioDAO {
             DatabaseConnection.closeConnection(connection);
         }
     }
-  
-    
-        
-    
-    
-    
-    
-  //Metodo para listar todos os usuarios, Retorna uma Lista<> de usuarios
-    public List<Usuario> listarUsuarios() {
+
+    //Metodo para listar todos os usuarios, Retorna uma Lista<> de usuarios
+    public List<Usuario> listarUsuarios() throws ClassNotFoundException {
         List<Usuario> usuarios = new ArrayList<>();
 
         Connection connection = null;
@@ -85,7 +76,7 @@ public class UsuarioDAO {
         ResultSet resultSet = null;
 
         try {
-            connection = DatabaseConnection.getConnection();
+            connection = databaseConnection.DatabaseConnection.getConnection();
 
             String sql = "SELECT * FROM users";
 
@@ -132,10 +123,8 @@ public class UsuarioDAO {
         return usuarios;
     }
 
-    
-    
     //Metodo para buscar usuario pelo ID
-    public Usuario buscarUsuarioPorID(int id) {
+    public Usuario buscarUsuarioPorID(int id) throws ClassNotFoundException {
         Usuario usuario = null;
 
         Connection connection = null;
@@ -188,7 +177,7 @@ public class UsuarioDAO {
         return usuario;
     }
 
-    public boolean DeletarUserPorID(int id) {
+    public boolean DeletarUserPorID(int id) throws ClassNotFoundException {
         Usuario usuario = null;
 
         Connection connection = null;
@@ -231,7 +220,5 @@ public class UsuarioDAO {
         }
     }
 
-    
-    
     //Fechamento da classe para nao se perder nessa porra
 }

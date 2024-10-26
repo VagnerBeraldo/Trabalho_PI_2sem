@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 public class UsuarioController extends HttpServlet {
@@ -19,21 +20,18 @@ public class UsuarioController extends HttpServlet {
         this.usuarioDAO = new UsuarioDAO();
     }
 
-    public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
+        // Obtendo os parâmetros do formulário
         String nome = request.getParameter("user_nome");
         String sobrenome = request.getParameter("user_sobrenome");
         String nomeSocial = request.getParameter("user_nomeSocial");
         String cpf = request.getParameter("user_cpf");
         String nascimento = request.getParameter("user_nascimento");
         String email = request.getParameter("user_email");
-        String tipo_pagamento = "PIX";
-        
+        String tipo_pagamento = "PIX"; // Valor fixo para tipo de pagamento
 
-        
+        // Criando o objeto Usuario
         Usuario usuario = new Usuario();
-        
-
         usuario.setNome(nome);
         usuario.setSobrenome(sobrenome);
         usuario.setNomeSocial(nomeSocial);
@@ -42,25 +40,30 @@ public class UsuarioController extends HttpServlet {
         usuario.setEmail(email);
         usuario.setTipoPagamento(tipo_pagamento);
 
-        usuarioDAO.cadastrarUsuario(usuario);
+        boolean result = usuarioDAO.cadastrarUsuario(usuario);
 
-        //request.setAttribute("usuarios", usuario);
-        
-         // Após o cadastro, você pode querer configurar uma mensagem de sucesso
-           //request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
-           
-        RequestDispatcher dispatcher = request.getRequestDispatcher("views/cadastroSucesso.jsp");
-        dispatcher.forward(request, response);
+        if (result) {
+            // Cadastro bem-sucedido
+            // Redireciona para a página de login com uma mensagem de sucesso
+            response.sendRedirect("viewsJSP/usuarioViews/cadastroSucesso.jsp?mensagemSucesso=" + URLEncoder.encode("Usuário cadastrado com sucesso!", "UTF-8"));
+
+        } else {
+            // Falha ao cadastrar
+            // Redireciona para a página de cadastro com uma mensagem de erro
+
+            response.sendRedirect("viewsJSP/usuarioViews/cadastroErro.jspmensagemErro=" + URLEncoder.encode("Falha ao cadastrar usuário. CPF já cadastrado ou erro de validação.", "UTF-8"));
+        }
+
     }
 
-    public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
         List<Usuario> usuarios = usuarioDAO.listarUsuarios();
         request.setAttribute("usuarios", usuarios);
         RequestDispatcher dispatcher = request.getRequestDispatcher("listarUsuarios.jsp");
         dispatcher.forward(request, response);
     }
 
-    public void buscarUsuarioPorId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void buscarUsuarioPorId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
 
         Usuario usuario = usuarioDAO.buscarUsuarioPorID(id);
@@ -72,7 +75,7 @@ public class UsuarioController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
         boolean sucesso = usuarioDAO.DeletarUserPorID(id);
 
