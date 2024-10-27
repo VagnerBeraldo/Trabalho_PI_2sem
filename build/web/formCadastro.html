@@ -35,10 +35,11 @@
         </div>
 
         <form action="usuario" method="POST">
+            <input type="hidden" id="id" name="metodo" value="cadastrar">
             <fieldset class="infoPessoal">
                 <legend>Informações Pessoais</legend>
                 <div class="nomeCliente">
-                    <input type="hidden" name="action" value="cadastrar">
+                    
                     <label for="id-nomeCliente">Primeiro Nome*</label>
                     <input type="text" name="user_nome" id="id-nomeCliente" maxlength="30" required placeholder="Ex.: João">
                 </div>

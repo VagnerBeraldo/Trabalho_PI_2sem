@@ -18,7 +18,6 @@ public class UsuarioDAO {
 
         Connection connection = null;
         PreparedStatement PS = null;
-        ResultSet resultSet = null;
 
         try {
             connection = DatabaseConnection.getConnection();
@@ -37,12 +36,12 @@ public class UsuarioDAO {
             PS.setString(5, usuario.getDataNascimento());
             PS.setString(6, usuario.getEmail());
             PS.setString(7, usuario.getTipoPagamento());
-            
 
             PS.executeUpdate(); // Executa a atualização
 
             // Retorna true se pelo menos uma linha foi afetada (ou seja, o usuário foi cadastrado)
-            return true;
+            return PS.executeUpdate() > 0;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -51,18 +50,12 @@ public class UsuarioDAO {
             // Fechamento dos recursos
             if (PS != null) {
                 try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (PS != null) {
-                try {
                     PS.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
+            // Fechar a conexão usando o meu método utilitário / gasto menos linha que o trycatch pra connection
             DatabaseConnection.closeConnection(connection);
         }
     }

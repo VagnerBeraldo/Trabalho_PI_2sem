@@ -17,8 +17,12 @@ public class Usuario {
     private String data_nascimento;
     private String email;
     private String tipo_pagamento;
-    //private Curso curso;  model curso ainda nao implementado
-
+   
+    //construtor padrao vazio
+    public Usuario() {
+    }
+    
+    //constructor para a classe completa metodo cadastrar
     public Usuario(int id_user, String nome, String sobrenome, String nome_social, String cpf, String data_nascimento, String email, String tipo_pagamento) {
         this.id_user = id_user;
         this.nome = nome;
@@ -29,13 +33,15 @@ public class Usuario {
         this.email = email;
         this.tipo_pagamento = tipo_pagamento;
     }
-
-    public Usuario() {
+    
+    //metodo constructor personalizado so para o id Metodo deletar e buscar por id
+    public Usuario(int id_user) {
+        this.id_user = id_user;
     }
-    
-    
 
     
+    
+ 
     //Getters e Setters da classe usuario
     public int getID() {
         return id_user;

@@ -45,13 +45,12 @@ public class UsuarioController extends HttpServlet {
         if (result) {
             // Cadastro bem-sucedido
             // Redireciona para a página de login com uma mensagem de sucesso
-            response.sendRedirect("viewsJSP/usuarioViews/cadastroSucesso.jsp?mensagemSucesso=" + URLEncoder.encode("Usuário cadastrado com sucesso!", "UTF-8"));
+            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroSucesso.jsp");
 
         } else {
             // Falha ao cadastrar
             // Redireciona para a página de cadastro com uma mensagem de erro
-
-            response.sendRedirect("viewsJSP/usuarioViews/cadastroErro.jspmensagemErro=" + URLEncoder.encode("Falha ao cadastrar usuário. CPF já cadastrado ou erro de validação.", "UTF-8"));
+           response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
         }
 
     }
@@ -77,6 +76,8 @@ public class UsuarioController extends HttpServlet {
 
     public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
+        
+        
         boolean sucesso = usuarioDAO.DeletarUserPorID(id);
 
         if (sucesso) {

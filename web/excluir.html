@@ -13,12 +13,11 @@
 <body>
 
     <h3>Excluir Cliente</h3>
-        <form class="form" method="post" action="excluirCliente.jsp">
-            <p>  
-                <label for="c">ID Cliente:</label>
-                <input id="c" type="text" name="codigo" size="15" maxleght="15">
-                <input class="btn" type="submit" value="Buscar">
-            </p>
+    
+    <form action="usuario" method="POST">
+        <input type="hidden" id="id" name="acao" value="deletar">
+        <input type="text" name="id_user"> teste
+        <input type="submit" value="enviar" name="submit" />
     </form>
     
 </body>
