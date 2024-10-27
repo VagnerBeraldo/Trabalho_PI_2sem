@@ -87,32 +87,32 @@
                 <legend>Endereço</legend>
                 <div class="cep">
                     <label for="id-cep">CEP*</label>
-                    <input type="text" name="user_Ender_cep" id="id-cep" maxlength="8" required placeholder="somente números" onblur="buscarEndereco()">
+                    <input type="text" name="user_ender_cep" id="id-cep" maxlength="8" required placeholder="somente números" onblur="buscarEndereco()">
                 </div>
                 <div class="rua">
                     <label for="id-rua">Rua*</label>
-                    <input type="text" name="user_Ender_rua" maxlength="80" id="id-rua" required>
+                    <input type="text" name="user_ender_rua" maxlength="80" id="id-rua" required>
                 </div>
                 <div class="numero">
                     <label for="id-numero">Nº*</label>
-                    <input type="text" name="user_Ender_numero" maxlength="6" id="id-numero" required>
+                    <input type="text" name="user_ender_numero" maxlength="6" id="id-numero" required>
                 </div>
                 <div class="complemento">
                     <label for="id-complemento">Complemento</label>
-                    <input type="text" name="user_Ender_complemento" maxlength="30" id="id-complemento">
+                    <input type="text" name="user_ender_complemento" maxlength="30" id="id-complemento">
                 </div>
                 <div class="bairro">
                     <label for="id-bairro">Bairro*</label>
-                    <input type="text" name="user_Ender_bairro" maxlength="30" id="id-bairro" required>
+                    <input type="text" name="user_ender_bairro" maxlength="30" id="id-bairro" required>
                 </div>
                 <div class="cidade">
                     <label for="id-cidade">Cidade*</label>
-                    <input type="text" name="user_Ender_cidade" maxlength="20" id="id-cidade" required>
+                    <input type="text" name="user_ender_cidade" maxlength="20" id="id-cidade" required>
                 </div>
                 
                 <div class="estado">
                     <label for="id-estado">Estado*</label>
-                    <select name="user_Ender_estado" id="id-estado" required>
+                    <select name="user_ender_estado" id="id-estado" required>
                         <option value="">Selecione o estado</option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
@@ -150,13 +150,13 @@
 
             <fieldset class="preferencias">
                 <legend>Cursos de Interesse</legend>
-                <input type="checkbox" name="curso_HTML" id="id-cursoHtml">
+                <input type="checkbox" name="curso_user" id="id-cursoHtml" value="HTML">
                 <label for="id-cursoHtml">Html</label>
 
-                <input type="checkbox" name="curso_CSS" id="id-cursoCSS">
+                <input type="checkbox" name="curso_user" id="id-cursoCSS" value="CSS">
                 <label for="id-cursoCSSI">CSS</label>
 
-                <input type="checkbox" name="curso_JAVASCRIPT" id="id-cursoJS">
+                <input type="checkbox" name="curso_user" id="id-cursoJS" value="JAVASCRIPT">
                 <label for="id-cursoJSI">Javascript</label> 
             </fieldset>
 
@@ -164,16 +164,16 @@
 
             <fieldset class="pagamento">
                 <legend>Forma de Pagamento</legend>
-                <input type="radio" name="user_pagamento_debito" id="id-pagamentoCD">
+                <input type="radio" name="user_pagamento" id="id-pagamentoCD" value="debito" >
                 <label for="id-pagamentoCD">Cartão de Débito</label>
 
-                <input type="radio" name="user_pagamento_credito" id="id-pagamentoCC">
+                <input type="radio" name="user_pagamento" id="id-pagamentoCC" value="credito">
                 <label for="id-pagamentoCC">Cartão de Crédito</label>
 
-                <input type="radio" name="user_pagamento_pix" id="id-pagamentoPIX">
+                <input type="radio" name="user_pagamento" id="id-pagamentoPIX" value="pix">
                 <label for="id-pagamentoPIX">PIX</label>
 
-                <input type="radio" name="user_pagamento_boleto" id="id-pagamentoBC">
+                <input type="radio" name="user_pagamento" id="id-pagamentoBC" value="boleto">
                 <label for="id-pagamentoBC">Boleto Bancário</label>
             </fieldset>
 

@@ -1,11 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
-
-//import java.time.LocalDate;
-    import java.util.Date;
 
 public class Usuario {
 
@@ -17,37 +10,20 @@ public class Usuario {
     private String data_nascimento;
     private String email;
     private String tipo_pagamento;
-   
+    private String curso;
+    private String telefone_res;
+    private String telefone_cel;
+
     //construtor padrao vazio
     public Usuario() {
     }
-    
-    //constructor para a classe completa metodo cadastrar
-    public Usuario(int id_user, String nome, String sobrenome, String nome_social, String cpf, String data_nascimento, String email, String tipo_pagamento) {
-        this.id_user = id_user;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.nome_social = nome_social;
-        this.cpf = cpf;
-        this.data_nascimento = data_nascimento;
-        this.email = email;
-        this.tipo_pagamento = tipo_pagamento;
-    }
-    
-    //metodo constructor personalizado so para o id Metodo deletar e buscar por id
-    public Usuario(int id_user) {
-        this.id_user = id_user;
-    }
 
-    
-    
- 
     //Getters e Setters da classe usuario
-    public int getID() {
+    public int getId_user() {
         return id_user;
     }
 
-    public void setID(int id_user) {
+    public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 
@@ -67,11 +43,11 @@ public class Usuario {
         this.sobrenome = sobrenome;
     }
 
-    public String getNomeSocial() {
+    public String getNome_social() {
         return nome_social;
     }
 
-    public void setNomeSocial(String nome_social) {
+    public void setNome_social(String nome_social) {
         this.nome_social = nome_social;
     }
 
@@ -83,31 +59,53 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public String getDataNascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
-    
-    public void setDataNascimento(String data_nascimento) {
+
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
-    
-    public String getEmail(){
+
+    public String getEmail() {
         return email;
     }
-    
-    public void setEmail(String email){
+
+    public void setEmail(String email) {
         this.email = email;
     }
-    
-    public String getTipoPagamento(){
+
+    public String getTipo_pagamento() {
         return tipo_pagamento;
     }
-    
-    public void setTipoPagamento(String tipo_pagamento){
+
+    public void setTipo_pagamento(String tipo_pagamento) {
         this.tipo_pagamento = tipo_pagamento;
     }
-    
-    //possiveis metodos futuros de tratamentos abaixo caso precise
-    
 
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public String getTelefone_res() {
+        return telefone_res;
+    }
+
+    public void setTelefone_res(String telefone_res) {
+        this.telefone_res = telefone_res;
+    }
+
+    public String getTelefone_cel() {
+        return telefone_cel;
+    }
+
+    public void setTelefone_cel(String telefone_cel) {
+        this.telefone_cel = telefone_cel;
+    }
+
+    //possiveis metodos futuros de tratamentos abaixo caso precise
 }

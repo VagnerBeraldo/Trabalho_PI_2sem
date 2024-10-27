@@ -2,6 +2,7 @@ package controller;
 
 import dao.UsuarioDAO;
 import model.Usuario;
+import model.Endereco;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URLEncoder;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UsuarioController extends HttpServlet {
@@ -20,27 +21,56 @@ public class UsuarioController extends HttpServlet {
         this.usuarioDAO = new UsuarioDAO();
     }
 
-    public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        // Obtendo os parâmetros do formulário
+    public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException, SQLException {
+
+        // Obtendo os parâmetros do formulário para a classe usuario
         String nome = request.getParameter("user_nome");
         String sobrenome = request.getParameter("user_sobrenome");
         String nomeSocial = request.getParameter("user_nomeSocial");
         String cpf = request.getParameter("user_cpf");
         String nascimento = request.getParameter("user_nascimento");
         String email = request.getParameter("user_email");
-        String tipo_pagamento = "PIX"; // Valor fixo para tipo de pagamento
+        String tipo_pagamento = request.getParameter("user_pagamento");
+        String curso = request.getParameter("curso_user");
+        String tel_celular = request.getParameter("user_telefoneCelular");
+        String tel_resid = request.getParameter("user_telefoneResid");
+        
+        String cep = request.getParameter("user_ender_cep");
+        String rua = request.getParameter("user_ender_rua");
+        String numero = request.getParameter("user_ender_numero");
+        String complemento = request.getParameter("user_ender_complemento");
+        String bairro = request.getParameter("user_ender_bairro");
+        String cidade = request.getParameter("user_ender_cidade");
+        String estado = request.getParameter("user_ender_estado");
+        
+        
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
+
         usuario.setNome(nome);
         usuario.setSobrenome(sobrenome);
-        usuario.setNomeSocial(nomeSocial);
+        usuario.setNome_social(nomeSocial);
         usuario.setCpf(cpf);
-        usuario.setDataNascimento(nascimento);
+        usuario.setData_nascimento(nascimento);
         usuario.setEmail(email);
-        usuario.setTipoPagamento(tipo_pagamento);
+        usuario.setTipo_pagamento(tipo_pagamento);
+        usuario.setCurso(curso);
+        usuario.setTelefone_cel(tel_celular);
+        usuario.setTelefone_res(tel_resid);
 
-        boolean result = usuarioDAO.cadastrarUsuario(usuario);
+        //Criando o Objeto Endereco
+        Endereco endereco = new Endereco();
+        
+        endereco.setCep(cep);
+        endereco.setRua(rua);
+        endereco.setNumero(numero);
+        endereco.setComplemento(complemento);
+        endereco.setBairro(bairro);
+        endereco.setCidade(cidade); 
+        endereco.setEstado(estado);
+
+        boolean result = usuarioDAO.cadastrarUsuario(usuario, endereco);
 
         if (result) {
             // Cadastro bem-sucedido
@@ -50,7 +80,7 @@ public class UsuarioController extends HttpServlet {
         } else {
             // Falha ao cadastrar
             // Redireciona para a página de cadastro com uma mensagem de erro
-           response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
+            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
         }
 
     }
@@ -76,8 +106,7 @@ public class UsuarioController extends HttpServlet {
 
     public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
-        
-        
+
         boolean sucesso = usuarioDAO.DeletarUserPorID(id);
 
         if (sucesso) {

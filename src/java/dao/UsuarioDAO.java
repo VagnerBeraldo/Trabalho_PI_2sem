@@ -10,39 +10,90 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Usuario;
+import model.Endereco;
 
 public class UsuarioDAO {
 
     //metodo para cadastrar usuario
-    public boolean cadastrarUsuario(Usuario usuario) throws ClassNotFoundException {
+    public boolean cadastrarUsuario(Usuario usuario, Endereco endereco) throws ClassNotFoundException, SQLException {
 
         Connection connection = null;
         PreparedStatement PS = null;
 
+        String inserirUsuarioSQL = "INSERT INTO users (nome, sobrenome, nome_social, cpf, data_nascimento, email, tipo_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String inserirEnderecoSQL = "INSERT INTO endereco_users (usuario_id, cep, rua, numero, complemento, bairro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String inserirContatoSQL = "INSERT INTO contato_users (usuario_id, numero_telefone_celular, numero_telefone_residencial) VALUES (?, ?, ?)";
+        String buscarCursoIdSQL = "SELECT id_curso FROM cursos WHERE materia = ?";
+        String inserirUserCursoSQL = "INSERT INTO user_cursos (id_user, id_curso) VALUES (?, ?)";
+
         try {
             connection = DatabaseConnection.getConnection();
 
-            String sql = """
-             INSERT INTO am2cursos.users 
-             (nome, sobrenome, nome_social, cpf, data_nascimento, email, tipo_pagamento) 
-             VALUES (?, ?, ?, ?, ?, ?, ?);
-             """;
+            PreparedStatement inserirUsuarioStmt = connection.prepareStatement(inserirUsuarioSQL, PS.RETURN_GENERATED_KEYS);
+            PreparedStatement inserirEnderecoStmt = connection.prepareStatement(inserirEnderecoSQL);
+            PreparedStatement inserirContatoStmt = connection.prepareStatement(inserirContatoSQL);
+            PreparedStatement buscarCursoIdStmt = connection.prepareStatement(buscarCursoIdSQL);
+            PreparedStatement inserirUserCursoStmt = connection.prepareStatement(inserirUserCursoSQL);
 
-            PS = connection.prepareStatement(sql);
-            PS.setString(1, usuario.getNome());
-            PS.setString(2, usuario.getSobrenome());
-            PS.setString(3, usuario.getNomeSocial());
-            PS.setString(4, usuario.getCpf());
-            PS.setString(5, usuario.getDataNascimento());
-            PS.setString(6, usuario.getEmail());
-            PS.setString(7, usuario.getTipoPagamento());
+            connection.setAutoCommit(false);
 
-            PS.executeUpdate(); // Executa a atualização
+            inserirUsuarioStmt.setString(1, usuario.getNome());
+            inserirUsuarioStmt.setString(2, usuario.getSobrenome());
+            inserirUsuarioStmt.setString(3, usuario.getNome_social());
+            inserirUsuarioStmt.setString(4, usuario.getCpf());
+            inserirUsuarioStmt.setString(5, usuario.getData_nascimento());
+            inserirUsuarioStmt.setString(6, usuario.getEmail());
+            inserirUsuarioStmt.setString(7, usuario.getTipo_pagamento());
+
+            inserirUsuarioStmt.executeUpdate();
+            
+            // Capturar id_user recém-criado
+            ResultSet generatedKeys = inserirUsuarioStmt.getGeneratedKeys();
 
             // Retorna true se pelo menos uma linha foi afetada (ou seja, o usuário foi cadastrado)
-            return PS.executeUpdate() > 0;
+            
+            
+            if (generatedKeys.next()) {
+                int userId = generatedKeys.getInt(1);
+
+                // Inserir endereço
+                inserirEnderecoStmt.setInt(1, userId);
+                inserirEnderecoStmt.setString(2, endereco.getCep());
+                inserirEnderecoStmt.setString(3, endereco.getRua());
+                inserirEnderecoStmt.setString(4, endereco.getNumero());
+                inserirEnderecoStmt.setString(5, endereco.getComplemento());
+                inserirEnderecoStmt.setString(6, endereco.getBairro());
+                inserirEnderecoStmt.setString(7, endereco.getCidade());
+                inserirEnderecoStmt.setString(8, endereco.getEstado());
+                inserirEnderecoStmt.executeUpdate();
+
+                // Inserir contato
+                inserirContatoStmt.setInt(1, userId);
+                inserirContatoStmt.setString(2, usuario.getTelefone_cel()); // Substituir com o getter
+                inserirContatoStmt.setString(3, usuario.getTelefone_res()); // Substituir com o getter
+                inserirContatoStmt.executeUpdate();
+
+                // Capturar id_curso correspondente ao curso escolhido
+                buscarCursoIdStmt.setString(1, usuario.getCurso());
+                
+                ResultSet cursoResultSet = buscarCursoIdStmt.executeQuery();
+                
+                if (cursoResultSet.next()) {
+                    int cursoId = cursoResultSet.getInt("id_curso");
+
+                    // Inserir na tabela user_cursos
+                    inserirUserCursoStmt.setInt(1, userId);
+                    inserirUserCursoStmt.setInt(2, cursoId);
+                    inserirUserCursoStmt.executeUpdate();
+                }
+            }
+
+            connection.commit();
+            return true; // Sucesso mlk
+            
 
         } catch (SQLException e) {
+            connection.rollback();
             e.printStackTrace();
             return false;
 
@@ -79,14 +130,14 @@ public class UsuarioDAO {
             while (resultSet.next()) {
                 Usuario usuario = new Usuario();
 
-                usuario.setID(resultSet.getInt("id"));
+                usuario.setId_user(resultSet.getInt("id"));
                 usuario.setNome(resultSet.getString("nome"));
                 usuario.setSobrenome(resultSet.getString("sobrenome"));
-                usuario.setNomeSocial(resultSet.getString("nome_social"));
+                usuario.setNome_social(resultSet.getString("nome_social"));
                 usuario.setCpf(resultSet.getString("cpf"));
-                usuario.setDataNascimento(resultSet.getString("data_nascimento"));
+                usuario.setData_nascimento(resultSet.getString("data_nascimento"));
                 usuario.setEmail(resultSet.getString("email"));
-                usuario.setTipoPagamento(resultSet.getString("tipo_pagamento"));
+                usuario.setTipo_pagamento(resultSet.getString("tipo_pagamento"));
 
                 // Adiciona o usuário à lista
                 usuarios.add(usuario);
@@ -136,14 +187,14 @@ public class UsuarioDAO {
             if (resultSet.next()) {
                 usuario = new Usuario();
 
-                usuario.setID(resultSet.getInt("id"));
+                usuario.setId_user(resultSet.getInt("id"));
                 usuario.setNome(resultSet.getString("nome"));
                 usuario.setSobrenome(resultSet.getString("sobrenome"));
-                usuario.setNomeSocial(resultSet.getString("nome_social"));
+                usuario.setNome_social(resultSet.getString("nome_social"));
                 usuario.setCpf(resultSet.getString("cpf"));
-                usuario.setDataNascimento(resultSet.getString("data_nascimento"));
+                usuario.setData_nascimento(resultSet.getString("data_nascimento"));
                 usuario.setEmail(resultSet.getString("email"));
-                usuario.setTipoPagamento(resultSet.getString("tipo_pagamento"));
+                usuario.setTipo_pagamento(resultSet.getString("tipo_pagamento"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
