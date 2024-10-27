@@ -34,7 +34,7 @@ public class UsuarioController extends HttpServlet {
         String curso = request.getParameter("curso_user");
         String tel_celular = request.getParameter("user_telefoneCelular");
         String tel_resid = request.getParameter("user_telefoneResid");
-        
+
         String cep = request.getParameter("user_ender_cep");
         String rua = request.getParameter("user_ender_rua");
         String numero = request.getParameter("user_ender_numero");
@@ -42,8 +42,6 @@ public class UsuarioController extends HttpServlet {
         String bairro = request.getParameter("user_ender_bairro");
         String cidade = request.getParameter("user_ender_cidade");
         String estado = request.getParameter("user_ender_estado");
-        
-        
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
@@ -61,25 +59,25 @@ public class UsuarioController extends HttpServlet {
 
         //Criando o Objeto Endereco
         Endereco endereco = new Endereco();
-        
+
         endereco.setCep(cep);
         endereco.setRua(rua);
         endereco.setNumero(numero);
         endereco.setComplemento(complemento);
         endereco.setBairro(bairro);
-        endereco.setCidade(cidade); 
+        endereco.setCidade(cidade);
         endereco.setEstado(estado);
 
         boolean result = usuarioDAO.cadastrarUsuario(usuario, endereco);
 
         if (result) {
             // Cadastro bem-sucedido
-            // Redireciona para a página de login com uma mensagem de sucesso
+            // Redireciona para a página de testes sucesso com uma mensagem de sucesso
             response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroSucesso.jsp");
 
         } else {
             // Falha ao cadastrar
-            // Redireciona para a página de cadastro com uma mensagem de erro
+            // Redireciona para a página de testes erro com uma mensagem de erro
             response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
         }
 
@@ -105,16 +103,26 @@ public class UsuarioController extends HttpServlet {
     }
 
     public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id_user"));
+
+        // Criando o objeto Usuario
+        Usuario usuario = new Usuario();
+        
+        usuario.setId_user(id);
 
         boolean sucesso = usuarioDAO.DeletarUserPorID(id);
 
         if (sucesso) {
-            request.setAttribute("mensagem", "Usuário Excluido com Sucesso!");
+            // Redireciona para a página de testes sucesso com uma mensagem de sucesso
+            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroSucesso.jsp");
 
+        } else {
+            // Falha ao cadastrar
+            // Redireciona para a página de testes erro com uma mensagem de erro
+            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
         }
 
-        listarUsuarios(request, response); // Redireciona para a lista após a exclusão
+       // listarUsuarios(request, response); // Redireciona para a lista após a exclusão
     }
 
 }

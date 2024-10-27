@@ -46,13 +46,11 @@ public class UsuarioDAO {
             inserirUsuarioStmt.setString(7, usuario.getTipo_pagamento());
 
             inserirUsuarioStmt.executeUpdate();
-            
+
             // Capturar id_user recém-criado
             ResultSet generatedKeys = inserirUsuarioStmt.getGeneratedKeys();
 
             // Retorna true se pelo menos uma linha foi afetada (ou seja, o usuário foi cadastrado)
-            
-            
             if (generatedKeys.next()) {
                 int userId = generatedKeys.getInt(1);
 
@@ -75,9 +73,9 @@ public class UsuarioDAO {
 
                 // Capturar id_curso correspondente ao curso escolhido
                 buscarCursoIdStmt.setString(1, usuario.getCurso());
-                
+
                 ResultSet cursoResultSet = buscarCursoIdStmt.executeQuery();
-                
+
                 if (cursoResultSet.next()) {
                     int cursoId = cursoResultSet.getInt("id_curso");
 
@@ -90,7 +88,6 @@ public class UsuarioDAO {
 
             connection.commit();
             return true; // Sucesso mlk
-            
 
         } catch (SQLException e) {
             connection.rollback();
@@ -222,11 +219,12 @@ public class UsuarioDAO {
     }
 
     public boolean DeletarUserPorID(int id) throws ClassNotFoundException {
+
         Usuario usuario = null;
 
         Connection connection = null;
         PreparedStatement PS = null;
-        ResultSet resultSet = null;
+       
 
         try {
             connection = DatabaseConnection.getConnection();
@@ -234,25 +232,18 @@ public class UsuarioDAO {
             String sql = "DELETE FROM users WHERE id = ?";
 
             PS = connection.prepareStatement(sql);
-            PS.setInt(1, id); // Substitui o parâmetro ? pelo ID
+            PS.setInt(1, usuario.getId_user()); // Substitui o parâmetro ? pelo ID
 
-            int rowsAffected = PS.executeUpdate(); // Executa a atualização
-
+            int linhasAfetadas = PS.executeUpdate(); // Executa a atualização
+            return linhasAfetadas > 0;
             // Retorna true se pelo menos uma linha foi afetada (ou seja, o usuário foi deletado)
-            return true;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
             // Em caso de erro, retorna false
         } finally {
             // Fechamento dos recursos
-            if (PS != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
             if (PS != null) {
                 try {
                     PS.close();

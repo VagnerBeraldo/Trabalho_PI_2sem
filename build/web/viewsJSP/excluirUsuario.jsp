@@ -11,10 +11,10 @@
 
 
         <h2>Excluir Usuário</h2>
-        <form action="UsuarioController" method="post">
-            <input type="hidden" name="acao" value="deletar">
+        <form action="${pageContext.request.contextPath}/usuario" method="POST">
+            <input type="hidden" name="metodo" value="deletar">
             <label for="id">ID do Usuário:</label>
-            <input type="text" id="id" name="id" required>
+            <input type="text" id="id" name="id_user" required>
             <input type="submit" value="Excluir">
         </form>
 
