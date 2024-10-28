@@ -76,7 +76,7 @@ public class UsuarioController extends HttpServlet {
         if (result) {
             // Cadastro bem-sucedido
             // Redireciona para a página de testes sucesso com uma mensagem de sucesso
-            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/listarUsuarios.jsp");
+            response.sendRedirect("/Trabalho_PI_2MA/login.html");
 
         } else {
             // Falha ao cadastrar
@@ -131,7 +131,7 @@ public class UsuarioController extends HttpServlet {
 
         if (sucesso) {
             // Redireciona para a página de testes sucesso com uma mensagem de sucesso
-            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroSucesso.jsp");
+            response.sendRedirect("/Trabalho_PI_2MA/adm.html");
 
         } else {
             // Falha ao cadastrar
