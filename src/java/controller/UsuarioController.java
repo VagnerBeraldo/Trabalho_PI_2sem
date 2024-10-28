@@ -83,6 +83,7 @@ public class UsuarioController extends HttpServlet {
 
     }
 
+    //Listar todos os ususarios e retornar uma lista
     public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
         List<Usuario> usuarios = usuarioDAO.listarUsuarios();
         request.setAttribute("usuarios", usuarios);
@@ -90,27 +91,41 @@ public class UsuarioController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    ///retornar um unico usuario baseado na busca por id    
     public void buscarUsuarioPorId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        
+        int user_id = Integer.parseInt(request.getParameter("id_user"));
+        
+         // Criando o objeto Usuario
+        Usuario usuario = new Usuario();         
+       
 
-        Usuario usuario = usuarioDAO.buscarUsuarioPorID(id);
+
+         usuario = usuarioDAO.buscarUsuarioPorID(user_id);
+        
+        
 
         request.setAttribute("usuario", usuario);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("detalhesUsuario.jsp");
-
-        dispatcher.forward(request, response);
+        
+        
+       //Encaminhando para a view
+       RequestDispatcher dispatcher = request.getRequestDispatcher("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroSucesso.jsp");
+       dispatcher.forward(request, response);
+        
     }
 
-    public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        int id = Integer.parseInt(request.getParameter("id_user"));
+    
+    //Deletar um usuario e retornar um true
+    public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException, SQLException {
+        int user_id = Integer.parseInt(request.getParameter("id_user"));
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
         
-        usuario.setId_user(id);
+        usuario.setId_user(user_id);
+        
 
-        boolean sucesso = usuarioDAO.DeletarUserPorID(id);
+        boolean sucesso = usuarioDAO.DeletarUserPorID(usuario);
 
         if (sucesso) {
             // Redireciona para a página de testes sucesso com uma mensagem de sucesso

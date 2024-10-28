@@ -29,8 +29,8 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
-         /* 
+
+        /* 
         String action = request.getParameter("action"); // Obtenha a ação
 
         if (action == null) {
@@ -68,7 +68,7 @@ public class UserServlet extends HttpServlet {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro inesperado."); // Captura de erros inesperados
         } 
-            */
+         */
     }
 
     @Override
@@ -78,8 +78,7 @@ public class UserServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String metodocrud = request.getParameter("metodo");
-        
-        
+
         if (metodocrud == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação não especificada.");
             return; // Retorne imediatamente se a ação for nula
@@ -88,15 +87,29 @@ public class UserServlet extends HttpServlet {
         try {
             switch (metodocrud) {
                 case CADASTRAR:
+                    
                     usuarioController.cadastrarUsuario(request, response);
                     break;
 
                 case DELETAR:
+                                     
                     usuarioController.deletarUsuarioPorID(request, response);
                     break;
 
                 case BUSCAR:
-                    usuarioController.buscarUsuarioPorId(request, response);
+                    
+                     String user_id = request.getParameter("metodo");
+                    
+        PrintWriter out = response.getWriter();
+
+        out.println("<html><body>");
+        out.println("<h1>metodo crud: " + metodocrud + "</h1>");
+        out.println("<h1>User id : " + user_id + "</h1>");
+        out.println("</body></html>"); 
+         
+                    
+                    
+                    //usuarioController.buscarUsuarioPorId(request, response);
                     break;
 
                 case ATUALIZAR:
@@ -115,21 +128,15 @@ public class UserServlet extends HttpServlet {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro inesperado."); // Captura de erros inesperados
         }
-        
-        
-        
-        
-        
-   /*
+
+        /*
         PrintWriter out = response.getWriter();
 
         out.println("<html><body>");
         out.println("<h1>metodo crud: " + metodocrud + "</h1>");
         out.println("<h1>nome: " + nombre + "</h1>");
         out.println("</body></html>"); 
-                                        */
-            
-
+         */
     }
 
     @Override

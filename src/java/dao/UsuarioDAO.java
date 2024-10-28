@@ -166,8 +166,8 @@ public class UsuarioDAO {
 
     //Metodo para buscar usuario pelo ID
     public Usuario buscarUsuarioPorID(int id) throws ClassNotFoundException {
+        
         Usuario usuario = null;
-
         Connection connection = null;
         PreparedStatement PS = null;
         ResultSet resultSet = null;
@@ -178,7 +178,7 @@ public class UsuarioDAO {
             String sql = "SELECT * FROM users WHERE id = ?";
 
             PS = connection.prepareStatement(sql);
-            PS.setInt(1, id); // Substitui o parâmetro ? pelo ID
+            PS.setInt(1, usuario.getId_user()); // Substitui o parâmetro ? pelo ID
             resultSet = PS.executeQuery();
 
             if (resultSet.next()) {
@@ -193,6 +193,7 @@ public class UsuarioDAO {
                 usuario.setEmail(resultSet.getString("email"));
                 usuario.setTipo_pagamento(resultSet.getString("tipo_pagamento"));
             }
+            
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -218,30 +219,36 @@ public class UsuarioDAO {
         return usuario;
     }
 
-    public boolean DeletarUserPorID(int id) throws ClassNotFoundException {
+    public boolean DeletarUserPorID(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-        Usuario usuario = null;
+        
 
         Connection connection = null;
         PreparedStatement PS = null;
        
 
         try {
+             
+            
             connection = DatabaseConnection.getConnection();
+            connection.setAutoCommit(false);
 
-            String sql = "DELETE FROM users WHERE id = ?";
+            String sql = "DELETE FROM users WHERE id_user = ?";
 
             PS = connection.prepareStatement(sql);
             PS.setInt(1, usuario.getId_user()); // Substitui o parâmetro ? pelo ID
 
             int linhasAfetadas = PS.executeUpdate(); // Executa a atualização
+            connection.commit();
             return linhasAfetadas > 0;
             // Retorna true se pelo menos uma linha foi afetada (ou seja, o usuário foi deletado)
+            
+            
 
         } catch (SQLException e) {
+            connection.rollback();
             e.printStackTrace();
             return false;
-            // Em caso de erro, retorna false
         } finally {
             // Fechamento dos recursos
             if (PS != null) {
