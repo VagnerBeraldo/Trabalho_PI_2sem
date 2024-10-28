@@ -30,23 +30,16 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        /* 
-        String action = request.getParameter("action"); // Obtenha a ação
+        String metodocrud = request.getParameter("metodo");
+        // Obtenha a ação
 
-        if (action == null) {
+        if (metodocrud == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação não especificada.");
             return; // Retorne imediatamente se a ação for nula
         }
 
         try {
-            switch (action) {
-              case CADASTRAR:
-                    usuarioController.cadastrarUsuario(request, response);
-                    break; 
-
-                case DELETAR:
-                    usuarioController.deletarUsuarioPorID(request, response);
-                    break;
+            switch (metodocrud) {
 
                 case BUSCAR:
                     usuarioController.buscarUsuarioPorId(request, response);
@@ -54,7 +47,7 @@ public class UserServlet extends HttpServlet {
 
                 case ATUALIZAR:
                     // Chame o método de atualizar aqui, se implementado
-                    // usuarioController.atualizarUsuario(request, response);
+                    //usuarioController.atualizarUsuario(request, response);
                     break;
 
                 default:
@@ -67,8 +60,8 @@ public class UserServlet extends HttpServlet {
         } catch (Exception e) {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro inesperado."); // Captura de erros inesperados
-        } 
-         */
+        }
+          
     }
 
     @Override
@@ -87,35 +80,16 @@ public class UserServlet extends HttpServlet {
         try {
             switch (metodocrud) {
                 case CADASTRAR:
-                    
+
                     usuarioController.cadastrarUsuario(request, response);
                     break;
 
                 case DELETAR:
-                                     
+
                     usuarioController.deletarUsuarioPorID(request, response);
                     break;
 
-                case BUSCAR:
-                    
-                     String user_id = request.getParameter("metodo");
-                    
-        PrintWriter out = response.getWriter();
-
-        out.println("<html><body>");
-        out.println("<h1>metodo crud: " + metodocrud + "</h1>");
-        out.println("<h1>User id : " + user_id + "</h1>");
-        out.println("</body></html>"); 
-         
-                    
-                    
-                    //usuarioController.buscarUsuarioPorId(request, response);
-                    break;
-
-                case ATUALIZAR:
-                    // Chame o método de atualizar aqui, se implementado
-                    // usuarioController.atualizarUsuario(request, response);
-                    break;
+                
 
                 default:
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação inválida."); // Tratamento para ação não reconhecida

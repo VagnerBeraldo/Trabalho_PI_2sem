@@ -165,9 +165,9 @@ public class UsuarioDAO {
     }
 
     //Metodo para buscar usuario pelo ID
-    public Usuario buscarUsuarioPorID(int id) throws ClassNotFoundException {
+    public Usuario buscarUsuarioPorID(Usuario usuario) throws ClassNotFoundException {
         
-        Usuario usuario = null;
+        
         Connection connection = null;
         PreparedStatement PS = null;
         ResultSet resultSet = null;
@@ -175,7 +175,7 @@ public class UsuarioDAO {
         try {
             connection = DatabaseConnection.getConnection();
 
-            String sql = "SELECT * FROM users WHERE id = ?";
+            String sql = "SELECT * FROM users WHERE id_user = ?";
 
             PS = connection.prepareStatement(sql);
             PS.setInt(1, usuario.getId_user()); // Substitui o parâmetro ? pelo ID
@@ -184,7 +184,7 @@ public class UsuarioDAO {
             if (resultSet.next()) {
                 usuario = new Usuario();
 
-                usuario.setId_user(resultSet.getInt("id"));
+                usuario.setId_user(resultSet.getInt("id_user"));
                 usuario.setNome(resultSet.getString("nome"));
                 usuario.setSobrenome(resultSet.getString("sobrenome"));
                 usuario.setNome_social(resultSet.getString("nome_social"));

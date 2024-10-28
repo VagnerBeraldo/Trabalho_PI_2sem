@@ -70,10 +70,13 @@ public class UsuarioController extends HttpServlet {
 
         boolean result = usuarioDAO.cadastrarUsuario(usuario, endereco);
 
+        boolean teste = result;
+        
+        
         if (result) {
             // Cadastro bem-sucedido
             // Redireciona para a página de testes sucesso com uma mensagem de sucesso
-            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroSucesso.jsp");
+            response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/listarUsuarios.jsp");
 
         } else {
             // Falha ao cadastrar
@@ -97,11 +100,10 @@ public class UsuarioController extends HttpServlet {
         int user_id = Integer.parseInt(request.getParameter("id_user"));
         
          // Criando o objeto Usuario
-        Usuario usuario = new Usuario();         
-       
-
-
-         usuario = usuarioDAO.buscarUsuarioPorID(user_id);
+        Usuario usuario = new Usuario();
+        usuario.setId_user(user_id);
+     
+         usuario = usuarioDAO.buscarUsuarioPorID(usuario);
         
         
 
@@ -109,7 +111,7 @@ public class UsuarioController extends HttpServlet {
         
         
        //Encaminhando para a view
-       RequestDispatcher dispatcher = request.getRequestDispatcher("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroSucesso.jsp");
+       RequestDispatcher dispatcher = request.getRequestDispatcher("/viewsJSP/listarUsuarios.jsp");
        dispatcher.forward(request, response);
         
     }

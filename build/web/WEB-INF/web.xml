@@ -8,4 +8,6 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/usuario</url-pattern>
     </servlet-mapping>
+    
+    
 </web-app>
