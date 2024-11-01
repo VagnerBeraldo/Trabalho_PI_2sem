@@ -83,7 +83,7 @@
             </div>
             <div class="telefoneResid">
                 <label for="id-telefoneResid">Tel. Residencial</label>
-                <input type="tel" name="telefoneResid" maxlength="10" id="id-telefoneResid" value="">
+                <input type="tel" name="telefoneResid" maxlength="11" id="id-telefoneResid" value="">
             </div>
         </fieldset>
 

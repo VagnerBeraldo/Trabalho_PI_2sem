@@ -35,7 +35,7 @@ CREATE TABLE contato_users(
     id_contato INT PRIMARY KEY AUTO_INCREMENT,
     usuario_id INT NOT NULL,
     numero_telefone_celular VARCHAR(11),
-    numero_telefone_residencial VARCHAR(8),
+    numero_telefone_residencial VARCHAR(11),
     FOREIGN KEY (usuario_id) REFERENCES users(id_user) ON DELETE CASCADE,
     UNIQUE(numero_telefone_celular, numero_telefone_residencial)
 );
