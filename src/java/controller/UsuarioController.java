@@ -29,12 +29,12 @@ public class UsuarioController extends HttpServlet {
         String nomeSocial = request.getParameter("user_nomeSocial");
         String cpf = request.getParameter("user_cpf");
         String nascimento = request.getParameter("user_nascimento");
+        String senha = request.getParameter("user_senha");
         String email = request.getParameter("user_email");
         String tipo_pagamento = request.getParameter("user_pagamento");
         String curso = request.getParameter("curso_user");
         String tel_celular = request.getParameter("user_telefoneCelular");
         String tel_resid = request.getParameter("user_telefoneResid");
-
         String cep = request.getParameter("user_ender_cep");
         String rua = request.getParameter("user_ender_rua");
         String numero = request.getParameter("user_ender_numero");
@@ -51,6 +51,7 @@ public class UsuarioController extends HttpServlet {
         usuario.setNome_social(nomeSocial);
         usuario.setCpf(cpf);
         usuario.setData_nascimento(nascimento);
+        usuario.setSenha(senha);
         usuario.setEmail(email);
         usuario.setTipo_pagamento(tipo_pagamento);
         usuario.setCurso(curso);

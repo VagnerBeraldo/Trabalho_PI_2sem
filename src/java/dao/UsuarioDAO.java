@@ -20,7 +20,7 @@ public class UsuarioDAO {
         Connection connection = null;
         PreparedStatement PS = null;
 
-        String inserirUsuarioSQL = "INSERT INTO users (nome, sobrenome, nome_social, cpf, data_nascimento, email, tipo_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String inserirUsuarioSQL = "INSERT INTO users (nome, sobrenome, nome_social, cpf, data_nascimento, senha, email, tipo_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         String inserirEnderecoSQL = "INSERT INTO endereco_users (usuario_id, cep, rua, numero, complemento, bairro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         String inserirContatoSQL = "INSERT INTO contato_users (usuario_id, numero_telefone_celular, numero_telefone_residencial) VALUES (?, ?, ?)";
         String buscarCursoIdSQL = "SELECT id_curso FROM cursos WHERE materia = ?";
@@ -42,8 +42,9 @@ public class UsuarioDAO {
             inserirUsuarioStmt.setString(3, usuario.getNome_social());
             inserirUsuarioStmt.setString(4, usuario.getCpf());
             inserirUsuarioStmt.setString(5, usuario.getData_nascimento());
-            inserirUsuarioStmt.setString(6, usuario.getEmail());
-            inserirUsuarioStmt.setString(7, usuario.getTipo_pagamento());
+            inserirUsuarioStmt.setString(6, usuario.getSenha());
+            inserirUsuarioStmt.setString(7, usuario.getEmail());
+            inserirUsuarioStmt.setString(8, usuario.getTipo_pagamento());
 
             inserirUsuarioStmt.executeUpdate();
 
@@ -133,6 +134,7 @@ public class UsuarioDAO {
                 usuario.setNome_social(resultSet.getString("nome_social"));
                 usuario.setCpf(resultSet.getString("cpf"));
                 usuario.setData_nascimento(resultSet.getString("data_nascimento"));
+                usuario.setSenha(resultSet.getString("senha"));
                 usuario.setEmail(resultSet.getString("email"));
                 usuario.setTipo_pagamento(resultSet.getString("tipo_pagamento"));
 
@@ -190,6 +192,7 @@ public class UsuarioDAO {
                 usuario.setNome_social(resultSet.getString("nome_social"));
                 usuario.setCpf(resultSet.getString("cpf"));
                 usuario.setData_nascimento(resultSet.getString("data_nascimento"));
+                usuario.setSenha(resultSet.getString("senha"));
                 usuario.setEmail(resultSet.getString("email"));
                 usuario.setTipo_pagamento(resultSet.getString("tipo_pagamento"));
             }

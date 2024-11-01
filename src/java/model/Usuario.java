@@ -8,6 +8,7 @@ public class Usuario {
     private String nome_social;
     private String cpf;
     private String data_nascimento;
+    private String senha;
     private String email;
     private String tipo_pagamento;
     private String curso;
@@ -65,6 +66,14 @@ public class Usuario {
 
     public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
+    }
+    
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getEmail() {
