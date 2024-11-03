@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +18,15 @@ public class UserServlet extends HttpServlet {
     private static final String DELETAR = "deletar";
     private static final String BUSCAR = "buscar";
     private static final String ATUALIZAR = "atualizar";
+    private static final String LISTAR = "listar";
+
 
     @Override
     public void init() throws ServletException {
         super.init();
         usuarioController = new UsuarioController();
     }
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,7 +36,7 @@ public class UserServlet extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        String metodocrud = request.getParameter("metodo");
+        /* String metodocrud = request.getParameter("metodo");
         // Obtenha a ação
 
         if (metodocrud == null) {
@@ -53,6 +55,10 @@ public class UserServlet extends HttpServlet {
                     // Chame o método de atualizar aqui, se implementado
                     //usuarioController.atualizarUsuario(request, response);
                     break;
+                    
+                case LISTAR:
+                    usuarioController.listarUsuarios(request, response);
+                    break;
 
                 default:
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação inválida."); // Tratamento para ação não reconhecida
@@ -65,6 +71,7 @@ public class UserServlet extends HttpServlet {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro inesperado."); // Captura de erros inesperados
         }
+        */
 
     }
 
@@ -90,10 +97,7 @@ public class UserServlet extends HttpServlet {
                     usuarioController.cadastrarUsuario(request, response);
                     break;
 
-                case DELETAR:
-
-                    usuarioController.deletarUsuarioPorID(request, response);
-                    break;
+             
 
                 default:
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação inválida."); // Tratamento para ação não reconhecida

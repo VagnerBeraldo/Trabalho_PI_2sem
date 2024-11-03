@@ -3,6 +3,7 @@ package controller;
 import dao.UsuarioDAO;
 import model.Usuario;
 import model.Endereco;
+import model.UsuarioEnderecoDTO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +22,8 @@ public class UsuarioController extends HttpServlet {
         this.usuarioDAO = new UsuarioDAO();
     }
 
-    public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException, SQLException {
+    public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
 
         // Obtendo os parâmetros do formulário para a classe usuario
         String nome = request.getParameter("user_nome");
@@ -42,6 +44,15 @@ public class UsuarioController extends HttpServlet {
         String bairro = request.getParameter("user_ender_bairro");
         String cidade = request.getParameter("user_ender_cidade");
         String estado = request.getParameter("user_ender_estado");
+
+         //Filtros para caso o usuario não inserir nada no campo de telefones resd e celular , string vazias causam Entrada Duplicada em campos Uniques
+        if (tel_celular == null || tel_celular.trim().isEmpty()) {
+            tel_celular = null;
+        }
+
+        if (tel_resid == null || tel_resid.trim().isEmpty()) {
+            tel_resid = null;
+        }
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
@@ -71,13 +82,11 @@ public class UsuarioController extends HttpServlet {
 
         boolean result = usuarioDAO.cadastrarUsuario(usuario, endereco);
 
-        boolean teste = result;
-        
-        
+        //boolean teste = result;
         if (result) {
             // Cadastro bem-sucedido
             // Redireciona para a página de testes sucesso com uma mensagem de sucesso
-            response.sendRedirect("/Trabalho_PI_2MA/login.html");
+            response.sendRedirect(request.getContextPath() + "/login.html");
 
         } else {
             // Falha ao cadastrar
@@ -89,44 +98,57 @@ public class UsuarioController extends HttpServlet {
 
     //Listar todos os ususarios e retornar uma lista
     public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        List<Usuario> usuarios = usuarioDAO.listarUsuarios();
-        request.setAttribute("usuarios", usuarios);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("listarUsuarios.jsp");
+
+        // Obter a lista de usuários com endereços do DAO
+        List<UsuarioEnderecoDTO> usuarioEnderecoDTOList = usuarioDAO.listarUsuarios();
+
+        // Adiciona a lista ao request para ser acessada na JSP
+        if (usuarioEnderecoDTOList != null && !usuarioEnderecoDTOList.isEmpty()) {
+            request.setAttribute("usuarios", usuarioEnderecoDTOList); // Atributo 'usuarios' passa toda a lista
+        } else {
+            request.setAttribute("error", "Nenhum usuário encontrado.");
+        }
+
+        // Encaminha para a página JSP de listagem
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/viewsJSP/listarTodosUsuarios.jsp");
         dispatcher.forward(request, response);
     }
 
     ///retornar um unico usuario baseado na busca por id    
     public void buscarUsuarioPorId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        
+
         int user_id = Integer.parseInt(request.getParameter("id_user"));
-        
-         // Criando o objeto Usuario
+
+        // Criando o objeto Usuario
         Usuario usuario = new Usuario();
         usuario.setId_user(user_id);
-     
-         usuario = usuarioDAO.buscarUsuarioPorID(usuario);
-        
-        
 
-        request.setAttribute("usuario", usuario);
-        
-        
-       //Encaminhando para a view
-       RequestDispatcher dispatcher = request.getRequestDispatcher("/viewsJSP/listarUsuarios.jsp");
-       dispatcher.forward(request, response);
-        
+        // Obtendo o UsuarioEnderecoDTO
+        UsuarioEnderecoDTO usuarioEnderecoDTO = usuarioDAO.buscarUsuarioPorID(usuario);
+
+        if (usuarioEnderecoDTO != null) {
+            // Colocando o Usuario e o Endereco no request
+            request.setAttribute("usuario", usuarioEnderecoDTO.getUsuario());
+            request.setAttribute("endereco", usuarioEnderecoDTO.getEndereco());
+        } else {
+            // Se não houver usuário com o ID fornecido, você pode enviar uma mensagem de erro ou redirecionar
+            request.setAttribute("error", "Usuário não encontrado.");
+        }
+
+        //Encaminhando para a view
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/viewsJSP/listarUsuarios.jsp");
+        dispatcher.forward(request, response);
+
     }
 
-    
     //Deletar um usuario e retornar um true
     public void deletarUsuarioPorID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException, SQLException {
         int user_id = Integer.parseInt(request.getParameter("id_user"));
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
-        
+
         usuario.setId_user(user_id);
-        
 
         boolean sucesso = usuarioDAO.DeletarUserPorID(usuario);
 
@@ -140,7 +162,7 @@ public class UsuarioController extends HttpServlet {
             response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
         }
 
-       // listarUsuarios(request, response); // Redireciona para a lista após a exclusão
+        // listarUsuarios(request, response); // Redireciona para a lista após a exclusão
     }
 
 }

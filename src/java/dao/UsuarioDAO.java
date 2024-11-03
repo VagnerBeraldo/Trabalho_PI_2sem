@@ -11,6 +11,7 @@ import java.util.List;
 
 import model.Usuario;
 import model.Endereco;
+import model.UsuarioEnderecoDTO;
 
 public class UsuarioDAO {
 
@@ -110,8 +111,9 @@ public class UsuarioDAO {
     }
 
     //Metodo para listar todos os usuarios, Retorna uma Lista<> de usuarios
-    public List<Usuario> listarUsuarios() throws ClassNotFoundException {
-        List<Usuario> usuarios = new ArrayList<>();
+    public List<UsuarioEnderecoDTO> listarUsuarios() throws ClassNotFoundException {
+
+        List<UsuarioEnderecoDTO> usuarios = new ArrayList<>();
 
         Connection connection = null;
         PreparedStatement PS = null;
@@ -120,26 +122,46 @@ public class UsuarioDAO {
         try {
             connection = databaseConnection.DatabaseConnection.getConnection();
 
-            String sql = "SELECT * FROM users";
+            String sql = "SELECT users.id_user, users.nome, users.sobrenome, users.nome_social, "
+                    + "users.data_nascimento, users.email, users.tipo_pagamento, "
+                    + "endereco_users.rua, endereco_users.bairro, endereco_users.numero, "
+                    + "endereco_users.cep, endereco_users.estado, endereco_users.cidade, "
+                    + "contato_users.numero_telefone_celular, contato_users.numero_telefone_residencial, "
+                    + "cursos.materia "
+                    + "FROM users "
+                    + "LEFT JOIN endereco_users ON users.id_user = endereco_users.usuario_id "
+                    + "LEFT JOIN contato_users ON users.id_user = contato_users.usuario_id "
+                    + "LEFT JOIN user_cursos ON users.id_user = user_cursos.id_user "
+                    + "LEFT JOIN cursos ON user_cursos.id_curso = cursos.id_curso";
 
             PS = connection.prepareStatement(sql);
             resultSet = PS.executeQuery();
 
             while (resultSet.next()) {
                 Usuario usuario = new Usuario();
+                Endereco endereco = new Endereco();
 
-                usuario.setId_user(resultSet.getInt("id"));
+                usuario.setId_user(resultSet.getInt("id_user"));
                 usuario.setNome(resultSet.getString("nome"));
                 usuario.setSobrenome(resultSet.getString("sobrenome"));
                 usuario.setNome_social(resultSet.getString("nome_social"));
-                usuario.setCpf(resultSet.getString("cpf"));
                 usuario.setData_nascimento(resultSet.getString("data_nascimento"));
-                usuario.setSenha(resultSet.getString("senha"));
                 usuario.setEmail(resultSet.getString("email"));
                 usuario.setTipo_pagamento(resultSet.getString("tipo_pagamento"));
 
-                // Adiciona o usuário à lista
-                usuarios.add(usuario);
+                endereco.setRua(resultSet.getString("rua"));
+                endereco.setBairro(resultSet.getString("bairro"));
+                endereco.setNumero(resultSet.getString("numero"));
+                endereco.setCep(resultSet.getString("cep"));
+                endereco.setEstado(resultSet.getString("estado"));
+                endereco.setCidade(resultSet.getString("cidade"));
+
+                usuario.setTelefone_cel(resultSet.getString("numero_telefone_celular"));
+                usuario.setTelefone_res(resultSet.getString("numero_telefone_residencial"));
+                usuario.setCurso(resultSet.getString("materia"));
+
+                // Adiciona o objeto DTO à lista
+                usuarios.add(new UsuarioEnderecoDTO(usuario, endereco));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -162,22 +184,32 @@ public class UsuarioDAO {
             DatabaseConnection.closeConnection(connection);
         }
 
-        // Retorna a lista de usuários
-        return usuarios;
+         return usuarios; // Retorna a lista com todos os usuários e endereços
     }
 
     //Metodo para buscar usuario pelo ID
-    public Usuario buscarUsuarioPorID(Usuario usuario) throws ClassNotFoundException {
-        
-        
+    public UsuarioEnderecoDTO buscarUsuarioPorID(Usuario usuario) throws ClassNotFoundException {
+
         Connection connection = null;
         PreparedStatement PS = null;
         ResultSet resultSet = null;
+        Endereco endereco = new Endereco(); // Declare e inicialize a variável
 
         try {
             connection = DatabaseConnection.getConnection();
 
-            String sql = "SELECT * FROM users WHERE id_user = ?";
+            String sql = "SELECT users.id_user, users.nome, users.sobrenome, users.nome_social, "
+                    + "users.data_nascimento, users.email, users.tipo_pagamento, "
+                    + "endereco_users.rua, endereco_users.bairro, endereco_users.numero, "
+                    + "endereco_users.cep, endereco_users.estado, endereco_users.cidade, "
+                    + "contato_users.numero_telefone_celular, contato_users.numero_telefone_residencial, "
+                    + "cursos.materia "
+                    + "FROM users "
+                    + "LEFT JOIN endereco_users ON users.id_user = endereco_users.usuario_id "
+                    + "LEFT JOIN contato_users ON users.id_user = contato_users.usuario_id "
+                    + "LEFT JOIN user_cursos ON users.id_user = user_cursos.id_user "
+                    + "LEFT JOIN cursos ON user_cursos.id_curso = cursos.id_curso "
+                    + "WHERE users.id_user = ?";
 
             PS = connection.prepareStatement(sql);
             PS.setInt(1, usuario.getId_user()); // Substitui o parâmetro ? pelo ID
@@ -185,18 +217,31 @@ public class UsuarioDAO {
 
             if (resultSet.next()) {
                 usuario = new Usuario();
+                endereco = new Endereco();
 
                 usuario.setId_user(resultSet.getInt("id_user"));
                 usuario.setNome(resultSet.getString("nome"));
                 usuario.setSobrenome(resultSet.getString("sobrenome"));
                 usuario.setNome_social(resultSet.getString("nome_social"));
-                usuario.setCpf(resultSet.getString("cpf"));
                 usuario.setData_nascimento(resultSet.getString("data_nascimento"));
-                usuario.setSenha(resultSet.getString("senha"));
                 usuario.setEmail(resultSet.getString("email"));
                 usuario.setTipo_pagamento(resultSet.getString("tipo_pagamento"));
+
+                endereco.setRua(resultSet.getString("rua"));
+                endereco.setBairro(resultSet.getString("bairro"));
+                endereco.setNumero(resultSet.getString("numero"));
+                endereco.setCep(resultSet.getString("cep"));
+                endereco.setEstado(resultSet.getString("estado"));
+                endereco.setCidade(resultSet.getString("cidade"));
+                usuario.setTelefone_cel(resultSet.getString("numero_telefone_celular"));
+                usuario.setTelefone_cel(resultSet.getString("numero_telefone_residencial"));
+                usuario.setCurso(resultSet.getString("materia"));
+
+                return new UsuarioEnderecoDTO(usuario, endereco);
+
+                //adaptação com DTO para retornar duas classes juntas
             }
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -218,21 +263,17 @@ public class UsuarioDAO {
             DatabaseConnection.closeConnection(connection);
         }
 
-        // Retorna o usuário encontrado ou null se não houver
-        return usuario;
+        return null; // Retorna null se não encontrar o usuário
+
     }
 
     public boolean DeletarUserPorID(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-        
-
         Connection connection = null;
         PreparedStatement PS = null;
-       
 
         try {
-             
-            
+
             connection = DatabaseConnection.getConnection();
             connection.setAutoCommit(false);
 
@@ -245,8 +286,6 @@ public class UsuarioDAO {
             connection.commit();
             return linhasAfetadas > 0;
             // Retorna true se pelo menos uma linha foi afetada (ou seja, o usuário foi deletado)
-            
-            
 
         } catch (SQLException e) {
             connection.rollback();
@@ -266,4 +305,5 @@ public class UsuarioDAO {
     }
 
     //Fechamento da classe para nao se perder nessa porra
+
 }

@@ -475,6 +475,12 @@
     <script src="./js/menu.js"></script>
     <script src="./js/login.js"></script>
 
+    <script>
+        if (window.top !== window.self) {
+            window.top.location = window.location.href;
+        }
+    </script>
+
 </body>
 
 </html>

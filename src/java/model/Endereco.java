@@ -2,6 +2,7 @@ package model;
 
 
 public class Endereco {
+    
     private int id;
     private String cep;
     private String rua;
