@@ -64,7 +64,7 @@
                     <span id="hamburger"></span>
                 </button>
                 <ul id="menu" role="menu">
-                    <li id="idLiInicio" style="display: block;"><a href="adm.jsp">Início</a></li>
+                    <li id="idLiInicio" style="display: block;"><a href="${pageContext.request.contextPath}/index.html">Início</a></li>
                     <li><a href="cadastrar.jsp" target="AdmCRUD">Cadastrar</a></li>
                     <li><a href="alterar.jsp" target="AdmCRUD">Alterar</a></li>
                     <li><a href="consultar.jsp" target="AdmCRUD">Consultar</a></li>
