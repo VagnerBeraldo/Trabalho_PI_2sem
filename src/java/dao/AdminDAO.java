@@ -16,6 +16,13 @@ import model.UsuarioEnderecoDTO;
 
 public class AdminDAO {
 
+    public static boolean atualizaUser(Usuario usuario, Endereco endereco) {
+        
+        System.out.println("chegou aqui");
+        
+        return true;
+    }
+
     public UsuarioEnderecoDTO buscarPorIdAtualizar(Usuario usuario) throws ClassNotFoundException {
         
         Connection connection = null;

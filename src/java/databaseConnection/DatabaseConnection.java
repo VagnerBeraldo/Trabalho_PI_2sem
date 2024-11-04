@@ -8,7 +8,7 @@ public class DatabaseConnection {
 
     private static final String URL = "jdbc:mysql://localhost:3306/am2cursos?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8";
     private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
     //Metodo para obter nova conexão !! Sempre conferir a senha e o password e a porta do bd antes de rodar o projetos

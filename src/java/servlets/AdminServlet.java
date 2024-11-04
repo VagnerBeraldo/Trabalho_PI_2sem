@@ -39,10 +39,11 @@ public class AdminServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         String metodocrud = request.getParameter("metodo");
+         
         
   
         // Obtenha a ação
- 
+  
         if (metodocrud == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação não especificada.");
             return; // Retorne imediatamente se a ação for nula
@@ -75,7 +76,7 @@ public class AdminServlet extends HttpServlet {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, e);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro inesperado."); // Captura de erros inesperados
         }
- 
+   
     }
 
     @Override
@@ -103,7 +104,7 @@ public class AdminServlet extends HttpServlet {
                             
                 case ATUALIZAR:
                     
-                       adminController.buscarPorIdAtualizar(request, response);                             
+                       adminController.atualizarUsuario(request, response);                             
                     break;
                     
 
