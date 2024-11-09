@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/erick/Documents/NetBeansProjects/Trabalho_PI_2sem/src/java/servlets/AdminServlet.java</file>
             <file>file:/C:/Users/erick/Documents/NetBeansProjects/Trabalho_PI_2sem/src/java/dao/AdminDAO.java</file>
-            <file>file:/C:/Users/erick/Documents/NetBeansProjects/Trabalho_PI_2sem/web/viewsJSP/admViews/alterar.jsp</file>
+            <file>file:/C:/Users/erick/Documents/NetBeansProjects/Trabalho_PI_2sem/src/java/model/Endereco.java</file>
             <file>file:/C:/Users/erick/Documents/NetBeansProjects/Trabalho_PI_2sem/src/java/controller/AdminController.java</file>
+            <file>file:/C:/Users/erick/Documents/NetBeansProjects/Trabalho_PI_2sem/src/java/model/Usuario.java</file>
+            <file>file:/C:/Users/erick/Documents/NetBeansProjects/Trabalho_PI_2sem/src/java/dao/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>

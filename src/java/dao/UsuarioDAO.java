@@ -234,7 +234,7 @@ public class UsuarioDAO {
                 endereco.setEstado(resultSet.getString("estado"));
                 endereco.setCidade(resultSet.getString("cidade"));
                 usuario.setTelefone_cel(resultSet.getString("numero_telefone_celular"));
-                usuario.setTelefone_cel(resultSet.getString("numero_telefone_residencial"));
+                usuario.setTelefone_res(resultSet.getString("numero_telefone_residencial"));
                 usuario.setCurso(resultSet.getString("materia"));
 
                 return new UsuarioEnderecoDTO(usuario, endereco);

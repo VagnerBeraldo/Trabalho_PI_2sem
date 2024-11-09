@@ -46,8 +46,8 @@
                     <th>CEP</th>
                     <th>Estado</th>
                     <th>Cidade</th>
-                    <th>Telefone Celular</th>
                     <th>Telefone Residencial</th>
+                    <th>Telefone Celular</th>                    
                     <th>Curso</th>
                 </tr>
             </thead>
@@ -66,8 +66,8 @@
                     <td>${endereco.cep}</td>
                     <td>${endereco.estado}</td>
                     <td>${endereco.cidade}</td>
-                    <td>${usuario.telefone_cel}</td>
                     <td>${usuario.telefone_res}</td>
+                    <td>${usuario.telefone_cel}</td>
                     <td>${usuario.curso}</td>
                 </tr>
             </tbody>

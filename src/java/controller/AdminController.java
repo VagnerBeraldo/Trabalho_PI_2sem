@@ -28,10 +28,11 @@ public class AdminController {
     
     
     
-    public static void atualizarUsuario(HttpServletRequest request, HttpServletResponse response) 
+        public void atualizarUsuario(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException, ClassNotFoundException, SQLException{
                
          // Obtendo os parâmetros do formulário para a classe usuario
+         int user_id = Integer.parseInt(request.getParameter("id_user"));
         String nome = request.getParameter("user_nome");
         String sobrenome = request.getParameter("user_sobrenome");
         String nomeSocial = request.getParameter("user_nomeSocial");
@@ -63,7 +64,8 @@ public class AdminController {
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
-
+        
+        usuario.setId_user(user_id);
         usuario.setNome(nome);
         usuario.setSobrenome(sobrenome);
         usuario.setNome_social(nomeSocial);

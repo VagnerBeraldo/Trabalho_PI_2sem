@@ -57,15 +57,16 @@
                         </div>
                         <div class="cpf">
                             <label for="id-cpf">CPF*</label>
-                            <input type="text" name="user_cpf" id="id-cpf" maxlength="11" required value="${usuario.cpf}">
+                            <input type="text" name="user_cpf" id="id-cpf" maxlength="11" required value="${usuario.cpf}" readonly>
                         </div>
                         <div class="dtNascimento">
                             <label for="id-dtNasc">Data Nasc.*</label>
-                            <input type="date" name="user_nascimento" maxlength="8" id="id-dtNasc" required value="${usuario.data_nascimento}">
+                            <input type="date" name="user_nascimento" maxlength="8" id="id-dtNasc" required value="${usuario.data_nascimento}" readonly>
                         </div>
-                        <div class="senhaCliente">
-                            <label for="senhaCliente">Senha* </label>
-                            <input type="password" name="user_senha" maxlength="100" id="senhaCliente" required value="${usuario.senha} readonly"> 
+                   
+                        <div class="idCliente">
+                            <label for="idCliente">ID-Usuario : * </label>
+                            <input type="text" name="id_user" maxlength="100" id="idCliente" required value="${usuario.id_user}" readonly> 
                         </div>
 
 
@@ -133,17 +134,31 @@
 
                     <fieldset class="preferencias">
                         <legend>Cursos de Interesse</legend>
-                        <input type="checkbox" name="curso_user" id="id-cursoHtml" value="HTML" 
+
+                               <input type="radio" name="curso_user" id="id-cursoHtml" value="HTML" 
                                <c:if test="${fn:contains(usuario.curso, 'HTML')}">checked</c:if> >
                                <label for="id-cursoHtml">Html</label>
 
-                               <input type="checkbox" name="curso_user" id="id-cursoCSS" value="CSS" 
+                               <input type="radio" name="curso_user" id="id-cursoCSS" value="CSS" 
                                <c:if test="${fn:contains(usuario.curso, 'CSS')}">checked</c:if> >
                                <label for="id-cursoCSSI">CSS</label>
 
-                               <input type="checkbox" name="curso_user" id="id-cursoJS" value="JAVASCRIPT" 
+                               <input type="radio" name="curso_user" id="id-cursoJS" value="JAVASCRIPT" 
                                <c:if test="${fn:contains(usuario.curso, 'JAVASCRIPT')}">checked</c:if> >
-                               <label for="id-cursoJSI">Javascript</label> 
+                               <label for="id-cursoJSI">JavaScript</label> 
+
+                               <input type="radio" name="curso_user" id="id-cursoNODEJS" value="NODEJS" 
+                               <c:if test="${fn:contains(usuario.curso, 'NODEJS')}">checked</c:if> >
+                               <label for="id-cursoHtml">Node JS</label>
+
+                               <input type="radio" name="curso_user" id="id-cursoJAVA" value="JAVA" 
+                               <c:if test="${fn:contains(usuario.curso, 'JAVA')}">checked</c:if> >
+                               <label for="id-cursoCSSI">Java WEB</label>
+
+                               <input type="radio" name="curso_user" id="id-cursoPHP" value="PHP" 
+                               <c:if test="${fn:contains(usuario.curso, 'PHP')}">checked</c:if> >
+                               <label for="id-cursoJSI">PHP 8.0+</label> 
+
                         </fieldset>
 
                         <br>

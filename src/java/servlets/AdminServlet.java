@@ -23,6 +23,18 @@ public class AdminServlet extends HttpServlet {
     private static final String LISTAR = "listar";
     
     
+    
+      /*   
+         //Comando para debug das rotas e valores de metodos
+        PrintWriter out = response.getWriter();
+
+        out.println("<html><body>");
+        out.println("<h1>metodo crud: " + metodocrud + "</h1>");
+        out.println("<h1>nome: " + nombre + "</h1>");
+        out.println("</body></html>"); 
+         */
+    
+    
     @Override
     public void init() throws ServletException {
         super.init();
@@ -99,18 +111,18 @@ public class AdminServlet extends HttpServlet {
         try {
             switch (metodocrud) {
                 case CADASTRAR:
-                     adminController.cadastrarUsuario(request, response);
+                      adminController.cadastrarUsuario(request, response);
                     break;
                             
                 case ATUALIZAR:
                     
-                       adminController.atualizarUsuario(request, response);                             
+                      adminController.atualizarUsuario(request, response);                             
                     break;
                     
 
                 case DELETAR:
 
-                    adminController.deletarUsuarioPorID(request, response);
+                      adminController.deletarUsuarioPorID(request, response);
                     break;
 
                 default:
@@ -129,12 +141,3 @@ public class AdminServlet extends HttpServlet {
     }
 }
 
-  /*   
-         //Comando para debug das rotas e valores de metodos
-        PrintWriter out = response.getWriter();
-
-        out.println("<html><body>");
-        out.println("<h1>metodo crud: " + metodocrud + "</h1>");
-        out.println("<h1>nome: " + nombre + "</h1>");
-        out.println("</body></html>"); 
-         */
