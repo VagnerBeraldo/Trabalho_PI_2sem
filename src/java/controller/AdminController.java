@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -11,28 +10,59 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.UsuarioDAO;
 import dao.AdminDAO;
+import javax.servlet.http.HttpSession;
 import model.Endereco;
 import model.Usuario;
 import model.UsuarioEnderecoDTO;
+import model.Administrador;
 
 public class AdminController {
 
     private AdminDAO adminDAO;
-    
+
     private UsuarioDAO usuarioDAO;
 
     public AdminController() {
         this.adminDAO = new AdminDAO();
         this.usuarioDAO = new UsuarioDAO();
     }
-    
-    
-    
-        public void atualizarUsuario(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, ClassNotFoundException, SQLException{
-               
-         // Obtendo os parâmetros do formulário para a classe usuario
-         int user_id = Integer.parseInt(request.getParameter("id_user"));
+
+    public void loginAdminstrador(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException {
+
+        String senha = request.getParameter("adm_senha");
+        String email = request.getParameter("adm_email");
+
+        Administrador administrador = new Administrador();
+
+        administrador.setEmail(email);
+        administrador.setSenha(senha);
+
+        Administrador result = AdminDAO.loginAdmin(administrador);
+
+        //boolean teste = result;
+        if (result != null) {
+            // Login bem-sucedido
+
+            // Login bem-sucedido - adiciona o administrador à sessão
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioLogado", result); // Armazena o objeto administrador logado na sessão , usuario logado é enviado para a adm.jsp
+
+             // Redireciona para a página CRUD da administração
+            response.sendRedirect(request.getContextPath() + "/viewsJSP/admViews/adm.jsp");
+
+        } else {
+            // Falha ao cadastrar
+            // Falha ao logar - redireciona para a página de login administrativo
+            response.sendRedirect(request.getContextPath() + "/viewsJSP/admViews/loginAdm.jsp");
+        }
+
+    }
+
+    public void atualizarUsuario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
+
+        // Obtendo os parâmetros do formulário para a classe usuario
+        int user_id = Integer.parseInt(request.getParameter("id_user"));
         String nome = request.getParameter("user_nome");
         String sobrenome = request.getParameter("user_sobrenome");
         String nomeSocial = request.getParameter("user_nomeSocial");
@@ -51,10 +81,9 @@ public class AdminController {
         String bairro = request.getParameter("user_ender_bairro");
         String cidade = request.getParameter("user_ender_cidade");
         String estado = request.getParameter("user_ender_estado");
-        
-        
+
         //Filtros para caso o usuario não inserir nada no campo de telefones resd e celular , string vazias causam Entrada Duplicada em campos Uniques
-         if (tel_celular == null || tel_celular.trim().isEmpty()) {
+        if (tel_celular == null || tel_celular.trim().isEmpty()) {
             tel_celular = null;
         }
 
@@ -64,7 +93,7 @@ public class AdminController {
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
-        
+
         usuario.setId_user(user_id);
         usuario.setNome(nome);
         usuario.setSobrenome(sobrenome);
@@ -88,10 +117,8 @@ public class AdminController {
         endereco.setBairro(bairro);
         endereco.setCidade(cidade);
         endereco.setEstado(estado);
-        
-        
-        
-          boolean result = AdminDAO.atualizaUser(usuario, endereco);
+
+        boolean result = AdminDAO.atualizaUser(usuario, endereco);
 
         //boolean teste = result;
         if (result) {
@@ -105,12 +132,11 @@ public class AdminController {
             response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
         }
     }
-    
-    
-      public void buscarPorIdAtualizar(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException, ClassNotFoundException, SQLException{
-       
-           int user_id = Integer.parseInt(request.getParameter("id_user"));
+
+    public void buscarPorIdAtualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
+
+        int user_id = Integer.parseInt(request.getParameter("id_user"));
 
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
@@ -131,14 +157,8 @@ public class AdminController {
         //Encaminhando para a view
         RequestDispatcher dispatcher = request.getRequestDispatcher("/viewsJSP/admViews/alterar.jsp");
         dispatcher.forward(request, response);
-        
-                
-          
-    }
 
-    
-    
-    
+    }
 
     public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
@@ -162,10 +182,9 @@ public class AdminController {
         String bairro = request.getParameter("user_ender_bairro");
         String cidade = request.getParameter("user_ender_cidade");
         String estado = request.getParameter("user_ender_estado");
-        
-        
+
         //Filtros para caso o usuario não inserir nada no campo de telefones resd e celular , string vazias causam Entrada Duplicada em campos Uniques
-         if (tel_celular == null || tel_celular.trim().isEmpty()) {
+        if (tel_celular == null || tel_celular.trim().isEmpty()) {
             tel_celular = null;
         }
 
@@ -217,9 +236,8 @@ public class AdminController {
 
     //Listar todos os ususarios e retornar uma lista
     public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
-        
-        
-         List<UsuarioEnderecoDTO> usuarioEnderecoDTOList = usuarioDAO.listarUsuarios();
+
+        List<UsuarioEnderecoDTO> usuarioEnderecoDTOList = usuarioDAO.listarUsuarios();
         // Adiciona a lista ao request para ser acessada na JSP
         if (usuarioEnderecoDTOList != null && !usuarioEnderecoDTOList.isEmpty()) {
             request.setAttribute("usuarios", usuarioEnderecoDTOList); // Atributo 'usuarios' passa toda a lista
@@ -279,18 +297,14 @@ public class AdminController {
 
         } else {
             // Falha ao excluir ou ID inexistente
-            
+
             // Redireciona para a página de testes erro com uma mensagem de erro
             //response.sendRedirect("/Trabalho_PI_2MA/viewsJSP/usuarioViews/cadastroErro.jsp");
-            
             //Caso o usuario tente tambem excluir um ID inexistente, ainda nao implementado retorno na tela, dificilmente vai rolar neste projeto com front so em css e html
             response.sendRedirect(request.getContextPath() + "/viewsJSP/admViews/listar.jsp");
         }
 
         // listarUsuarios(request, response); // Redireciona para a lista após a exclusão
     }
-
-  
-    
 
 }

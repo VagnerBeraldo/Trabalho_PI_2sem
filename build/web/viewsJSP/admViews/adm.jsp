@@ -1,5 +1,19 @@
+<%@page import="model.Administrador"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+   
+    // Verifica se a sessão existe e se o usuário está logado
+    Administrador administrador = (Administrador) session.getAttribute("usuarioLogado");
+
+    if (administrador == null) {
+        // Redireciona para a página de login se o usuário não estiver logado
+        response.sendRedirect(request.getContextPath() + "/viewsJSP/admViews/loginAdm.jsp");
+        return;
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -64,7 +78,7 @@
                     <span id="hamburger"></span>
                 </button>
                 <ul id="menu" role="menu">
-                    <li id="idLiInicio" style="display: block;"><a href="${pageContext.request.contextPath}/index.html">Início</a></li>
+                    <li id="idLiInicio" style="display: block;"><a href="${pageContext.request.contextPath}/viewsJSP/admViews/loginAdm.jsp">Sair</a></li>
                     <li><a href="cadastrar.jsp" target="AdmCRUD">Cadastrar</a></li>
                     <li><a href="alterar.jsp" target="AdmCRUD">Alterar</a></li>
                     <li><a href="consultar.jsp" target="AdmCRUD">Consultar</a></li>

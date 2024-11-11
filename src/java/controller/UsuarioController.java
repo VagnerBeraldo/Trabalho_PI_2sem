@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 public class UsuarioController extends HttpServlet {
 
@@ -22,6 +23,38 @@ public class UsuarioController extends HttpServlet {
         this.usuarioDAO = new UsuarioDAO();
     }
 
+    public void loginUsuario(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException {
+
+        String senha = request.getParameter("user_senha");
+        String email = request.getParameter("user_email");
+
+       Usuario usuario = new Usuario();
+
+        usuario.setEmail(email);
+        usuario.setSenha(senha);
+
+        Usuario result = usuarioDAO.loginUser(usuario);
+
+        //boolean teste = result;
+        if (result != null) {
+            // Login bem-sucedido
+
+            // Login bem-sucedido - adiciona o administrador à sessão
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioLogado", result); // Armazena o objeto administrador logado na sessão , usuario logado é enviado para a adm.jsp
+
+             // Redireciona para a página CRUD da administração
+            response.sendRedirect(request.getContextPath() + "/viewsJSP/usuarioViews/cliente.jsp");
+
+        } else {
+            // Falha ao cadastrar
+            // Falha ao logar - redireciona para a página de login administrativo
+            response.sendRedirect(request.getContextPath() + "/viewsJSP/usuarioViews/login.jsp");
+        }
+
+    }
+    
+    
     public void cadastrarUsuario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
 
@@ -86,7 +119,7 @@ public class UsuarioController extends HttpServlet {
         if (result) {
             // Cadastro bem-sucedido
             // Redireciona para a página de testes sucesso com uma mensagem de sucesso
-            response.sendRedirect(request.getContextPath() + "/login.html");
+            response.sendRedirect(request.getContextPath() + "/index.html");
 
         } else {
             // Falha ao cadastrar

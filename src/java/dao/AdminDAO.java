@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Administrador;
 
 import model.Usuario;
 import model.Endereco;
@@ -116,6 +117,60 @@ public class AdminDAO {
             DatabaseConnection.closeConnection(connection);
         }
        
+    }
+
+    public static Administrador loginAdmin(Administrador administrador) throws ClassNotFoundException {
+        Connection connection = null;
+        PreparedStatement PS = null;
+        ResultSet resultSet = null;
+       
+        
+        try{ 
+            
+            connection = DatabaseConnection.getConnection();
+            
+            String sql = "select * from administrador where email = ? and senha = ?;";
+            
+            
+             PS = connection.prepareStatement(sql);
+             
+             PS.setString(1, administrador.getEmail()); // Substitui o parâmetro ? pelo email do adm
+             PS.setString(2, administrador.getSenha());  //substitui o parametro  ? pela senha do adm
+             
+            resultSet = PS.executeQuery();
+            
+            if (resultSet.next()) {
+                administrador.setId_admin(resultSet.getInt("id_admin"));
+                administrador.setEmail(resultSet.getString("email"));
+                administrador.setSenha(resultSet.getString("senha"));
+                // Defina outros atributos do usuário, se necessário.
+                return administrador;
+            }
+            
+            
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Fechamento dos recursos
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (PS != null) {
+                try {
+                    PS.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+              
+            }    
+                  DatabaseConnection.closeConnection(connection); // Moveu o fechamento da conexão para fora do bloco if
+             }
+        return null;
     }
     
     

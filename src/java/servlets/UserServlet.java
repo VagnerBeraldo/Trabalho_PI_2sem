@@ -15,6 +15,7 @@ public class UserServlet extends HttpServlet {
     private UsuarioController usuarioController;
 
     private static final String CADASTRAR = "cadastrar";
+    private static final String LOGIN = "login";
     private static final String DELETAR = "deletar";
     private static final String BUSCAR = "buscar";
     private static final String ATUALIZAR = "atualizar";
@@ -96,6 +97,10 @@ public class UserServlet extends HttpServlet {
 
                     usuarioController.cadastrarUsuario(request, response);
                     break;
+                
+                case LOGIN:
+                    usuarioController.loginUsuario(request, response);
+                        break;     
 
              
 

@@ -14,6 +14,61 @@ import model.Endereco;
 import model.UsuarioEnderecoDTO;
 
 public class UsuarioDAO {
+    
+    
+    public static Usuario loginUser(Usuario usuario) throws ClassNotFoundException {
+        Connection connection = null;
+        PreparedStatement PS = null;
+        ResultSet resultSet = null;
+       
+        
+        try{ 
+            
+            connection = DatabaseConnection.getConnection();
+            
+            String sql = "select * from users where email = ? and senha = ?;";
+            
+            
+             PS = connection.prepareStatement(sql);
+             
+             PS.setString(1, usuario.getEmail()); // Substitui o parâmetro ? pelo email do adm
+             PS.setString(2, usuario.getSenha());  //substitui o parametro  ? pela senha do adm
+             
+            resultSet = PS.executeQuery();
+            
+            if (resultSet.next()) {
+                usuario.setId_user(resultSet.getInt("id_user"));
+                usuario.setEmail(resultSet.getString("email"));
+                usuario.setSenha(resultSet.getString("senha"));
+                // Defina outros atributos do usuário, se necessário.
+                return usuario;
+            }
+            
+            
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Fechamento dos recursos
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (PS != null) {
+                try {
+                    PS.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+              
+            }    
+                  DatabaseConnection.closeConnection(connection); // Moveu o fechamento da conexão para fora do bloco if
+             }
+        return null;
+    }
 
     //metodo para cadastrar usuario
     public boolean cadastrarUsuario(Usuario usuario, Endereco endereco) throws ClassNotFoundException, SQLException {

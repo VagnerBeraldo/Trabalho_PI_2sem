@@ -21,6 +21,7 @@ public class AdminServlet extends HttpServlet {
     private static final String BUSCAR = "buscar";
     private static final String ATUALIZAR = "atualizar";
     private static final String LISTAR = "listar";
+    private static final String LOGIN = "login";
     
     
     
@@ -76,6 +77,7 @@ public class AdminServlet extends HttpServlet {
                case ATUALIZAR:
                     adminController.buscarPorIdAtualizar(request, response);
                         break;
+      
 
                 default:
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação inválida."); // Tratamento para ação não reconhecida
@@ -124,6 +126,11 @@ public class AdminServlet extends HttpServlet {
 
                       adminController.deletarUsuarioPorID(request, response);
                     break;
+                    
+                                        
+                 case LOGIN:
+                    adminController.loginAdminstrador(request, response);
+                        break;      
 
                 default:
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ação inválida."); // Tratamento para ação não reconhecida

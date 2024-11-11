@@ -1,6 +1,19 @@
+<%@page import="model.Administrador"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%
+   
+    // Verifica se a sessão existe e se o usuário está logado
+    Administrador administrador = (Administrador) session.getAttribute("usuarioLogado");
+
+    if (administrador == null) {
+        // Redireciona para a página de login se o usuário não estiver logado
+        response.sendRedirect(request.getContextPath() + "/viewsJSP/admViews/loginAdm.jsp");
+        return;
+    }
+%>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
