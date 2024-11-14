@@ -16,10 +16,17 @@ public class UserServlet extends HttpServlet {
 
     private static final String CADASTRAR = "cadastrar";
     private static final String LOGIN = "login";
-    private static final String DELETAR = "deletar";
+    
+    //Rotas não utilizadas ainda
+    
+    /*
+    
+    private static final String DELETAR = "deletar";;
     private static final String BUSCAR = "buscar";
     private static final String ATUALIZAR = "atualizar";
-    private static final String LISTAR = "listar";
+    private static final String LISTAR = "listar"; 
+    
+    */
 
 
     @Override
@@ -36,6 +43,8 @@ public class UserServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
+        
+        //Codigo não utilizavel ainda
 
         /* String metodocrud = request.getParameter("metodo");
         // Obtenha a ação
@@ -94,7 +103,6 @@ public class UserServlet extends HttpServlet {
         try {
             switch (metodocrud) {
                 case CADASTRAR:
-
                     usuarioController.cadastrarUsuario(request, response);
                     break;
                 

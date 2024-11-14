@@ -51,13 +51,13 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-danger" id="exampleModalLabel">Erro chame o ERICK AGORA!!</h5>
+                        <h5 class="modal-title text-danger" id="exampleModalLabel">Erro chame o Dev Backend!!</h5>
 
                     </div>
                     <div class="modal-body text-alert">
-                        Voce falhou miseravelmente MALDITO!!!
+                        Ocorreu um Erro no Processamento da sua ação
                         <br>
-                        Chame o Erick Imediamente pra te salvar
+                        Informe a Administração do Projeto
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <a href="/Trabalho_PI_2MA/" class="btn btn-danger">Ir para a pagina inicial</a>

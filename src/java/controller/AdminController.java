@@ -133,6 +133,8 @@ public class AdminController {
         }
     }
 
+    
+    
     public void buscarPorIdAtualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
 
@@ -192,6 +194,7 @@ public class AdminController {
             tel_resid = null;
         }
 
+        
         // Criando o objeto Usuario
         Usuario usuario = new Usuario();
 
@@ -233,11 +236,13 @@ public class AdminController {
         }
 
     }
+    
+    
 
     //Listar todos os ususarios e retornar uma lista
     public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
 
-        List<UsuarioEnderecoDTO> usuarioEnderecoDTOList = usuarioDAO.listarUsuarios();
+        List<UsuarioEnderecoDTO> usuarioEnderecoDTOList = adminDAO.listarUsuarios();
         // Adiciona a lista ao request para ser acessada na JSP
         if (usuarioEnderecoDTOList != null && !usuarioEnderecoDTOList.isEmpty()) {
             request.setAttribute("usuarios", usuarioEnderecoDTOList); // Atributo 'usuarios' passa toda a lista
@@ -249,6 +254,8 @@ public class AdminController {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/viewsJSP/admViews/listar.jsp");
         dispatcher.forward(request, response);
     }
+    
+    
 
     ///retornar um unico usuario baseado na busca por id    
     public void buscarUsuarioPorId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
@@ -260,7 +267,7 @@ public class AdminController {
         usuario.setId_user(user_id);
 
         // Obtendo o UsuarioEnderecoDTO
-        UsuarioEnderecoDTO usuarioEnderecoDTO = usuarioDAO.buscarUsuarioPorID(usuario);
+        UsuarioEnderecoDTO usuarioEnderecoDTO = adminDAO.buscarUsuarioPorID(usuario);
 
         if (usuarioEnderecoDTO != null) {
             // Colocando o Usuario e o Endereco no request
@@ -286,7 +293,7 @@ public class AdminController {
 
         usuario.setId_user(user_id);
 
-        boolean sucesso = usuarioDAO.DeletarUserPorID(usuario);
+        boolean sucesso = adminDAO.DeletarUserPorID(usuario);
 
         if (sucesso) {
             // Redireciona para a página de testes sucesso com uma mensagem de sucesso

@@ -48,7 +48,7 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img src="./img/logoPW.png" id="logo" alt="">
+            <img src="../../img/logoPW.png" id="logo" alt="">
         </div>
 
         <div class="tituloPagina">
@@ -58,31 +58,29 @@
         <div class="redeSocial">
 
             <div class="rede">
-                <a href="https://www.facebook.com/universitariosantoamaro" target="_blank"><img src="./img/facebook.png"
+                <a href="https://www.facebook.com/universitariosantoamaro" target="_blank"><img src="../../img/facebook.png"
                         alt="icone da rede social facebook"></a>
             </div>
             <div class="rede">
-                <a href="https://www.instagram.com/senacsantoamaro/" target="_blank"><img src="./img/instagram.png"
+                <a href="https://www.instagram.com/senacsantoamaro/" target="_blank"><img src="../../img/instagram.png"
                         alt="ícone da rede social instagram"></a>
             </div>
             <div class="rede">
-                <a href="https://t.me/senacsantoamaro/" target="_blank"><img src="./img/telegram.png" id="imgTeleg"
+                <a href="https://t.me/senacsantoamaro/" target="_blank"><img src="../../img/telegram.png" id="imgTeleg"
                         alt="ícone da rede social telegram"></a>
             </div>
             <div class="rede">
-                <a href="https://wa.me/5511996616224" target="_blank"><img src="./img/whatsapp.png"
+                <a href="https://wa.me/5511930060069" target="_blank"><img src="../../img/whatsapp.png"
                         alt="ícone da rede social whatsapp"></a>
             </div>
         </div>
         <div class="navigation">
             <nav id="nav">
-                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu"
-                    aria-expanded="false">
+                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
                     <span id="hamburger"></span>
                 </button>
                 <ul id="menu" role="menu">
                     
-                    <li><a href="/Trabalho_PI_2MA/index.html" >Página Principal</a></li>
                     <li><a href="${pageContext.request.contextPath}/viewsJSP/usuarioViews/login.jsp" >Sair do Sistema</a></li>
                     
                 </ul>

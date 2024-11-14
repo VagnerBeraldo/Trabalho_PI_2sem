@@ -67,7 +67,7 @@
                 <a href="https://t.me/senacsantoamaro/" target="_blank"><img src="../../img/telegram.png" id="imgTeleg" alt="ícone da rede social telegram"></a>
             </div>
             <div class="rede">
-                <a href="https://wa.me/5511996616224" target="_blank"><img src="../../img/whatsapp.png" alt="ícone da rede social whatsapp"></a>
+                <a href="https://wa.me/5511930060069" target="_blank"><img src="../../img/whatsapp.png" alt="ícone da rede social whatsapp"></a>
             </div>
 </div>
 

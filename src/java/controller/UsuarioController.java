@@ -128,7 +128,11 @@ public class UsuarioController extends HttpServlet {
         }
 
     }
+    
+    /*
 
+    //MEtodos não utilizados
+    
     //Listar todos os ususarios e retornar uma lista
     public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
 
@@ -197,5 +201,7 @@ public class UsuarioController extends HttpServlet {
 
         // listarUsuarios(request, response); // Redireciona para a lista após a exclusão
     }
+    
+     */
 
 }

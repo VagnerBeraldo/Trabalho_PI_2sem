@@ -55,19 +55,19 @@
                 <div class="nomeCliente">
                     
                     <label for="id-nomeCliente">Primeiro Nome*</label>
-                    <input type="text" name="user_nome" id="id-nomeCliente" maxlength="30" required placeholder="Ex.: João">
+                    <input type="text" name="user_nome" id="id-nomeCliente" maxlength="45" required placeholder="Ex.: João">
                 </div>
                 <div class="sobrenomeCliente">
                     <label for="id-sobrenomeCliente">Sobrenome*</label>
-                    <input type="text" name="user_sobrenome" id="id-sobrenomeCliente" maxlength="60" required placeholder="da Silva Souza">
+                    <input type="text" name="user_sobrenome" id="id-sobrenomeCliente" maxlength="90" required placeholder="da Silva Souza">
                 </div>
                 <div class="nomeSocial">
                     <label for="id-nomeSocial">Nome Social</label>
-                    <input type="text" name="user_nomeSocial" maxlength="30" id="id-nomeSocial">
+                    <input type="text" name="user_nomeSocial" maxlength="50" id="id-nomeSocial">
                 </div>
                 <div class="cpf">
                     <label for="id-cpf">CPF*</label>
-                    <input type="text" name="user_cpf" id="id-cpf" maxlength="11" required placeholder="somente números">
+                    <input type="text" name="user_cpf" id="id-cpf" maxlength="11" minlength="11" required placeholder="somente números" pattern="\d{11}">
                 </div>
                 <div class="dtNascimento">
                     <label for="id-dtNasc">Data Nasc.*</label>
@@ -91,13 +91,11 @@
                 </div>
                 <div class="telefoneCelular">
                     <label for="id-telefoneCelular">nº Tel. Celular</label>
-                    <input type="tel" name="user_telefoneCelular" maxlength="11" id="id-telefoneCelular"
-                        placeholder="somente números com DDD">
+                    <input type="tel" name="user_telefoneCelular" maxlength="11" minlength="10" id="id-telefoneCelular" placeholder="somente números com DDD" pattern="\d{11}">
                 </div>
                 <div class="telefoneResid">
                     <label for="id-telefoneResid">nº Tel. Residencial</label>
-                    <input type="tel" name="user_telefoneResid" maxlength="10" id="id-telefoneResid"
-                        placeholder="somente números com DDD">
+                    <input type="tel" name="user_telefoneResid" maxlength="11" minlength="8" id="id-telefoneResid" placeholder="somente números com DDD" pattern="\d{11}">
                 </div>
             </fieldset>
 
@@ -107,27 +105,27 @@
                 <legend>Endereço</legend>
                 <div class="cep">
                     <label for="id-cep">CEP*</label>
-                    <input type="text" name="user_ender_cep" id="id-cep" maxlength="8" required placeholder="somente números" onblur="buscarEndereco()">
+                    <input type="text" name="user_ender_cep" id="id-cep" maxlength="8" minlength="8"  placeholder="somente números" onblur="buscarEndereco()" required>
                 </div>
                 <div class="rua">
                     <label for="id-rua">Rua*</label>
-                    <input type="text" name="user_ender_rua" maxlength="80" id="id-rua" required>
+                    <input type="text" name="user_ender_rua" maxlength="99" id="id-rua" required>
                 </div>
                 <div class="numero">
                     <label for="id-numero">Nº*</label>
-                    <input type="text" name="user_ender_numero" maxlength="6" id="id-numero" required>
+                    <input type="text" name="user_ender_numero" maxlength="7" id="id-numero" required>
                 </div>
                 <div class="complemento">
                     <label for="id-complemento">Complemento</label>
-                    <input type="text" name="user_ender_complemento" maxlength="30" id="id-complemento">
+                    <input type="text" name="user_ender_complemento" maxlength="29" id="id-complemento">
                 </div>
                 <div class="bairro">
                     <label for="id-bairro">Bairro*</label>
-                    <input type="text" name="user_ender_bairro" maxlength="30" id="id-bairro" required>
+                    <input type="text" name="user_ender_bairro" maxlength="49" id="id-bairro" required>
                 </div>
                 <div class="cidade">
                     <label for="id-cidade">Cidade*</label>
-                    <input type="text" name="user_ender_cidade" maxlength="20" id="id-cidade" required>
+                    <input type="text" name="user_ender_cidade" maxlength="49" id="id-cidade" required>
                 </div>
                 
                 <div class="estado">
@@ -168,32 +166,42 @@
 
             <br>
 
-            <fieldset class="preferencias">
+            <fieldset class="preferencias" required>
                 <legend>Cursos de Interesse</legend>
-                <input type="checkbox" name="curso_user" id="id-cursoHtml" value="HTML">
+                <input type="radio" name="curso_user" id="id-cursoHtml" value="HTML" required>
                 <label for="id-cursoHtml">Html</label>
 
-                <input type="checkbox" name="curso_user" id="id-cursoCSS" value="CSS">
+                <input type="radio" name="curso_user" id="id-cursoCSS" value="CSS" required>
                 <label for="id-cursoCSSI">CSS</label>
 
-                <input type="checkbox" name="curso_user" id="id-cursoJS" value="JAVASCRIPT">
+                <input type="radio" name="curso_user" id="id-cursoJS" value="JAVASCRIPT" required>
                 <label for="id-cursoJSI">Javascript</label> 
+
+                <input type="radio" name="curso_user" id="id-nodeJS" value="NODEJS" required>
+                <label for="id-nodeJS">Node-Js</label> 
+
+                <input type="radio" name="curso_user" id="id-Java" value="JAVA" required>
+                <label for="id-Java">Java</label> 
+
+                <input type="radio" name="curso_user" id="id-PHP" value="PHP" required>
+                <label for="id-PHP">PHP</label> 
+
             </fieldset>
 
             <br>
 
-            <fieldset class="pagamento">
+            <fieldset class="pagamento" required>
                 <legend>Forma de Pagamento</legend>
-                <input type="radio" name="user_pagamento" id="id-pagamentoCD" value="debito" >
+                <input type="radio" name="user_pagamento" id="id-pagamentoCD" value="debito" required>
                 <label for="id-pagamentoCD">Cartão de Débito</label>
 
-                <input type="radio" name="user_pagamento" id="id-pagamentoCC" value="credito">
+                <input type="radio" name="user_pagamento" id="id-pagamentoCC" value="credito" required>
                 <label for="id-pagamentoCC">Cartão de Crédito</label>
 
-                <input type="radio" name="user_pagamento" id="id-pagamentoPIX" value="pix">
+                <input type="radio" name="user_pagamento" id="id-pagamentoPIX" value="pix" required>
                 <label for="id-pagamentoPIX">PIX</label>
 
-                <input type="radio" name="user_pagamento" id="id-pagamentoBC" value="boleto">
+                <input type="radio" name="user_pagamento" id="id-pagamentoBC" value="boleto" required>
                 <label for="id-pagamentoBC">Boleto Bancário</label>
             </fieldset>
 
@@ -204,9 +212,6 @@
             </div>
             <div class="botoes">
                 <button type="submit" id="enviar">Enviar</button>
-                <button type="submit" id="alterar">Alterar</button>
-                <button type="submit" id="consultar">Consultar</button>
-                <button type="submit" id="excluir">Excluir</button>
             </div>
         </form>
 
@@ -214,5 +219,10 @@
 
 </body>
 <script src="../../js/api-ViaCep.js"></script>
+
+<script> document.getElementById('id-cpf').addEventListener('input', function (e) { 
+    // Remove todos os caracteres que não são números 
+    this.value = this.value.replace(/\D/g, ''); }); 
+</script>
 
 </html>

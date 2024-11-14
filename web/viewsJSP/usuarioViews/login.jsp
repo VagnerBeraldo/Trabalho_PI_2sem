@@ -28,10 +28,10 @@
         <input type="hidden" id="id" name="metodo" value="login">
 
         <label for="id-email">E-mail</label>
-        <input type="email" name="user_email" id="id-email" placeholder="Digite seu e-email" autocomplete="on" required>
+        <input type="email" name="user_email" id="id-email" placeholder="Digite seu e-email" autocomplete="on" required maxlength="250">
 
         <label for="id-password">Senha</label>
-        <input type="password" name="user_senha" id="id-password" placeholder="Digite sua senha" required>
+        <input type="password" name="user_senha" id="id-password" placeholder="Digite sua senha" required maxlength="250">
 
         <a href="#" id="recuperarSenha">Esqueceu a senha?</a>
         <input type="submit" value="Login">
